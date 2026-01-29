@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events - ZewedJobs</title>
+    <meta name="description" content="Upcoming career fairs, workshops, seminars, and networking events in Ethiopia.">
+    
+    <!-- Same head content as index.html -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation (Same as index.html) -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <a href="index.html" class="logo">
+                    <div class="logo-icon">ZJ</div>
+                    <div class="logo-text">ZewedJobs</div>
+                </a>
+                
+                <div class="nav-links">
+                    <a href="index.html"><i class="fas fa-home"></i> Home</a>
+                    <a href="jobs.html"><i class="fas fa-briefcase"></i> Jobs</a>
+                    <a href="news.html"><i class="fas fa-newspaper"></i> News</a>
+                    <a href="events.html" class="active"><i class="fas fa-calendar-alt"></i> Events</a>
+                    <a href="media-room.html"><i class="fas fa-video"></i> Media Room</a>
+                </div>
+                
+                <div class="nav-actions">
+                    <div class="translate-container">
+                        <div id="google_translate_element"></div>
+                    </div>
+                    <button class="btn btn-primary" onclick="ZewedJobs.showModal('create-event')">
+                        <i class="fas fa-plus"></i> Create Event
+                    </button>
+                </div>
+                
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Events Hero -->
+    <section class="page-hero events-hero">
+        <div class="container">
+            <div class="page-hero-content">
+                <h1>Events & Career Fairs</h1>
+                <p>Connect with employers, learn new skills, and advance your career</p>
+                <div class="event-stats">
+                    <div class="stat">
+                        <div class="stat-number">120+</div>
+                        <div class="stat-label">Upcoming Events</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">5,000+</div>
+                        <div class="stat-label">Monthly Attendees</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">500+</div>
+                        <div class="stat-label">Partner Companies</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Event Filters -->
+    <section class="section">
+        <div class="container">
+            <div class="event-filters">
+                <div class="filter-group">
+                    <label>Filter by:</label>
+                    <div class="filter-options">
+                        <button class="filter-btn active" data-filter="all">All Events</button>
+                        <button class="filter-btn" data-filter="career-fair">Career Fairs</button>
+                        <button class="filter-btn" data-filter="workshop">Workshops</button>
+                        <button class="filter-btn" data-filter="seminar">Seminars</button>
+                        <button class="filter-btn" data-filter="networking">Networking</button>
+                        <button class="filter-btn" data-filter="online">Online Events</button>
+                    </div>
+                </div>
+                
+                <div class="filter-group">
+                    <label>Sort by:</label>
+                    <select class="sort-select">
+                        <option value="date">Date (Newest)</option>
+                        <option value="popularity">Most Popular</option>
+                        <option value="free">Free Events</option>
+                        <option value="location">Location</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Event -->
+    <section class="section section-light">
+        <div class="container">
+            <div class="featured-event">
+                <div class="featured-event-content">
+                    <div class="event-badge">Featured Event</div>
+                    <h2>Tech Jobs Fair 2024</h2>
+                    <div class="event-meta">
+                        <span><i class="fas fa-calendar"></i> March 15, 2024 | 9:00 AM - 5:00 PM</span>
+                        <span><i class="fas fa-map-marker-alt"></i> Addis Ababa Exhibition Center</span>
+                        <span><i class="fas fa-users"></i> 50+ Companies | 2,000+ Expected</span>
+                    </div>
+                    <p>Join Ethiopia's largest tech career fair featuring top companies hiring for software development, data science, cybersecurity, and more. Free admission with registration.</p>
+                    <div class="event-actions">
+                        <button class="btn btn-primary btn-lg" onclick="ZewedJobs.registerEvent('Tech Jobs Fair 2024')">
+                            <i class="fas fa-ticket-alt"></i> Register Now (Free)
+                        </button>
+                        <button class="btn btn-outline" onclick="ZewedJobs.saveEvent('Tech Jobs Fair 2024')">
+                            <i class="far fa-calendar-plus"></i> Save to Calendar
+                        </button>
+                    </div>
+                </div>
+                <div class="featured-event-image">
+                    <div class="countdown-timer">
+                        <div class="countdown-title">Event Starts In:</div>
+                        <div class="countdown">
+                            <div class="countdown-item">
+                                <div class="countdown-number">12</div>
+                                <div class="countdown-label">Days</div>
+                            </div>
+                            <div class="countdown-item">
+                                <div class="countdown-number">06</div>
+                                <div class="countdown-label">Hours</div>
+                            </div>
+                            <div class="countdown-item">
+                                <div class="countdown-number">30</div>
+                                <div class="countdown-label">Minutes</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Events Grid -->
+    <section class="section">
+        <div class="container">
+            <div class="events-grid-lg">
+                <!-- Event 1 -->
+                <div class="event-card-lg">
+                    <div class="event-date">
+                        <div class="date-day">22</div>
+                        <div class="date-month">MAR</div>
+                        <div class="date-year">2024</div>
+                    </div>
+                    <div class="event-content">
+                        <div class="event-type">Workshop</div>
+                        <h3><a href="event-cv-workshop.html">Professional CV Writing Workshop</a></h3>
+                        <div class="event-meta">
+                            <span><i class="fas fa-clock"></i> 2:00 PM - 4:00 PM</span>
+                            <span><i class="fas fa-map-marker-alt"></i> Online (Zoom)</span>
+                            <span><i class="fas fa-user"></i> Expert: Selam T.</span>
+                        </div>
+                        <p>Learn how to create a winning CV that gets noticed by employers. Free workshop with certificate of participation.</p>
+                        <div class="event-footer">
+                            <div class="event-price">FREE</div>
+                            <button class="btn btn-teal" onclick="ZewedJobs.registerEvent('CV Writing Workshop')">Join Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Event 2 -->
+                <div class="event-card-lg">
+                    <div class="event-date" style="background: var(--purple);">
+                        <div class="date-day">05</div>
+                        <div class="date-month">APR</div>
+                        <div class="date-year">2024</div>
+                    </div>
+                    <div class="event-content">
+                        <div class="event-type">Conference</div>
+                        <h3><a href="event-women-tech.html">Women in Tech Conference 2024</a></h3>
+                        <div class="event-meta">
+                            <span><i class="fas fa-clock"></i> 8:30 AM - 6:00 PM</span>
+                            <span><i class="fas fa-map-marker-alt"></i> Sheraton Addis</span>
+                            <span><i class="fas fa-users"></i> 1,000+ Participants</span>
+                        </div>
+                        <p>Empowering women in technology careers. Featuring keynote speakers, panel discussions, and networking sessions.</p>
+                        <div class="event-footer">
+                            <div class="event-price">ETB 500</div>
+                            <button class="btn btn-purple" onclick="ZewedJobs.registerEvent('Women in Tech Conference')">Book Ticket</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Event 3 -->
+                <div class="event-card-lg">
+                    <div class="event-date" style="background: var(--teal);">
+                        <div class="date-day">12</div>
+                        <div class="date-month">APR</div>
+                        <div class="date-year">2024</div>
+                    </div>
+                    <div class="event-content">
+                        <div class="event-type">Seminar</div>
+                        <h3><a href="event-interview-skills.html">Mastering Job Interviews in Ethiopia</a></h3>
+                        <div class="event-meta">
+                            <span><i class="fas fa-clock"></i> 10:00 AM - 12:00 PM</span>
+                            <span><i class="fas fa-map-marker-alt"></i> Hilton Addis Ababa</span>
+                            <span><i class="fas fa-user"></i> HR Director: Michael K.</span>
+                        </div>
+                        <p>Learn cultural tips, common interview questions, and how to make a great impression in Ethiopian job interviews.</p>
+                        <div class="event-footer">
+                            <div class="event-price">ETB 200</div>
+                            <button class="btn btn-teal" onclick="ZewedJobs.registerEvent('Interview Skills Seminar')">Register</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Event 4 -->
+                <div class="event-card-lg">
+                    <div class="event-date" style="background: var(--secondary);">
+                        <div class="date-day">18</div>
+                        <div class="date-month">APR</div>
+                        <div class="date-year">2024</div>
+                    </div>
+                    <div class="event-content">
+                        <div class="event-type">Networking</div>
+                        <h3><a href="event-startup-networking.html">Startup & Entrepreneur Networking Night</a></h3>
+                        <div class="event-meta">
+                            <span><i class="fas fa-clock"></i> 6:00 PM - 9:00 PM</span>
+                            <span><i class="fas fa-map-marker-alt"></i> Sheger Innovation Hub</span>
+                            <span><i class="fas fa-users"></i> Entrepreneurs & Investors</span>
+                        </div>
+                        <p>Connect with fellow entrepreneurs, investors, and startup enthusiasts. Pitch your ideas and find collaborators.</p>
+                        <div class="event-footer">
+                            <div class="event-price">ETB 300</div>
+                            <button class="btn btn-orange" onclick="ZewedJobs.registerEvent('Startup Networking')">Join Event</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Event 5 -->
+                <div class="event-card-lg">
+                    <div class="event-date">
+                        <div class="date-day">25</div>
+                        <div class="date-month">APR</div>
+                        <div class="date-year">2024</div>
+                    </div>
+                    <div class="event-content">
+                        <div class="event-type">Career Fair</div>
+                        <h3><a href="event-healthcare-fair.html">Healthcare Career Fair 2024</a></h3>
+                        <div class="event-meta">
+                            <span><i class="fas fa-clock"></i> 9:00 AM - 4:00 PM</span>
+                            <span><i class="fas fa-map-marker-alt"></i> Millennium Hall</span>
+                            <span><i class="fas fa-users"></i> 30+ Hospitals & Clinics</span>
+                        </div>
+                        <p>Meet leading healthcare providers in Ethiopia. Opportunities for doctors, nurses, pharmacists, and healthcare administrators.</p>
+                        <div class="event-footer">
+                            <div class="event-price">FREE</div>
+                            <button class="btn btn-primary" onclick="ZewedJobs.registerEvent('Healthcare Career Fair')">Register Free</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Event 6 -->
+                <div class="event-card-lg">
+                    <div class="event-date" style="background: var(--blue);">
+                        <div class="date-day">03</div>
+                        <div class="date-month">MAY</div>
+                        <div class="date-year">2024</div>
+                    </div>
+                    <div class="event-content">
+                        <div class="event-type">Workshop</div>
+                        <h3><a href="event-digital-marketing.html">Digital Marketing Mastery Workshop</a></h3>
+                        <div class="event-meta">
+                            <span><i class="fas fa-clock"></i> 9:00 AM - 1:00 PM</span>
+                            <span><i class="fas fa-map-marker-alt"></i> Online (Live)</span>
+                            <span><i class="fas fa-user"></i> Expert: Daniel M.</span>
+                        </div>
+                        <p>Learn SEO, social media marketing, and Google Ads. Perfect for entrepreneurs and marketing professionals.</p>
+                        <div class="event-footer">
+                            <div class="event-price">ETB 400</div>
+                            <button class="btn btn-blue" onclick="ZewedJobs.registerEvent('Digital Marketing Workshop')">Enroll Now</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pagination -->
+            <div class="pagination">
+                <a href="#" class="page-item disabled"><i class="fas fa-chevron-left"></i></a>
+                <a href="#" class="page-item active">1</a>
+                <a href="#" class="page-item">2</a>
+                <a href="#" class="page-item">3</a>
+                <a href="#" class="page-item">4</a>
+                <a href="#" class="page-item">5</a>
+                <a href="#" class="page-item"><i class="fas fa-chevron-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Past Events -->
+    <section class="section section-light">
+        <div class="container">
+            <div class="section-title">
+                <h2>📸 <span>Past</span> Events Gallery</h2>
+                <p>Relive memorable moments from our previous events</p>
+            </div>
+            
+            <div class="events-gallery">
+                <div class="gallery-item">
+                    <div class="gallery-image">
+                        <img src="assets/events/tech-fair-2023.jpg" alt="Tech Fair 2023">
+                    </div>
+                    <div class="gallery-content">
+                        <h4>Tech Jobs Fair 2023</h4>
+                        <p>Addis Ababa Exhibition Center</p>
+                        <div class="gallery-stats">
+                            <span><i class="fas fa-users"></i> 1,500+ Attendees</span>
+                            <span><i class="fas fa-briefcase"></i> 40+ Companies</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <div class="gallery-image">
+                        <img src="assets/events/cv-workshop.jpg" alt="CV Workshop">
+                    </div>
+                    <div class="gallery-content">
+                        <h4>CV Writing Workshop</h4>
+                        <p>Online Event</p>
+                        <div class="gallery-stats">
+                            <span><i class="fas fa-users"></i> 300+ Participants</span>
+                            <span><i class="fas fa-certificate"></i> Free Certificate</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <div class="gallery-image">
+                        <img src="assets/events/women-conference.jpg" alt="Women in Tech Conference">
+                    </div>
+                    <div class="gallery-content">
+                        <h4>Women in Tech Conference</h4>
+                        <p>Sheraton Addis</p>
+                        <div class="gallery-stats">
+                            <span><i class="fas fa-users"></i> 800+ Attendees</span>
+                            <span><i class="fas fa-star"></i> 15+ Speakers</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Create Event CTA -->
+    <section class="section section-gradient">
+        <div class="container">
+            <div class="create-event-cta">
+                <div class="cta-content">
+                    <h2>Host Your Event with ZewedJobs</h2>
+                    <p>Reach thousands of job seekers and professionals. Whether it's a career fair, workshop, or networking event, we'll help you make it a success.</p>
+                    <div class="cta-features">
+                        <div class="feature">
+                            <i class="fas fa-bullhorn"></i>
+                            <span>Event Promotion</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-ticket-alt"></i>
+                            <span>Ticketing & Registration</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-users"></i>
+                            <span>Audience Management</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-chart-bar"></i>
+                            <span>Analytics & Reporting</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="cta-action">
+                    <button class="btn btn-primary btn-lg" onclick="ZewedJobs.showModal('create-event')">
+                        <i class="fas fa-plus"></i> Create Event
+                    </button>
+                    <p class="cta-note">Or contact us: <strong>events@zewedjobs.com</strong></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer (Same as index.html) -->
+    <footer class="footer">
+        <!-- Same footer content as index.html -->
+    </footer>
+
+    <!-- Same modals and chat as index.html -->
+    <div class="ai-chat-container">
+        <!-- Same chat as index.html -->
+    </div>
+
+    <!-- Event Creation Modal -->
+    <div id="eventModal" class="modal">
+        <div class="modal-content">
+            <button class="close-modal" onclick="ZewedJobs.hideModal()">&times;</button>
+            <div id="eventModalBody"></div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+    <script src="events.js"></script>
+</body>
+</html>
