@@ -1,0 +1,114 @@
+# Apache Server Configuration for AI Chat PWA
+
+# Enable rewrite engine
+RewriteEngine On
+RewriteBase /
+
+# Force HTTPS (except for localhost)
+RewriteCond %{HTTP_HOST} !=localhost
+RewriteCond %{HTTP_HOST} !=127.0.0.1
+RewriteCond %{REMOTE_ADDR} !=::1
+RewriteCond %{REMOTE_ADDR} !=127.0.0.1
+RewriteCond %{HTTPS} !=on
+RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
+
+# Set proper MIME types
+AddType application/javascript .js
+AddType application/json .json .webmanifest
+AddType text/cache-manifest .appcache
+AddType application/wasm .wasm
+AddType font/woff2 .woff2
+AddType image/svg+xml .svg
+
+# Security headers
+Header always set X-Content-Type-Options "nosniff"
+Header always set X-Frame-Options "DENY"
+Header always set X-XSS-Protection "1; mode=block"
+Header always set Referrer-Policy "strict-origin-when-cross-origin"
+Header always set Permissions-Policy "geolocation=(), microphone=(), camera=(), interest-cohort=()"
+Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+
+# Service Worker scope
+<Files "service-worker.js">
+    Header set Service-Worker-Allowed "/"
+    Header set Cache-Control "no-cache, no-store, must-revalidate"
+    Header set Pragma "no-cache"
+    Header set Expires "0"
+</Files>
+
+# PWA manifest
+<Files "manifest.json">
+    Header set Content-Type "application/manifest+json"
+    Header set Cache-Control "max-age=86400"
+</Files>
+
+# Cache static assets aggressively
+<FilesMatch "\.(html|css|js|json|webmanifest|png|jpg|jpeg|gif|ico|svg|woff|woff2|ttf|eot)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+</FilesMatch>
+
+# No caching for dynamic content
+<FilesMatch "\.(php|asp|aspx|cgi|pl)$">
+    Header set Cache-Control "no-cache, no-store, must-revalidate"
+    Header set Pragma "no-cache"
+    Header set Expires "0"
+</FilesMatch>
+
+# Gzip compression
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/css text/javascript application/javascript application/json application/xml image/svg+xml
+</IfModule>
+
+# Brotli compression (if available)
+<IfModule mod_brotli.c>
+    AddOutputFilterByType BROTLI_COMPRESS text/html text/css text/javascript application/javascript application/json application/xml image/svg+xml
+</IfModule>
+
+# SPA routing - redirect all non-file requests to ai-chat.html
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_URI} !\.(css|js|json|png|jpg|jpeg|gif|ico|svg|woff|woff2|ttf|eot|webmanifest)$ [NC]
+RewriteRule ^(.*)$ /ai-chat.html [L,QSA]
+
+# Block access to sensitive files
+<FilesMatch "^\.">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+<FilesMatch "^(\.htaccess|\.htpasswd|\.git|\.env|composer\.json|package\.json)$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# Custom error pages
+ErrorDocument 404 /ai-chat.html
+ErrorDocument 500 /ai-chat.html
+ErrorDocument 503 /ai-chat.html
+
+# Set default character set
+AddDefaultCharset UTF-8
+
+# Prevent directory listing
+Options -Indexes
+
+# Enable Keep-Alive
+<IfModule mod_headers.c>
+    Header set Connection keep-alive
+</IfModule>
+
+# Set security headers for specific file types
+<FilesMatch "\.(js|css|json)$">
+    Header set X-Content-Type-Options "nosniff"
+</FilesMatch>
+
+# CORS headers for fonts
+<FilesMatch "\.(woff|woff2|ttf|eot|svg)$">
+    Header set Access-Control-Allow-Origin "*"
+</FilesMatch>
+
+# ETag configuration
+FileETag MTime Size
+<IfModule mod_headers.c>
+    Header unset ETag
+</IfModule>
