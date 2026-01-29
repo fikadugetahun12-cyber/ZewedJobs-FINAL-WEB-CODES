@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media Room - ZewedJobs</title>
+    <meta name="description" content="Videos, podcasts, galleries, and media resources from ZewedJobs.">
+    
+    <!-- Same head content as index.html -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation (Same as index.html) -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <a href="index.html" class="logo">
+                    <div class="logo-icon">ZJ</div>
+                    <div class="logo-text">ZewedJobs</div>
+                </a>
+                
+                <div class="nav-links">
+                    <a href="index.html"><i class="fas fa-home"></i> Home</a>
+                    <a href="jobs.html"><i class="fas fa-briefcase"></i> Jobs</a>
+                    <a href="news.html"><i class="fas fa-newspaper"></i> News</a>
+                    <a href="events.html"><i class="fas fa-calendar-alt"></i> Events</a>
+                    <a href="media-room.html" class="active"><i class="fas fa-video"></i> Media Room</a>
+                </div>
+                
+                <div class="nav-actions">
+                    <div class="translate-container">
+                        <div id="google_translate_element"></div>
+                    </div>
+                    <button class="btn btn-outline" onclick="ZewedJobs.subscribeMedia()">
+                        <i class="fas fa-bell"></i> Subscribe
+                    </button>
+                </div>
+                
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Media Room Hero -->
+    <section class="page-hero media-hero">
+        <div class="container">
+            <div class="page-hero-content">
+                <h1>Media Room</h1>
+                <p>Videos, podcasts, galleries, and resources from ZewedJobs</p>
+                <div class="media-stats">
+                    <div class="media-stat">
+                        <i class="fab fa-youtube"></i>
+                        <div class="stat-number">30K+</div>
+                        <div class="stat-label">YouTube Subscribers</div>
+                    </div>
+                    <div class="media-stat">
+                        <i class="fas fa-play-circle"></i>
+                        <div class="stat-number">150+</div>
+                        <div class="stat-label">Videos</div>
+                    </div>
+                    <div class="media-stat">
+                        <i class="fas fa-image"></i>
+                        <div class="stat-number">500+</div>
+                        <div class="stat-label">Gallery Images</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Media Tabs -->
+    <section class="section">
+        <div class="container">
+            <div class="media-tabs">
+                <button class="media-tab-btn active" data-tab="videos">
+                    <i class="fab fa-youtube"></i> Videos
+                </button>
+                <button class="media-tab-btn" data-tab="podcasts">
+                    <i class="fas fa-podcast"></i> Podcasts
+                </button>
+                <button class="media-tab-btn" data-tab="gallery">
+                    <i class="fas fa-images"></i> Gallery
+                </button>
+                <button class="media-tab-btn" data-tab="resources">
+                    <i class="fas fa-file-download"></i> Resources
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Videos Tab -->
+    <div class="media-tab-content active" id="videosTab">
+        <!-- Featured Video -->
+        <section class="section section-light">
+            <div class="container">
+                <div class="featured-video">
+                    <div class="video-player">
+                        <div class="video-container">
+                            <div class="video-placeholder">
+                                <div class="play-button-large">
+                                    <i class="fas fa-play"></i>
+                                </div>
+                                <div class="video-title">Featured: Career Success in Ethiopia</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="video-info">
+                        <h2>Top 10 Career Tips for Ethiopian Job Seekers</h2>
+                        <div class="video-meta">
+                            <span><i class="far fa-calendar"></i> Published: March 1, 2024</span>
+                            <span><i class="far fa-clock"></i> Duration: 12:45</span>
+                            <span><i class="far fa-eye"></i> Views: 15,284</span>
+                        </div>
+                        <p>Learn essential career advice from Ethiopian HR experts. This video covers job search strategies, CV writing, and interview techniques specific to the Ethiopian job market.</p>
+                        <div class="video-actions">
+                            <button class="btn btn-primary" onclick="ZewedJobs.playVideo('career-tips')">
+                                <i class="fas fa-play"></i> Watch Now
+                            </button>
+                            <button class="btn btn-outline" onclick="ZewedJobs.saveVideo('career-tips')">
+                                <i class="far fa-save"></i> Save for Later
+                            </button>
+                            <button class="btn btn-outline" onclick="ZewedJobs.shareVideo('career-tips')">
+                                <i class="fas fa-share"></i> Share
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Video Categories -->
+        <section class="section">
+            <div class="container">
+                <div class="video-categories">
+                    <h3>Browse by Category</h3>
+                    <div class="category-tags">
+                        <button class="category-tag active" data-category="all">All Videos</button>
+                        <button class="category-tag" data-category="career">Career Advice</button>
+                        <button class="category-tag" data-category="interview">Interview Tips</button>
+                        <button class="category-tag" data-category="cv">CV & Resume</button>
+                        <button class="category-tag" data-category="skills">Skills Training</button>
+                        <button class="category-tag" data-category="success">Success Stories</button>
+                        <button class="category-tag" data-category="industry">Industry Insights</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Video Grid -->
+        <section class="section section-light">
+            <div class="container">
+                <div class="videos-grid">
+                    <!-- Video 1 -->
+                    <div class="video-card">
+                        <div class="video-thumbnail">
+                            <div class="play-button">
+                                <i class="fas fa-play"></i>
+                            </div>
+                            <div class="video-duration">18:30</div>
+                        </div>
+                        <div class="video-card-content">
+                            <div class="video-category">Interview Tips</div>
+                            <h4>Mastering Job Interviews in Ethiopia</h4>
+                            <div class="video-meta">
+                                <span><i class="far fa-eye"></i> 8.5K views</span>
+                                <span><i class="far fa-calendar"></i> Feb 20, 2024</span>
+                            </div>
+                            <p>Cultural tips and common interview questions for Ethiopian companies.</p>
+                        </div>
+                    </div>
+
+                    <!-- Video 2 -->
+                    <div class="video-card">
+                        <div class="video-thumbnail" style="background: linear-gradient(135deg, var(--teal), var(--purple));">
+                            <div class="play-button">
+                                <i class="fas fa-play"></i>
+                            </div>
+                            <div class="video-duration">22:15</div>
+                        </div>
+                        <div class="video-card-content">
+                            <div class="video-category">Skills Training</div>
+                            <h4>Digital Skills for Ethiopian Youth</h4>
+                            <div class="video-meta">
+                                <span><i class="far fa-eye"></i> 25K views</span>
+                                <span><i class="far fa-calendar"></i> Feb 15, 2024</span>
+                            </div>
+                            <p>Free courses and certifications available for digital skills development.</p>
+                        </div>
+                    </div>
+
+                    <!-- Video 3 -->
+                    <div class="video-card">
+                        <div class="video-thumbnail" style="background: linear-gradient(135deg, var(--secondary), #e67e22);">
+                            <div class="play-button">
+                                <i class="fas fa-play"></i>
+                            </div>
+                            <div class="video-duration">15:40</div>
+                        </div>
+                        <div class="video-card-content">
+                            <div class="video-category">CV & Resume</div>
+                            <h4>How to Write a Winning CV for Ethiopia</h4>
+                            <div class="video-meta">
+                                <span><i class="far fa-eye"></i> 12.3K views</span>
+                                <span><i class="far fa-calendar"></i> Feb 10, 2024</span>
+                            </div>
+                            <p>Step-by-step guide to creating a professional CV for Ethiopian employers.</p>
+                        </div>
+                    </div>
+
+                    <!-- Video 4 -->
+                    <div class="video-card">
+                        <div class="video-thumbnail" style="background: linear-gradient(135deg, #4A90E2, #357ABD);">
+                            <div class="play-button">
+                                <i class="fas fa-play"></i>
+                            </div>
+                            <div class="video-duration">28:50</div>
+                        </div>
+                        <div class="video-card-content">
+                            <div class="video-category">Industry Insights</div>
+                            <h4>Ethiopia's Growing Tech Industry</h4>
+                            <div class="video-meta">
+                                <span><i class="far fa-eye"></i> 9.8K views</span>
+                                <span><i class="far fa-calendar"></i> Feb 5, 2024</span>
+                            </div>
+                            <p>Analysis of Ethiopia's tech sector and emerging job opportunities.</p>
+                        </div>
+                    </div>
+
+                    <!-- Video 5 -->
+                    <div class="video-card">
+                        <div class="video-thumbnail" style="background: linear-gradient(135deg, #9B59B6, #8E44AD);">
+                            <div class="play-button">
+                                <i class="fas fa-play"></i>
+                            </div>
+                            <div class="video-duration">20:15</div>
+                        </div>
+                        <div class="video-card-content">
+                            <div class="video-category">Success Stories</div>
+                            <h4>From Graduate to Manager in 2 Years</h4>
+                            <div class="video-meta">
+                                <span><i class="far fa-eye"></i> 7.2K views</span>
+                                <span><i class="far fa-calendar"></i> Jan 28, 2024</span>
+                            </div>
+                            <p>Inspiring story of an Ethiopian professional's rapid career growth.</p>
+                        </div>
+                    </div>
+
+                    <!-- Video 6 -->
+                    <div class="video-card">
+                        <div class="video-thumbnail" style="background: linear-gradient(135deg, #E74C3C, #C0392B);">
+                            <div class="play-button">
+                                <i class="fas fa-play"></i>
+                            </div>
+                            <div class="video-duration">17:30</div>
+                        </div>
+                        <div class="video-card-content">
+                            <div class="video-category">Career Advice</div>
+                            <h4>Networking Strategies for Professionals</h4>
+                            <div class="video-meta">
+                                <span><i class="far fa-eye"></i> 6.5K views</span>
+                                <span><i class="far fa-calendar"></i> Jan 20, 2024</span>
+                            </div>
+                            <p>How to build professional networks in Ethiopia's business community.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center mt-40">
+                    <a href="https://youtube.com/zewedjobs" target="_blank" class="btn btn-primary btn-lg">
+                        <i class="fab fa-youtube"></i> View More on YouTube
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Video Playlist -->
+        <section class="section">
+            <div class="container">
+                <div class="playlist-section">
+                    <h3>Featured Playlists</h3>
+                    <div class="playlists-grid">
+                        <div class="playlist-card">
+                            <div class="playlist-icon">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                            <h4>Career Starter Series</h4>
+                            <p>12 videos • 3.5 hours</p>
+                            <div class="playlist-count">
+                                <i class="fas fa-play-circle"></i> 45K+ views
+                            </div>
+                        </div>
+                        
+                        <div class="playlist-card">
+                            <div class="playlist-icon">
+                                <i class="fas fa-briefcase"></i>
+                            </div>
+                            <h4>Job Search Masterclass</h4>
+                            <p>8 videos • 2 hours</p>
+                            <div class="playlist-count">
+                                <i class="fas fa-play-circle"></i> 32K+ views
+                            </div>
+                        </div>
+                        
+                        <div class="playlist-card">
+                            <div class="playlist-icon">
+                                <i class="fas fa-laptop-code"></i>
+                            </div>
+                            <h4>Digital Skills Training</h4>
+                            <p>15 videos • 5 hours</p>
+                            <div class="playlist-count">
+                                <i class="fas fa-play-circle"></i> 68K+ views
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Podcasts Tab -->
+    <div class="media-tab-content" id="podcastsTab">
+        <section class="section section-light">
+            <div class="container">
+                <div class="podcasts-header">
+                    <h2>Career Conversations Podcast</h2>
+                    <p>Weekly interviews with successful professionals and industry leaders</p>
+                    <div class="podcast-platforms">
+                        <a href="#" class="platform-link"><i class="fab fa-spotify"></i> Spotify</a>
+                        <a href="#" class="platform-link"><i class="fab fa-apple"></i> Apple Podcasts</a>
+                        <a href="#" class="platform-link"><i class="fab fa-google"></i> Google Podcasts</a>
+                        <a href="#" class="platform-link"><i class="fas fa-rss"></i> RSS Feed</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="podcasts-grid">
+                    <!-- Podcast episodes will be loaded here -->
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Gallery Tab -->
+    <div class="media-tab-content" id="galleryTab">
+        <section class="section section-light">
+            <div class="container">
+                <div class="gallery-header">
+                    <h2>Event Gallery</h2>
+                    <p>Photos and moments from our events and activities</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="gallery-grid">
+                    <!-- Gallery items will be loaded here -->
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Resources Tab -->
+    <div class="media-tab-content" id="resourcesTab">
+        <section class="section section-light">
+            <div class="container">
+                <div class="resources-header">
+                    <h2>Media Resources</h2>
+                    <p>Download logos, press kits, and media materials</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="resources-grid">
+                    <!-- Resources will be loaded here -->
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Subscribe Section -->
+    <section class="section section-gradient">
+        <div class="container">
+            <div class="subscribe-section">
+                <div class="subscribe-content">
+                    <h2>Never Miss an Update</h2>
+                    <p>Subscribe to our media channels for new videos, podcasts, and resources.</p>
+                </div>
+                <div class="subscribe-form">
+                    <div class="form-group">
+                        <select class="form-select">
+                            <option value="">Select what to subscribe to</option>
+                            <option value="videos">YouTube Videos</option>
+                            <option value="podcasts">Podcasts</option>
+                            <option value="newsletter">Newsletter</option>
+                            <option value="all">All Updates</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" placeholder="Your email address">
+                    </div>
+                    <button class="btn btn-primary">Subscribe</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer (Same as index.html) -->
+    <footer class="footer">
+        <!-- Same footer content as index.html -->
+    </footer>
+
+    <!-- Same modals and chat as index.html -->
+    <div class="ai-chat-container">
+        <!-- Same chat as index.html -->
+    </div>
+
+    <!-- Video Player Modal -->
+    <div id="videoModal" class="modal modal-lg">
+        <div class="modal-content">
+            <button class="close-modal" onclick="ZewedJobs.closeVideoModal()">&times;</button>
+            <div id="videoModalBody"></div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+    <script src="media.js"></script>
+</body>
+</html>
