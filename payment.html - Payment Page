@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Make Payment - ZewedJobs</title>
+    <meta name="description" content="Secure payment gateway for job postings, premium features, and business services on ZewedJobs.">
+    
+    <!-- Same head content as other pages -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="responsive.css">
+    <link rel="stylesheet" href="payment.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Payment security verification -->
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <a href="index.html" class="logo">
+                    <div class="logo-icon">ZJ</div>
+                    <div class="logo-text">ZewedJobs</div>
+                </a>
+                
+                <div class="nav-links">
+                    <a href="index.html"><i class="fas fa-home"></i> Home</a>
+                    <a href="jobs.html"><i class="fas fa-briefcase"></i> Jobs</a>
+                    <a href="payment.html" class="active"><i class="fas fa-credit-card"></i> Payment</a>
+                    <a href="employers.html"><i class="fas fa-building"></i> Employers</a>
+                </div>
+                
+                <div class="nav-actions">
+                    <div class="payment-security">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>Secure Payment</span>
+                    </div>
+                </div>
+                
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Payment Header -->
+    <section class="payment-header">
+        <div class="container">
+            <div class="payment-header-content">
+                <h1><i class="fas fa-lock"></i> Secure Payment</h1>
+                <p>Complete your payment safely using Ethiopian payment methods</p>
+                <div class="payment-steps">
+                    <div class="step active">
+                        <div class="step-number">1</div>
+                        <div class="step-label">Select Plan</div>
+                    </div>
+                    <div class="step active">
+                        <div class="step-number">2</div>
+                        <div class="step-label">Payment Method</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <div class="step-label">Confirmation</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Payment Content -->
+    <section class="section">
+        <div class="container">
+            <div class="payment-content">
+                <!-- Order Summary -->
+                <div class="payment-sidebar">
+                    <div class="order-summary">
+                        <h3><i class="fas fa-receipt"></i> Order Summary</h3>
+                        
+                        <div class="order-item">
+                            <div class="order-item-title">Premium Job Posting</div>
+                            <div class="order-item-details">
+                                <span>30 days visibility</span>
+                                <span>Featured listing</span>
+                                <span>AI candidate matching</span>
+                            </div>
+                            <div class="order-item-price">ETB 2,499</div>
+                        </div>
+                        
+                        <div class="order-item">
+                            <div class="order-item-title">Featured Business Listing</div>
+                            <div class="order-item-details">
+                                <span>Premium placement</span>
+                                <span>Company profile</span>
+                            </div>
+                            <div class="order-item-price">ETB 1,500</div>
+                        </div>
+                        
+                        <div class="order-divider"></div>
+                        
+                        <div class="order-totals">
+                            <div class="total-row">
+                                <span>Subtotal</span>
+                                <span>ETB 3,999</span>
+                            </div>
+                            <div class="total-row">
+                                <span>VAT (15%)</span>
+                                <span>ETB 600</span>
+                            </div>
+                            <div class="total-row grand-total">
+                                <span>Total Amount</span>
+                                <span class="total-amount">ETB 4,599</span>
+                            </div>
+                        </div>
+                        
+                        <div class="order-note">
+                            <i class="fas fa-info-circle"></i>
+                            <p>All prices are in Ethiopian Birr (ETB). VAT included.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="payment-security-info">
+                        <h4><i class="fas fa-shield-alt"></i> Payment Security</h4>
+                        <ul>
+                            <li><i class="fas fa-check"></i> 256-bit SSL Encryption</li>
+                            <li><i class="fas fa-check"></i> PCI DSS Compliant</li>
+                            <li><i class="fas fa-check"></i> No card details stored</li>
+                            <li><i class="fas fa-check"></i> Money-back guarantee</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="support-contact">
+                        <h4><i class="fas fa-headset"></i> Need Help?</h4>
+                        <p>Contact our support team for assistance</p>
+                        <div class="contact-info">
+                            <p><i class="fas fa-phone"></i> +251 92 485 8244</p>
+                            <p><i class="fas fa-envelope"></i> billing@zewedjobs.com</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Payment Methods -->
+                <div class="payment-main">
+                    <div class="payment-methods-section">
+                        <h2><i class="fas fa-wallet"></i> Select Payment Method</h2>
+                        <p>Choose your preferred payment option</p>
+                        
+                        <!-- Mobile Money -->
+                        <div class="payment-method-category">
+                            <h3><i class="fas fa-mobile-alt"></i> Mobile Money</h3>
+                            <div class="payment-methods-grid">
+                                <div class="payment-method-card active" data-method="telebirr">
+                                    <div class="method-icon">
+                                        <i class="fas fa-mobile-alt"></i>
+                                    </div>
+                                    <div class="method-content">
+                                        <h4>Telebirr</h4>
+                                        <p>Ethio Telecom Mobile Money</p>
+                                        <div class="method-info">
+                                            <span><i class="fas fa-bolt"></i> Instant</span>
+                                            <span><i class="fas fa-check"></i> Verified</span>
+                                        </div>
+                                    </div>
+                                    <div class="method-select">
+                                        <i class="fas fa-check-circle"></i>
+                                    </div>
+                                </div>
+                                
+                                <div class="payment-method-card" data-method="hellocash">
+                                    <div class="method-icon">
+                                        <i class="fas fa-money-bill-wave"></i>
+                                    </div>
+                                    <div class="method-content">
+                                        <h4>HelloCash</h4>
+                                        <p>Dashen Bank Digital Wallet</p>
+                                        <div class="method-info">
+                                            <span><i class="fas fa-bolt"></i> Instant</span>
+                                            <span><i class="fas fa-check"></i> Verified</span>
+                                        </div>
+                                    </div>
+                                    <div class="method-select">
+                                        <i class="far fa-circle"></i>
+                                    </div>
+                                </div>
+                                
+                                <div class="payment-method-card" data-method="amole">
+                                    <div class="method-icon">
+                                        <i class="fas fa-credit-card"></i>
+                                    </div>
+                                    <div class="method-content">
+                                        <h4>Amole</h4>
+                                        <p>Digital Payment Solution</p>
+                                        <div class="method-info">
+                                            <span><i class="fas fa-bolt"></i> Instant</span>
+                                            <span><i class="fas fa-check"></i> Verified</span>
+                                        </div>
+                                    </div>
+                                    <div class="method-select">
+                                        <i class="far fa-circle"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Bank Transfer -->
+                        <div class="payment-method-category">
+                            <h3><i class="fas fa-university"></i> Bank Transfer</h3>
+                            <div class="payment-methods-grid">
+                                <div class="payment-method-card" data-method="cbe">
+                                    <div class="method-icon">
+                                        <i class="fas fa-landmark"></i>
+                                    </div>
+                                    <div class="method-content">
+                                        <h4>CBE Birr</h4>
+                                        <p>Commercial Bank of Ethiopia</p>
+                                        <div class="method-info">
+                                            <span><i class="fas fa-clock"></i> 1-2 hours</span>
+                                            <span><i class="fas fa-check"></i> Verified</span>
+                                        </div>
+                                    </div>
+                                    <div class="method-select">
+                                        <i class="far fa-circle"></i>
+                                    </div>
+                                </div>
+                                
+                                <div class="payment-method-card" data-method="awash">
+                                    <div class="method-icon">
+                                        <i class="fas fa-building"></i>
+                                    </div>
+                                    <div class="method-content">
+                                        <h4>Awash Bank</h4>
+                                        <p>Direct Bank Transfer</p>
+                                        <div class="method-info">
+                                            <span><i class="fas fa-clock"></i> 1-2 hours</span>
+                                            <span><i class="fas fa-check"></i> Verified</span>
+                                        </div>
+                                    </div>
+                                    <div class="method-select">
+                                        <i class="far fa-circle"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Credit/Debit Cards -->
+                        <div class="payment-method-category">
+                            <h3><i class="fas fa-credit-card"></i> Credit/Debit Cards</h3>
+                            <div class="payment-methods-grid">
+                                <div class="payment-method-card" data-method="visa">
+                                    <div class="method-icon">
+                                        <i class="fab fa-cc-visa"></i>
+                                    </div>
+                                    <div class="method-content">
+                                        <h4>Visa Card</h4>
+                                        <p>All major Visa cards accepted</p>
+                                        <div class="method-info">
+                                            <span><i class="fas fa-bolt"></i> Instant</span>
+                                            <span><i class="fas fa-check"></i> Secure</span>
+                                        </div>
+                                    </div>
+                                    <div class="method-select">
+                                        <i class="far fa-circle"></i>
+                                    </div>
+                                </div>
+                                
+                                <div class="payment-method-card" data-method="mastercard">
+                                    <div class="method-icon">
+                                        <i class="fab fa-cc-mastercard"></i>
+                                    </div>
+                                    <div class="method-content">
+                                        <h4>Mastercard</h4>
+                                        <p>All major Mastercards accepted</p>
+                                        <div class="method-info">
+                                            <span><i class="fas fa-bolt"></i> Instant</span>
+                                            <span><i class="fas fa-check"></i> Secure</span>
+                                        </div>
+                                    </div>
+                                    <div class="method-select">
+                                        <i class="far fa-circle"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Payment Details Form -->
+                    <div class="payment-details-section" id="paymentDetails">
+                        <h3><i class="fas fa-money-check-alt"></i> Payment Details</h3>
+                        
+                        <!-- Telebirr Payment Form -->
+                        <div class="payment-form active" id="telebirrForm">
+                            <div class="form-header">
+                                <div class="method-logo">
+                                    <i class="fas fa-mobile-alt"></i>
+                                    <span>Telebirr</span>
+                                </div>
+                                <p>Send payment to our Telebirr account and upload receipt</p>
+                            </div>
+                            
+                            <div class="payment-instructions">
+                                <div class="instruction-step">
+                                    <div class="step-number">1</div>
+                                    <div class="step-content">
+                                        <h4>Send Payment</h4>
+                                        <p>Send <strong>ETB 4,599</strong> to our Telebirr account:</p>
+                                        <div class="account-details">
+                                            <div class="account-item">
+                                                <span class="label">Phone Number:</span>
+                                                <span class="value">+251 92 485 8244</span>
+                                                <button class="copy-btn" data-text="+251924858244">
+                                                    <i class="far fa-copy"></i> Copy
+                                                </button>
+                                            </div>
+                                            <div class="account-item">
+                                                <span class="label">Account Name:</span>
+                                                <span class="value">ZewedJobs PLC</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="instruction-step">
+                                    <div class="step-number">2</div>
+                                    <div class="step-content">
+                                        <h4>Take Screenshot</h4>
+                                        <p>Take a screenshot of the payment confirmation from Telebirr app</p>
+                                        <div class="tip">
+                                            <i class="fas fa-lightbulb"></i>
+                                            <span>Make sure transaction ID and amount are visible</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="instruction-step">
+                                    <div class="step-number">3</div>
+                                    <div class="step-content">
+                                        <h4>Upload Receipt</h4>
+                                        <p>Upload the screenshot or photo of payment confirmation</p>
+                                        <div class="upload-area" id="uploadArea">
+                                            <i class="fas fa-cloud-upload-alt"></i>
+                                            <p>Drag & drop your screenshot here or <span>browse</span></p>
+                                            <input type="file" id="receiptUpload" accept="image/*" hidden>
+                                        </div>
+                                        <div class="uploaded-file" id="uploadedFile" style="display: none;">
+                                            <i class="fas fa-file-image"></i>
+                                            <span id="fileName">receipt.png</span>
+                                            <button class="remove-btn"><i class="fas fa-times"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="instruction-step">
+                                    <div class="step-number">4</div>
+                                    <div class="step-content">
+                                        <h4>Provide Transaction ID</h4>
+                                        <div class="form-group">
+                                            <label for="transactionId"><i class="fas fa-hashtag"></i> Transaction ID</label>
+                                            <input type="text" id="transactionId" placeholder="Enter transaction ID from Telebirr">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Bank Transfer Form -->
+                        <div class="payment-form" id="bankForm">
+                            <div class="form-header">
+                                <div class="method-logo">
+                                    <i class="fas fa-university"></i>
+                                    <span>Bank Transfer</span>
+                                </div>
+                                <p>Transfer payment to our bank account and upload receipt</p>
+                            </div>
+                            
+                            <div class="bank-details">
+                                <div class="bank-account">
+                                    <h4><i class="fas fa-building"></i> Commercial Bank of Ethiopia</h4>
+                                    <div class="account-info">
+                                        <div class="info-row">
+                                            <span class="label">Account Name:</span>
+                                            <span class="value">ZewedJobs PLC</span>
+                                        </div>
+                                        <div class="info-row">
+                                            <span class="label">Account Number:</span>
+                                            <span class="value">10002589463215</span>
+                                            <button class="copy-btn" data-text="10002589463215">
+                                                <i class="far fa-copy"></i> Copy
+                                            </button>
+                                        </div>
+                                        <div class="info-row">
+                                            <span class="label">Branch:</span>
+                                            <span class="value">Addis Ababa Main Branch</span>
+                                        </div>
+                                        <div class="info-row">
+                                            <span class="label">Swift Code:</span>
+                                            <span class="value">CBETETAA</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="senderName"><i class="fas fa-user"></i> Sender's Name</label>
+                                    <input type="text" id="senderName" placeholder="Name as it appears on bank account">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="bankReceipt"><i class="fas fa-file-upload"></i> Upload Bank Slip</label>
+                                    <div class="upload-area" id="bankUploadArea">
+                                        <i class="fas fa-cloud-upload-alt"></i>
+                                        <p>Upload scanned copy of bank deposit slip</p>
+                                        <input type="file" id="bankReceipt" accept="image/*,.pdf" hidden>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Card Payment Form -->
+                        <div class="payment-form" id="cardForm">
+                            <div class="form-header">
+                                <div class="method-logo">
+                                    <i class="fas fa-credit-card"></i>
+                                    <span>Credit/Debit Card</span>
+                                </div>
+                                <p>Pay securely with your Visa or Mastercard</p>
+                            </div>
+                            
+                            <div class="card-form">
+                                <div class="form-group">
+                                    <label for="cardNumber"><i class="far fa-credit-card"></i> Card Number</label>
+                                    <input type="text" id="cardNumber" placeholder="1234 5678 9012 3456" maxlength="19">
+                                    <div class="card-icons">
+                                        <i class="fab fa-cc-visa"></i>
+                                        <i class="fab fa-cc-mastercard"></i>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="cardExpiry"><i class="far fa-calendar-alt"></i> Expiry Date</label>
+                                        <input type="text" id="cardExpiry" placeholder="MM/YY" maxlength="5">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="cardCVC"><i class="fas fa-lock"></i> CVC</label>
+                                        <input type="password" id="cardCVC" placeholder="123" maxlength="4">
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="cardName"><i class="fas fa-user"></i> Cardholder Name</label>
+                                    <input type="text" id="cardName" placeholder="Name on card">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="cardEmail"><i class="fas fa-envelope"></i> Email for Receipt</label>
+                                    <input type="email" id="cardEmail" placeholder="your@email.com">
+                                </div>
+                                
+                                <div class="card-security">
+                                    <i class="fas fa-shield-alt"></i>
+                                    <span>Your payment is secured with 256-bit SSL encryption</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Contact Information -->
+                    <div class="contact-info-section">
+                        <h3><i class="fas fa-user-circle"></i> Contact Information</h3>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="fullName"><i class="fas fa-user"></i> Full Name</label>
+                                <input type="text" id="fullName" placeholder="John Doe" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email"><i class="fas fa-envelope"></i> Email Address</label>
+                                <input type="email" id="email" placeholder="john@example.com" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone"><i class="fas fa-phone"></i> Phone Number</label>
+                                <input type="tel" id="phone" placeholder="+251 91 234 5678" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="company"><i class="fas fa-building"></i> Company Name</label>
+                                <input type="text" id="company" placeholder="Your Company PLC">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="notes"><i class="fas fa-sticky-note"></i> Additional Notes (Optional)</label>
+                            <textarea id="notes" placeholder="Any special instructions or requests..." rows="3"></textarea>
+                        </div>
+                    </div>
+                    
+                    <!-- Terms and Submit -->
+                    <div class="payment-submit-section">
+                        <div class="terms-agreement">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="termsAgreement" required>
+                                <span>I agree to the <a href="terms.html">Terms of Service</a> and <a href="privacy-policy.html">Privacy Policy</a></span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="receiptAgreement">
+                                <span>I want to receive payment receipt via email</span>
+                            </label>
+                        </div>
+                        
+                        <div class="payment-actions">
+                            <button class="btn btn-outline" onclick="window.history.back()">
+                                <i class="fas fa-arrow-left"></i> Go Back
+                            </button>
+                            <button class="btn btn-primary btn-lg" id="submitPayment">
+                                <i class="fas fa-lock"></i> Complete Payment
+                                <span class="amount">ETB 4,599</span>
+                            </button>
+                        </div>
+                        
+                        <div class="payment-security-badges">
+                            <div class="badge">
+                                <i class="fas fa-shield-alt"></i>
+                                <span>Secure Payment</span>
+                            </div>
+                            <div class="badge">
+                                <i class="fas fa-lock"></i>
+                                <span>SSL Encrypted</span>
+                            </div>
+                            <div class="badge">
+                                <i class="fas fa-user-shield"></i>
+                                <span>PCI Compliant</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Payment FAQs -->
+    <section class="section section-light">
+        <div class="container">
+            <div class="payment-faq">
+                <h2><i class="fas fa-question-circle"></i> Payment FAQs</h2>
+                
+                <div class="faq-grid">
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h4>Is my payment secure?</h4>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Yes, all payments are processed using 256-bit SSL encryption and comply with PCI DSS security standards. We never store your full card details on our servers.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h4>How long does payment processing take?</h4>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Mobile money payments are processed instantly. Bank transfers take 1-2 hours during business hours. Card payments are immediate.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h4>Will I receive a receipt?</h4>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Yes, we automatically email a payment receipt to the email address you provide. You can also download it from your account dashboard.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h4>What payment methods do you accept?</h4>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>We accept all major Ethiopian payment methods including Telebirr, HelloCash, Amole, CBE Birr, and bank transfers. We also accept international Visa and Mastercard payments.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h4>Is VAT included in the price?</h4>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Yes, all prices include 15% VAT as required by Ethiopian law. The VAT breakdown is shown clearly in your invoice.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h4>Can I get a refund?</h4>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>We offer a 7-day money-back guarantee for all our services. Contact our support team within 7 days of payment for refund requests.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Support Section -->
+    <section class="section support-section">
+        <div class="container">
+            <div class="support-content">
+                <div class="support-info">
+                    <h2><i class="fas fa-headset"></i> Need Help with Payment?</h2>
+                    <p>Our support team is available to assist you with any payment-related questions or issues.</p>
+                    
+                    <div class="support-options">
+                        <div class="support-option">
+                            <i class="fab fa-whatsapp"></i>
+                            <div>
+                                <h4>WhatsApp Support</h4>
+                                <p>+251 93 837 1557</p>
+                                <a href="https://wa.me/251938371557" class="btn btn-outline btn-sm">Chat Now</a>
+                            </div>
+                        </div>
+                        
+                        <div class="support-option">
+                            <i class="fas fa-phone-alt"></i>
+                            <div>
+                                <h4>Phone Support</h4>
+                                <p>+251 92 485 8244</p>
+                                <a href="tel:+251924858244" class="btn btn-outline btn-sm">Call Now</a>
+                            </div>
+                        </div>
+                        
+                        <div class="support-option">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <h4>Email Support</h4>
+                                <p>billing@zewedjobs.com</p>
+                                <a href="mailto:billing@zewedjobs.com" class="btn btn-outline btn-sm">Email Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="support-image">
+                    <i class="fas fa-credit-card"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="index.html" class="logo">
+                        <div class="logo-icon">ZJ</div>
+                        <div class="logo-text">ZewedJobs</div>
+                    </a>
+                    <p class="footer-description">Ethiopia's trusted platform for job seekers and employers since 2020.</p>
+                    <div class="payment-methods-footer">
+                        <i class="fas fa-mobile-alt" title="Telebirr"></i>
+                        <i class="fas fa-money-bill-wave" title="HelloCash"></i>
+                        <i class="fas fa-credit-card" title="Amole"></i>
+                        <i class="fab fa-cc-visa" title="Visa"></i>
+                        <i class="fab fa-cc-mastercard" title="Mastercard"></i>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Payment Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="pricing.html"><i class="fas fa-tags"></i> Pricing Plans</a></li>
+                        <li><a href="refund-policy.html"><i class="fas fa-undo"></i> Refund Policy</a></li>
+                        <li><a href="billing.html"><i class="fas fa-file-invoice"></i> Billing & Invoices</a></li>
+                        <li><a href="business.html"><i class="fas fa-building"></i> Business Accounts</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Help & Support</h4>
+                    <ul class="footer-links">
+                        <li><a href="payment-help.html"><i class="fas fa-question-circle"></i> Payment Help</a></li>
+                        <li><a href="faq.html"><i class="fas fa-question"></i> FAQ</a></li>
+                        <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact Us</a></li>
+                        <li><a href="support.html"><i class="fas fa-headset"></i> Live Support</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Contact Billing</h4>
+                    <div class="contact-info">
+                        <div><i class="fas fa-phone-alt"></i> +251 92 485 8244</div>
+                        <div><i class="fab fa-whatsapp"></i> +251 93 837 1557</div>
+                        <div><i class="fas fa-envelope"></i> billing@zewedjobs.com</div>
+                        <div><i class="fas fa-map-marker-alt"></i> Addis Ababa, Ethiopia</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <div class="copyright">
+                        © 2024 ZewedJobs. All rights reserved.
+                    </div>
+                    <div class="footer-links-bottom">
+                        <a href="privacy-policy.html">Privacy Policy</a>
+                        <a href="terms.html">Terms of Service</a>
+                        <a href="cookies.html">Cookie Policy</a>
+                        <a href="payment-terms.html">Payment Terms</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Payment Processing Modal -->
+    <div id="paymentProcessingModal" class="modal">
+        <div class="modal-content">
+            <div class="payment-processing">
+                <div class="processing-icon">
+                    <i class="fas fa-spinner fa-spin"></i>
+                </div>
+                <h3>Processing Your Payment</h3>
+                <p>Please wait while we process your payment. Do not refresh or close this page.</p>
+                <div class="processing-progress">
+                    <div class="progress-bar">
+                        <div class="progress-fill"></div>
+                    </div>
+                    <div class="progress-text">Processing...</div>
+                </div>
+                <div class="processing-details">
+                    <p><i class="fas fa-shield-alt"></i> Your payment is being securely processed</p>
+                    <p><i class="fas fa-clock"></i> This may take a few seconds</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+    <script src="payment.js"></script>
+    
+    <!-- Initialize -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize payment system
+            PaymentSystem.init();
+            
+            // Load saved payment data
+            const savedData = localStorage.getItem('zewedjobs_payment_data');
+            if (savedData) {
+                PaymentSystem.loadSavedData(JSON.parse(savedData));
+            }
+            
+            // Setup form validation
+            PaymentSystem.setupValidation();
+            
+            // Handle payment submission
+            document.getElementById('submitPayment').addEventListener('click', function() {
+                PaymentSystem.submitPayment();
+            });
+        });
+    </script>
+</body>
+</html>
