@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Successful - ZewedJobs</title>
+    <meta name="description" content="Your payment has been successfully processed. Thank you for choosing ZewedJobs.">
+    
+    <!-- Same head content as other pages -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="responsive.css">
+    <link rel="stylesheet" href="payment.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Confetti effect -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <a href="index.html" class="logo">
+                    <div class="logo-icon">ZJ</div>
+                    <div class="logo-text">ZewedJobs</div>
+                </a>
+                
+                <div class="nav-links">
+                    <a href="index.html"><i class="fas fa-home"></i> Home</a>
+                    <a href="jobs.html"><i class="fas fa-briefcase"></i> Jobs</a>
+                    <a href="employers.html"><i class="fas fa-building"></i> Employers</a>
+                </div>
+                
+                <div class="nav-actions">
+                    <a href="account.html" class="btn btn-outline">
+                        <i class="fas fa-user"></i> My Account
+                    </a>
+                </div>
+                
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Success Hero -->
+    <section class="success-hero">
+        <div class="container">
+            <div class="success-hero-content">
+                <div class="success-icon">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <h1>Payment Successful!</h1>
+                <p class="success-message">Thank you for your payment. Your transaction has been completed successfully.</p>
+                
+                <div class="success-details">
+                    <div class="detail-item">
+                        <i class="fas fa-receipt"></i>
+                        <div>
+                            <span class="label">Payment ID</span>
+                            <span class="value">PYM-2024-0382-1547</span>
+                        </div>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-calendar-check"></i>
+                        <div>
+                            <span class="label">Date & Time</span>
+                            <span class="value">March 15, 2024 - 14:30 EAT</span>
+                        </div>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-money-check-alt"></i>
+                        <div>
+                            <span class="label">Amount Paid</span>
+                            <span class="value amount">ETB 4,599</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Success Content -->
+    <section class="section">
+        <div class="container">
+            <div class="success-content">
+                <div class="success-main">
+                    <div class="success-card">
+                        <div class="card-header">
+                            <h2><i class="fas fa-trophy"></i> Payment Confirmed</h2>
+                            <div class="status-badge success">
+                                <i class="fas fa-check"></i> COMPLETED
+                            </div>
+                        </div>
+                        
+                        <div class="card-body">
+                            <div class="confirmation-message">
+                                <p><i class="fas fa-check"></i> Payment has been verified and confirmed</p>
+                                <p><i class="fas fa-check"></i> Receipt has been emailed to you</p>
+                                <p><i class="fas fa-check"></i> Your account has been upgraded</p>
+                            </div>
+                            
+                            <div class="next-steps">
+                                <h3><i class="fas fa-forward"></i> What's Next?</h3>
+                                <div class="steps-grid">
+                                    <div class="step">
+                                        <div class="step-icon">1</div>
+                                        <h4>Access Your Dashboard</h4>
+                                        <p>Log in to your account to access premium features</p>
+                                        <a href="dashboard.html" class="step-link">Go to Dashboard →</a>
+                                    </div>
+                                    
+                                    <div class="step">
+                                        <div class="step-icon">2</div>
+                                        <h4>Post Your First Job</h4>
+                                        <p>Start posting jobs immediately with your new credits</p>
+                                        <a href="post-job.html" class="step-link">Post a Job →</a>
+                                    </div>
+                                    
+                                    <div class="step">
+                                        <div class="step-icon">3</div>
+                                        <h4>Explore Features</h4>
+                                        <p>Discover all the premium tools available to you</p>
+                                        <a href="features.html" class="step-link">View Features →</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="invoice-card">
+                        <div class="card-header">
+                            <h2><i class="fas fa-file-invoice"></i> Invoice Summary</h2>
+                            <button class="btn btn-outline" onclick="PaymentSystem.downloadInvoice()">
+                                <i class="fas fa-download"></i> Download Invoice
+                            </button>
+                        </div>
+                        
+                        <div class="invoice-details">
+                            <div class="invoice-row">
+                                <span>Invoice Number:</span>
+                                <span>INV-2024-1547</span>
+                            </div>
+                            <div class="invoice-row">
+                                <span>Billing Date:</span>
+                                <span>March 15, 2024</span>
+                            </div>
+                            <div class="invoice-row">
+                                <span>Payment Method:</span>
+                                <span>Telebirr •••• 8244</span>
+                            </div>
+                            <div class="invoice-row">
+                                <span>Transaction ID:</span>
+                                <span>TXN-387216549</span>
+                            </div>
+                        </div>
+                        
+                        <div class="invoice-items">
+                            <div class="invoice-item">
+                                <span>Premium Job Posting (30 days)</span>
+                                <span>ETB 2,499</span>
+                            </div>
+                            <div class="invoice-item">
+                                <span>Featured Business Listing</span>
+                                <span>ETB 1,500</span>
+                            </div>
+                            <div class="invoice-item">
+                                <span>Subtotal</span>
+                                <span>ETB 3,999</span>
+                            </div>
+                            <div class="invoice-item">
+                                <span>VAT (15%)</span>
+                                <span>ETB 600</span>
+                            </div>
+                            <div class="invoice-total">
+                                <span>Total Paid</span>
+                                <span class="total-amount">ETB 4,599</span>
+                            </div>
+                        </div>
+                        
+                        <div class="invoice-footer">
+                            <p><i class="fas fa-info-circle"></i> This invoice includes 15% VAT as per Ethiopian tax regulations.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="success-sidebar">
+                    <div class="sidebar-card">
+                        <h3><i class="fas fa-user-circle"></i> Account Details</h3>
+                        <div class="account-info">
+                            <div class="info-item">
+                                <span class="label">Account Name</span>
+                                <span class="value">John Doe</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="label">Email</span>
+                                <span class="value">john@example.com</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="label">Company</span>
+                                <span class="value">Example Corporation PLC</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="label">Plan</span>
+                                <span class="value badge">Business Premium</span>
+                            </div>
+                        </div>
+                        
+                        <div class="account-actions">
+                            <a href="account.html" class="btn btn-outline btn-block">
+                                <i class="fas fa-user-cog"></i> Manage Account
+                            </a>
+                            <a href="billing.html" class="btn btn-outline btn-block">
+                                <i class="fas fa-file-invoice-dollar"></i> Billing History
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="sidebar-card">
+                        <h3><i class="fas fa-gift"></i> What You Get</h3>
+                        <ul class="features-list">
+                            <li><i class="fas fa-check"></i> 20 Job Postings</li>
+                            <li><i class="fas fa-check"></i> Featured Listings</li>
+                            <li><i class="fas fa-check"></i> AI Candidate Matching</li>
+                            <li><i class="fas fa-check"></i> Advanced Analytics</li>
+                            <li><i class="fas fa-check"></i> Priority Support</li>
+                            <li><i class="fas fa-check"></i> Company Profile Page</li>
+                        </ul>
+                        
+                        <div class="feature-note">
+                            <i class="fas fa-star"></i>
+                            <p>All features are now active in your account!</p>
+                        </div>
+                    </div>
+                    
+                    <div class="sidebar-card support-card">
+                        <h3><i class="fas fa-headset"></i> Need Help?</h3>
+                        <p>Our support team is here to help you get started.</p>
+                        
+                        <div class="support-options">
+                            <a href="https://wa.me/251938371557" class="support-option">
+                                <i class="fab fa-whatsapp"></i>
+                                <span>WhatsApp Support</span>
+                            </a>
+                            <a href="mailto:support@zewedjobs.com" class="support-option">
+                                <i class="fas fa-envelope"></i>
+                                <span>Email Support</span>
+                            </a>
+                            <a href="help.html" class="support-option">
+                                <i class="fas fa-question-circle"></i>
+                                <span>Help Center</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Welcome Gift -->
+    <section class="section section-gradient">
+        <div class="container">
+            <div class="welcome-gift">
+                <div class="gift-content">
+                    <h2><i class="fas fa-gift"></i> Welcome Gift!</h2>
+                    <p>As a thank you for your payment, we've added <strong>2 free featured job credits</strong> to your account.</p>
+                    <div class="gift-details">
+                        <div class="gift-item">
+                            <i class="fas fa-briefcase"></i>
+                            <span>2 Featured Job Credits</span>
+                        </div>
+                        <div class="gift-item">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>Valid for 60 days</span>
+                        </div>
+                        <div class="gift-item">
+                            <i class="fas fa-dollar-sign"></i>
+                            <span>Value: ETB 998</span>
+                        </div>
+                    </div>
+                    <a href="dashboard.html#credits" class="btn btn-primary">
+                        <i class="fas fa-gift"></i> Claim Your Gift
+                    </a>
+                </div>
+                <div class="gift-image">
+                    <i class="fas fa-gift-box"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Get Started Section -->
+    <section class="section">
+        <div class="container">
+            <div class="get-started">
+                <h2>Ready to Get Started?</h2>
+                <p>Take advantage of your new premium features right away</p>
+                
+                <div class="action-grid">
+                    <div class="action-card">
+                        <div class="action-icon">
+                            <i class="fas fa-briefcase"></i>
+                        </div>
+                        <h3>Post Your First Job</h3>
+                        <p>Create a compelling job listing and reach qualified candidates</p>
+                        <a href="post-job.html" class="btn btn-primary">Post a Job</a>
+                    </div>
+                    
+                    <div class="action-card">
+                        <div class="action-icon">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <h3>Find Candidates</h3>
+                        <p>Use AI matching to find the perfect candidates for your roles</p>
+                        <a href="candidates.html" class="btn btn-teal">Search Candidates</a>
+                    </div>
+                    
+                    <div class="action-card">
+                        <div class="action-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3>View Analytics</h3>
+                        <p>Track your job performance and candidate engagement</p>
+                        <a href="analytics.html" class="btn btn-purple">View Analytics</a>
+                    </div>
+                    
+                    <div class="action-card">
+                        <div class="action-icon">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                        <h3>Setup Company</h3>
+                        <p>Complete your company profile to attract more candidates</p>
+                        <a href="company-setup.html" class="btn btn-orange">Setup Profile</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="section section-light">
+        <div class="container">
+            <div class="testimonials">
+                <h2>What Our Customers Say</h2>
+                <p>Hear from other employers who upgraded their accounts</p>
+                
+                <div class="testimonial-cards">
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <p>"Upgrading to Business plan was the best decision. We filled 3 positions in just 2 weeks!"</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">TA</div>
+                            <div class="author-info">
+                                <div class="author-name">Tewodros Ayele</div>
+                                <div class="author-role">HR Director, Awash Bank</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <p>"The AI matching feature saved us 50% of our hiring time. Highly recommended!"</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">SG</div>
+                            <div class="author-info">
+                                <div class="author-name">Samuel Getachew</div>
+                                <div class="author-role">CTO, Tech Solutions Inc.</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <p>"Excellent value for money. The candidate quality is much better than other platforms."</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">MS</div>
+                            <div class="author-info">
+                                <div class="author-name">Marta Solomon</div>
+                                <div class="author-role">CEO, Marketing Pro</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="index.html" class="logo">
+                        <div class="logo-icon">ZJ</div>
+                        <div class="logo-text">ZewedJobs</div>
+                    </a>
+                    <p class="footer-description">Ethiopia's trusted platform for job seekers and employers since 2020.</p>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="dashboard.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                        <li><a href="post-job.html"><i class="fas fa-plus-circle"></i> Post a Job</a></li>
+                        <li><a href="candidates.html"><i class="fas fa-users"></i> Find Candidates</a></li>
+                        <li><a href="analytics.html"><i class="fas fa-chart-bar"></i> Analytics</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Support</h4>
+                    <ul class="footer-links">
+                        <li><a href="help.html"><i class="fas fa-question-circle"></i> Help Center</a></li>
+                        <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact Us</a></li>
+                        <li><a href="support.html"><i class="fas fa-headset"></i> Live Chat</a></li>
+                        <li><a href="faq.html"><i class="fas fa-question"></i> FAQ</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Contact Us</h4>
+                    <div class="contact-info">
+                        <div><i class="fas fa-phone-alt"></i> +251 92 485 8244</div>
+                        <div><i class="fab fa-whatsapp"></i> +251 93 837 1557</div>
+                        <div><i class="fas fa-envelope"></i> support@zewedjobs.com</div>
+                        <div><i class="fas fa-map-marker-alt"></i> Addis Ababa, Ethiopia</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <div class="copyright">
+                        © 2024 ZewedJobs. All rights reserved.
+                    </div>
+                    <div class="footer-links-bottom">
+                        <a href="privacy-policy.html">Privacy Policy</a>
+                        <a href="terms.html">Terms of Service</a>
+                        <a href="refund-policy.html">Refund Policy</a>
+                        <a href="payment-terms.html">Payment Terms</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Email Receipt Modal -->
+    <div id="receiptModal" class="modal">
+        <div class="modal-content">
+            <div class="receipt-sent">
+                <div class="receipt-icon">
+                    <i class="fas fa-envelope-open-text"></i>
+                </div>
+                <h3>Receipt Sent!</h3>
+                <p>We've sent a detailed payment receipt to <strong>john@example.com</strong></p>
+                <div class="receipt-actions">
+                    <button class="btn btn-outline" onclick="PaymentSystem.downloadInvoice()">
+                        <i class="fas fa-download"></i> Download PDF
+                    </button>
+                    <button class="btn btn-primary" onclick="PaymentSystem.closeModal()">
+                        <i class="fas fa-check"></i> Continue
+                    </button>
+                </div>
+                <div class="receipt-note">
+                    <i class="fas fa-info-circle"></i>
+                    <p>You can always download invoices from your billing dashboard.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+    <script src="payment.js"></script>
+    
+    <!-- Initialize Success Page -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Fire confetti animation
+            setTimeout(() => {
+                confetti({
+                    particleCount: 150,
+                    spread: 70,
+                    origin: { y: 0.6 }
+                });
+            }, 500);
+            
+            // Show receipt sent modal
+            setTimeout(() => {
+                PaymentSystem.showModal('receiptModal');
+            }, 2000);
+            
+            // Update payment status in localStorage
+            localStorage.setItem('zewedjobs_last_payment', JSON.stringify({
+                status: 'success',
+                amount: 4599,
+                date: new Date().toISOString(),
+                invoiceId: 'INV-2024-1547'
+            }));
+            
+            // Clear payment form data
+            localStorage.removeItem('zewedjobs_payment_data');
+        });
+    </script>
+</body>
+</html>
