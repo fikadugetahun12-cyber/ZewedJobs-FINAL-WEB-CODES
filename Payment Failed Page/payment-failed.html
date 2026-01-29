@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Failed - ZewedJobs</title>
+    <meta name="description" content="Your payment was not successful. Please try again or contact support for assistance.">
+    
+    <!-- Same head content as other pages -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="responsive.css">
+    <link rel="stylesheet" href="payment.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <a href="index.html" class="logo">
+                    <div class="logo-icon">ZJ</div>
+                    <div class="logo-text">ZewedJobs</div>
+                </a>
+                
+                <div class="nav-links">
+                    <a href="index.html"><i class="fas fa-home"></i> Home</a>
+                    <a href="jobs.html"><i class="fas fa-briefcase"></i> Jobs</a>
+                    <a href="payment.html"><i class="fas fa-credit-card"></i> Payment</a>
+                </div>
+                
+                <div class="nav-actions">
+                    <a href="help.html" class="btn btn-outline">
+                        <i class="fas fa-question-circle"></i> Help
+                    </a>
+                </div>
+                
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Failed Hero -->
+    <section class="failed-hero">
+        <div class="container">
+            <div class="failed-hero-content">
+                <div class="failed-icon">
+                    <i class="fas fa-times-circle"></i>
+                </div>
+                <h1>Payment Failed</h1>
+                <p class="failed-message">We couldn't process your payment. Please try again or contact support.</p>
+                
+                <div class="failed-details">
+                    <div class="detail-item">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <div>
+                            <span class="label">Error Code</span>
+                            <span class="value">PAY-ERROR-0382</span>
+                        </div>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <span class="label">Time</span>
+                            <span class="value">March 15, 2024 - 14:30 EAT</span>
+                        </div>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-credit-card"></i>
+                        <div>
+                            <span class="label">Payment Method</span>
+                            <span class="value">Telebirr</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Failed Content -->
+    <section class="section">
+        <div class="container">
+            <div class="failed-content">
+                <div class="failed-main">
+                    <div class="failed-card">
+                        <div class="card-header">
+                            <h2><i class="fas fa-times"></i> Payment Declined</h2>
+                            <div class="status-badge failed">
+                                <i class="fas fa-times"></i> FAILED
+                            </div>
+                        </div>
+                        
+                        <div class="card-body">
+                            <div class="error-message">
+                                <h3><i class="fas fa-exclamation-circle"></i> What went wrong?</h3>
+                                <p>Your payment was declined by the payment processor. This could be due to:</p>
+                                
+                                <div class="error-reasons">
+                                    <div class="reason">
+                                        <i class="fas fa-credit-card"></i>
+                                        <div>
+                                            <h4>Insufficient Funds</h4>
+                                            <p>Your account doesn't have enough balance to complete this transaction.</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="reason">
+                                        <i class="fas fa-shield-alt"></i>
+                                        <div>
+                                            <h4>Security Check Failed</h4>
+                                            <p>The transaction was blocked by security measures on your account.</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="reason">
+                                        <i class="fas fa-wifi"></i>
+                                        <div>
+                                            <h4>Network Error</h4>
+                                            <p>There was a temporary network issue during the payment process.</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="reason">
+                                        <i class="fas fa-ban"></i>
+                                        <div>
+                                            <h4>Transaction Limit</h4>
+                                            <p>Your transaction exceeds your account's daily limit.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="error-details">
+                                <h3><i class="fas fa-info-circle"></i> Transaction Details</h3>
+                                <div class="details-grid">
+                                    <div class="detail">
+                                        <span>Transaction ID:</span>
+                                        <span>TXN-387216549</span>
+                                    </div>
+                                    <div class="detail">
+                                        <span>Amount:</span>
+                                        <span>ETB 4,599</span>
+                                    </div>
+                                    <div class="detail">
+                                        <span>Error Message:</span>
+                                        <span class="error-text">Insufficient funds in account</span>
+                                    </div>
+                                    <div class="detail">
+                                        <span>Bank Reference:</span>
+                                        <span>BANK-REF-89456</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="action-card">
+                        <div class="card-header">
+                            <h2><i class="fas fa-redo"></i> Try Again</h2>
+                        </div>
+                        
+                        <div class="card-body">
+                            <p>You can try making the payment again using a different payment method or check your account balance.</p>
+                            
+                            <div class="retry-options">
+                                <div class="retry-option">
+                                    <i class="fas fa-credit-card"></i>
+                                    <div>
+                                        <h4>Use Different Payment Method</h4>
+                                        <p>Try paying with a different card, mobile money account, or bank transfer.</p>
+                                    </div>
+                                    <a href="payment.html" class="btn btn-primary">Change Method</a>
+                                </div>
+                                
+                                <div class="retry-option">
+                                    <i class="fas fa-money-check-alt"></i>
+                                    <div>
+                                        <h4>Check Account Balance</h4>
+                                        <p>Make sure your payment account has sufficient funds for this transaction.</p>
+                                    </div>
+                                    <a href="#" class="btn btn-outline">Check Balance</a>
+                                </div>
+                                
+                                <div class="retry-option">
+                                    <i class="fas fa-shopping-cart"></i>
+                                    <div>
+                                        <h4>Reduce Order Amount</h4>
+                                        <p>Consider selecting a different plan or removing add-ons to reduce the total.</p>
+                                    </div>
+                                    <a href="pricing.html" class="btn btn-outline">View Plans</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="failed-sidebar">
+                    <div class="sidebar-card support-card">
+                        <h3><i class="fas fa-headset"></i> Need Immediate Help?</h3>
+                        <p>Our support team can help you resolve payment issues quickly.</p>
+                        
+                        <div class="support-options">
+                            <a href="https://wa.me/251938371557" class="support-option urgent">
+                                <i class="fab fa-whatsapp"></i>
+                                <div>
+                                    <span class="option-title">WhatsApp Support</span>
+                                    <span class="option-subtitle">+251 93 837 1557</span>
+                                </div>
+                            </a>
+                            
+                            <a href="tel:+251924858244" class="support-option urgent">
+                                <i class="fas fa-phone-alt"></i>
+                                <div>
+                                    <span class="option-title">Phone Support</span>
+                                    <span class="option-subtitle">+251 92 485 8244</span>
+                                </div>
+                            </a>
+                            
+                            <a href="mailto:billing@zewedjobs.com" class="support-option">
+                                <i class="fas fa-envelope"></i>
+                                <div>
+                                    <span class="option-title">Email Support</span>
+                                    <span class="option-subtitle">billing@zewedjobs.com</span>
+                                </div>
+                            </a>
+                            
+                            <a href="help.html" class="support-option">
+                                <i class="fas fa-question-circle"></i>
+                                <div>
+                                    <span class="option-title">Help Center</span>
+                                    <span class="option-subtitle">Payment FAQs</span>
+                                </div>
+                            </a>
+                        </div>
+                        
+                        <div class="support-hours">
+                            <h4><i class="fas fa-clock"></i> Support Hours</h4>
+                            <ul>
+                                <li>Monday - Friday: 8:30 AM - 6:00 PM</li>
+                                <li>Saturday: 9:00 AM - 1:00 PM</li>
+                                <li>Sunday: Closed</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="sidebar-card tips-card">
+                        <h3><i class="fas fa-lightbulb"></i> Payment Tips</h3>
+                        <div class="tips-list">
+                            <div class="tip">
+                                <i class="fas fa-check"></i>
+                                <span>Ensure sufficient balance in your account</span>
+                            </div>
+                            <div class="tip">
+                                <i class="fas fa-check"></i>
+                                <span>Check daily transaction limits</span>
+                            </div>
+                            <div class="tip">
+                                <i class="fas fa-check"></i>
+                                <span>Use a stable internet connection</span>
+                            </div>
+                            <div class="tip">
+                                <i class="fas fa-check"></i>
+                                <span>Keep your payment app updated</span>
+                            </div>
+                            <div class="tip">
+                                <i class="fas fa-check"></i>
+                                <span>Contact your bank if blocked</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="sidebar-card assurance-card">
+                        <h3><i class="fas fa-shield-alt"></i> Payment Security</h3>
+                        <p>Your payment information is always secure with us:</p>
+                        <div class="security-features">
+                            <div class="feature">
+                                <i class="fas fa-lock"></i>
+                                <span>256-bit SSL Encryption</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-user-shield"></i>
+                                <span>PCI DSS Compliant</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-ban"></i>
+                                <span>No Card Storage</span>
+                            </div>
+                        </div>
+                        <div class="assurance-note">
+                            <i class="fas fa-info-circle"></i>
+                            <p>No money was deducted from your account for this failed transaction.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Alternative Methods -->
+    <section class="section section-light">
+        <div class="container">
+            <div class="alternative-methods">
+                <h2>Alternative Payment Methods</h2>
+                <p>Try one of these other secure payment options</p>
+                
+                <div class="methods-grid">
+                    <div class="method-card">
+                        <div class="method-icon">
+                            <i class="fas fa-university"></i>
+                        </div>
+                        <h3>Bank Transfer</h3>
+                        <p>Transfer directly to our bank account and upload receipt</p>
+                        <div class="method-details">
+                            <p><i class="fas fa-building"></i> Commercial Bank of Ethiopia</p>
+                            <p><i class="fas fa-hashtag"></i> Acc: 10002589463215</p>
+                        </div>
+                        <a href="payment.html?method=bank" class="btn btn-outline">Try Bank Transfer</a>
+                    </div>
+                    
+                    <div class="method-card">
+                        <div class="method-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <h3>HelloCash</h3>
+                        <p>Instant payment using Dashen Bank's digital wallet</p>
+                        <div class="method-details">
+                            <p><i class="fas fa-bolt"></i> Instant processing</p>
+                            <p><i class="fas fa-check"></i> No transaction fees</p>
+                        </div>
+                        <a href="payment.html?method=hellocash" class="btn btn-outline">Try HelloCash</a>
+                    </div>
+                    
+                    <div class="method-card">
+                        <div class="method-icon">
+                            <i class="fas fa-credit-card"></i>
+                        </div>
+                        <h3>Credit Card</h3>
+                        <p>Pay securely with Visa or Mastercard</p>
+                        <div class="method-details">
+                            <p><i class="fab fa-cc-visa"></i> Visa cards accepted</p>
+                            <p><i class="fab fa-cc-mastercard"></i> Mastercard accepted</p>
+                        </div>
+                        <a href="payment.html?method=card" class="btn btn-outline">Try Credit Card</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section">
+        <div class="container">
+            <div class="payment-faq">
+                <h2><i class="fas fa-question-circle"></i> Common Payment Issues</h2>
+                
+                <div class="faq-grid">
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h4>Why was my payment declined?</h4>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Payments can be declined for several reasons: insufficient funds, daily transaction limits, security blocks by your bank, expired payment method, or technical errors. Check your account balance and contact your bank if unsure.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h4>Was money deducted from my account?</h4>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>No money is deducted for failed transactions. If you see a temporary hold on your account, it will be released within 1-3 business days. This is an authorization hold that banks place during payment attempts.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h4>How can I avoid payment failures?</h4>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>1. Ensure sufficient balance in your account<br>
+                            2. Check your daily transaction limits<br>
+                            3. Use a stable internet connection<br>
+                            4. Update your payment app<br>
+                            5. Contact your bank to authorize online payments</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h4>What should I do if money was deducted but payment failed?</h4>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Contact our support team immediately with your transaction details. We'll work with the payment processor to either complete the transaction or initiate a refund. Refunds typically take 3-7 business days.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h4>Can I save my payment method for future use?</h4>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Yes, you can save your payment method securely in your account settings. We use tokenization to store payment references without storing actual card details. This makes future payments faster and more secure.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h4>Is there a transaction fee for payments?</h4>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>No, ZewedJobs does not charge any additional transaction fees. You only pay the amount shown on your invoice. Your bank or payment provider may charge their standard fees, which we have no control over.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Support -->
+    <section class="section support-section">
+        <div class="container">
+            <div class="support-content">
+                <div class="support-info">
+                    <h2><i class="fas fa-headset"></i> Still Having Trouble?</h2>
+                    <p>Our payment support specialists are ready to help you complete your payment.</p>
+                    
+                    <div class="support-stats">
+                        <div class="stat">
+                            <div class="stat-number">95%</div>
+                            <div class="stat-label">Payment Issues Resolved</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">5 min</div>
+                            <div class="stat-label">Average Response Time</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">24/7</div>
+                            <div class="stat-label">Support Available</div>
+                        </div>
+                    </div>
+                    
+                    <div class="support-cta">
+                        <a href="https://wa.me/251938371557" class="btn btn-primary btn-lg">
+                            <i class="fab fa-whatsapp"></i> Chat with Support
+                        </a>
+                        <a href="tel:+251924858244" class="btn btn-outline btn-lg">
+                            <i class="fas fa-phone-alt"></i> Call Support
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="support-image">
+                    <i class="fas fa-comments-dollar"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="index.html" class="logo">
+                        <div class="logo-icon">ZJ</div>
+                        <div class="logo-text">ZewedJobs</div>
+                    </a>
+                    <p class="footer-description">Ethiopia's trusted platform for job seekers and employers since 2020.</p>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Payment Support</h4>
+                    <ul class="footer-links">
+                        <li><a href="payment-help.html"><i class="fas fa-question-circle"></i> Payment Help</a></li>
+                        <li><a href="faq.html"><i class="fas fa-question"></i> FAQ</a></li>
+                        <li><a href="refund-policy.html"><i class="fas fa-undo"></i> Refund Policy</a></li>
+                        <li><a href="payment-terms.html"><i class="fas fa-file-contract"></i> Payment Terms</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                        <li><a href="pricing.html"><i class="fas fa-tags"></i> Pricing</a></li>
+                        <li><a href="employers.html"><i class="fas fa-building"></i> Employers</a></li>
+                        <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Contact Support</h4>
+                    <div class="contact-info">
+                        <div><i class="fas fa-phone-alt"></i> +251 92 485 8244</div>
+                        <div><i class="fab fa-whatsapp"></i> +251 93 837 1557</div>
+                        <div><i class="fas fa-envelope"></i> billing@zewedjobs.com</div>
+                        <div><i class="fas fa-map-marker-alt"></i> Addis Ababa, Ethiopia</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <div class="copyright">
+                        © 2024 ZewedJobs. All rights reserved.
+                    </div>
+                    <div class="footer-links-bottom">
+                        <a href="privacy-policy.html">Privacy Policy</a>
+                        <a href="terms.html">Terms of Service</a>
+                        <a href="cookies.html">Cookie Policy</a>
+                        <a href="sitemap.html">Sitemap</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Retry Payment Modal -->
+    <div id="retryModal" class="modal">
+        <div class="modal-content">
+            <div class="retry-payment">
+                <div class="retry-icon">
+                    <i class="fas fa-redo"></i>
+                </div>
+                <h3>Retry Payment?</h3>
+                <p>Would you like to try the payment again with the same method?</p>
+                
+                <div class="payment-details">
+                    <div class="detail">
+                        <span>Amount:</span>
+                        <span class="amount">ETB 4,599</span>
+                    </div>
+                    <div class="detail">
+                        <span>Method:</span>
+                        <span>Telebirr •••• 8244</span>
+                    </div>
+                </div>
+                
+                <div class="retry-actions">
+                    <button class="btn btn-outline" onclick="PaymentSystem.closeModal()">
+                        <i class="fas fa-times"></i> Cancel
+                    </button>
+                    <button class="btn btn-primary" onclick="PaymentSystem.retryPayment()">
+                        <i class="fas fa-redo"></i> Try Again
+                    </button>
+                </div>
+                
+                <div class="retry-note">
+                    <i class="fas fa-lightbulb"></i>
+                    <p>Ensure you have sufficient balance before retrying.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+    <script src="payment.js"></script>
+    
+    <!-- Initialize Failed Page -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Check if there's error data in URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const errorCode = urlParams.get('error') || 'PAY-ERROR-0382';
+            const errorMessage = urlParams.get('message') || 'Insufficient funds in account';
+            
+            // Update error display
+            document.querySelector('.error-text').textContent = errorMessage;
+            
+            // Store failed payment attempt
+            localStorage.setItem('zewedjobs_failed_payment', JSON.stringify({
+                error: errorCode,
+                message: errorMessage,
+                timestamp: new Date().toISOString(),
+                amount: 4599
+            }));
+            
+            // Setup retry functionality
+            document.querySelectorAll('.retry-option .btn').forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    if (this.textContent.includes('Try Again')) {
+                        e.preventDefault();
+                        PaymentSystem.showModal('retryModal');
+                    }
+                });
+            });
+            
+            // Auto-show retry modal after 3 seconds
+            setTimeout(() => {
+                PaymentSystem.showModal('retryModal');
+            }, 3000);
+        });
+    </script>
+</body>
+</html>
