@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News & Updates - ZewedJobs</title>
+    <meta name="description" content="Latest news, articles, and updates about Ethiopia's job market, career advice, and industry insights.">
+    
+    <!-- Same head content as index.html -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation (Same as index.html) -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <a href="index.html" class="logo">
+                    <div class="logo-icon">ZJ</div>
+                    <div class="logo-text">ZewedJobs</div>
+                </a>
+                
+                <div class="nav-links">
+                    <a href="index.html"><i class="fas fa-home"></i> Home</a>
+                    <a href="jobs.html"><i class="fas fa-briefcase"></i> Jobs</a>
+                    <a href="news.html" class="active"><i class="fas fa-newspaper"></i> News</a>
+                    <a href="events.html"><i class="fas fa-calendar-alt"></i> Events</a>
+                    <a href="media-room.html"><i class="fas fa-video"></i> Media Room</a>
+                    <a href="courses.html"><i class="fas fa-graduation-cap"></i> Courses</a>
+                </div>
+                
+                <div class="nav-actions">
+                    <div class="translate-container">
+                        <div id="google_translate_element"></div>
+                    </div>
+                    <button class="btn btn-outline" onclick="ZewedJobs.showModal('login')">
+                        <i class="fas fa-sign-in-alt"></i> Login
+                    </button>
+                </div>
+                
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- News Hero -->
+    <section class="page-hero">
+        <div class="container">
+            <div class="page-hero-content">
+                <h1>News & Updates</h1>
+                <p>Stay informed about Ethiopia's job market, career advice, and industry insights</p>
+                <div class="search-box-news">
+                    <input type="text" placeholder="Search news articles...">
+                    <button><i class="fas fa-search"></i></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- News Categories -->
+    <section class="section">
+        <div class="container">
+            <div class="news-categories">
+                <button class="news-category-btn active" data-category="all">All News</button>
+                <button class="news-category-btn" data-category="market">Market Insights</button>
+                <button class="news-category-btn" data-category="career">Career Advice</button>
+                <button class="news-category-btn" data-category="education">Education</button>
+                <button class="news-category-btn" data-category="company">Company News</button>
+                <button class="news-category-btn" data-category="success">Success Stories</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Article -->
+    <section class="section section-light">
+        <div class="container">
+            <div class="featured-article">
+                <div class="featured-article-image">
+                    <div class="article-badge">Featured</div>
+                </div>
+                <div class="featured-article-content">
+                    <div class="article-meta">
+                        <span class="article-category">Market Insights</span>
+                        <span class="article-date"><i class="far fa-calendar"></i> March 15, 2024</span>
+                        <span class="article-read-time"><i class="far fa-clock"></i> 8 min read</span>
+                    </div>
+                    <h2>Ethiopia's Tech Industry: 2024 Outlook and Opportunities</h2>
+                    <p>Comprehensive analysis of Ethiopia's growing tech sector, emerging job opportunities, and skills in demand for 2024. Learn about government initiatives and private sector growth driving employment...</p>
+                    <a href="article-tech-outlook.html" class="btn btn-primary">Read Full Article</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- News Grid -->
+    <section class="section">
+        <div class="container">
+            <div class="news-grid-lg">
+                <!-- Article 1 -->
+                <article class="news-article">
+                    <div class="article-image">
+                        <img src="assets/news/tech-growth.jpg" alt="Tech Growth in Ethiopia">
+                        <div class="article-category">Market Insights</div>
+                    </div>
+                    <div class="article-content">
+                        <div class="article-meta">
+                            <span><i class="far fa-calendar"></i> March 10, 2024</span>
+                            <span><i class="far fa-clock"></i> 5 min read</span>
+                        </div>
+                        <h3><a href="article-tech-growth.html">Ethiopia's Tech Job Market Grows 40% in 2023</a></h3>
+                        <p>New report shows significant growth in tech employment opportunities across major cities in Ethiopia with software developers and data analysts in highest demand.</p>
+                        <div class="article-footer">
+                            <a href="article-tech-growth.html" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                            <div class="article-stats">
+                                <span><i class="far fa-eye"></i> 2,450</span>
+                                <span><i class="far fa-comment"></i> 42</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Article 2 -->
+                <article class="news-article">
+                    <div class="article-image">
+                        <img src="assets/news/digital-skills.jpg" alt="Digital Skills Training">
+                        <div class="article-category">Education</div>
+                    </div>
+                    <div class="article-content">
+                        <div class="article-meta">
+                            <span><i class="far fa-calendar"></i> March 5, 2024</span>
+                            <span><i class="far fa-clock"></i> 4 min read</span>
+                        </div>
+                        <h3><a href="article-digital-skills.html">Free Digital Skills Training for 10,000 Ethiopian Youth</a></h3>
+                        <p>ZewedJobs partners with Ministry of Education to provide free digital skills training covering web development, digital marketing, and data analysis.</p>
+                        <div class="article-footer">
+                            <a href="article-digital-skills.html" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                            <div class="article-stats">
+                                <span><i class="far fa-eye"></i> 3,120</span>
+                                <span><i class="far fa-comment"></i> 67</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Article 3 -->
+                <article class="news-article">
+                    <div class="article-image">
+                        <img src="assets/news/award.jpg" alt="Best Digital Job Platform Award">
+                        <div class="article-category">Company News</div>
+                    </div>
+                    <div class="article-content">
+                        <div class="article-meta">
+                            <span><i class="far fa-calendar"></i> Feb 28, 2024</span>
+                            <span><i class="far fa-clock"></i> 3 min read</span>
+                        </div>
+                        <h3><a href="article-award.html">ZewedJobs Wins "Best Digital Job Platform" Award 2024</a></h3>
+                        <p>Recognized for innovation and impact at Ethiopian Innovation Awards 2024, celebrating excellence in technology and employment solutions.</p>
+                        <div class="article-footer">
+                            <a href="article-award.html" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                            <div class="article-stats">
+                                <span><i class="far fa-eye"></i> 1,850</span>
+                                <span><i class="far fa-comment"></i> 28</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Article 4 -->
+                <article class="news-article">
+                    <div class="article-image">
+                        <img src="assets/news/career-fair.jpg" alt="Career Fair Success">
+                        <div class="article-category">Success Stories</div>
+                    </div>
+                    <div class="article-content">
+                        <div class="article-meta">
+                            <span><i class="far fa-calendar"></i> Feb 20, 2024</span>
+                            <span><i class="far fa-clock"></i> 6 min read</span>
+                        </div>
+                        <h3><a href="article-career-fair.html">Career Fair Connects 5,000 Job Seekers with Employers</a></h3>
+                        <p>Record-breaking attendance at ZewedJobs Career Fair 2024, with over 100 companies participating and 850 on-the-spot job offers made.</p>
+                        <div class="article-footer">
+                            <a href="article-career-fair.html" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                            <div class="article-stats">
+                                <span><i class="far fa-eye"></i> 2,980</span>
+                                <span><i class="far fa-comment"></i> 89</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Article 5 -->
+                <article class="news-article">
+                    <div class="article-image">
+                        <img src="assets/news/remote-work.jpg" alt="Remote Work Trends">
+                        <div class="article-category">Market Insights</div>
+                    </div>
+                    <div class="article-content">
+                        <div class="article-meta">
+                            <span><i class="far fa-calendar"></i> Feb 15, 2024</span>
+                            <span><i class="far fa-clock"></i> 7 min read</span>
+                        </div>
+                        <h3><a href="article-remote-work.html">Remote Work Opportunities Surge by 75% in Ethiopia</a></h3>
+                        <p>Analysis of the growing remote work trend in Ethiopia, highlighting top industries and companies embracing flexible work arrangements.</p>
+                        <div class="article-footer">
+                            <a href="article-remote-work.html" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                            <div class="article-stats">
+                                <span><i class="far fa-eye"></i> 2,340</span>
+                                <span><i class="far fa-comment"></i> 56</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Article 6 -->
+                <article class="news-article">
+                    <div class="article-image">
+                        <img src="assets/news/women-tech.jpg" alt="Women in Tech">
+                        <div class="article-category">Career Advice</div>
+                    </div>
+                    <div class="article-content">
+                        <div class="article-meta">
+                            <span><i class="far fa-calendar"></i> Feb 10, 2024</span>
+                            <span><i class="far fa-clock"></i> 5 min read</span>
+                        </div>
+                        <h3><a href="article-women-tech.html">Breaking Barriers: Women in Ethiopia's Tech Industry</a></h3>
+                        <p>Inspiring stories of Ethiopian women succeeding in technology careers and initiatives promoting gender diversity in STEM fields.</p>
+                        <div class="article-footer">
+                            <a href="article-women-tech.html" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                            <div class="article-stats">
+                                <span><i class="far fa-eye"></i> 3,450</span>
+                                <span><i class="far fa-comment"></i> 124</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <!-- Pagination -->
+            <div class="pagination">
+                <a href="#" class="page-item disabled"><i class="fas fa-chevron-left"></i></a>
+                <a href="#" class="page-item active">1</a>
+                <a href="#" class="page-item">2</a>
+                <a href="#" class="page-item">3</a>
+                <a href="#" class="page-item">4</a>
+                <a href="#" class="page-item">5</a>
+                <span class="page-dots">...</span>
+                <a href="#" class="page-item">10</a>
+                <a href="#" class="page-item"><i class="fas fa-chevron-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="section section-gradient">
+        <div class="container">
+            <div class="newsletter">
+                <div class="newsletter-content">
+                    <h2>Stay Updated</h2>
+                    <p>Subscribe to our newsletter for the latest job market insights, career tips, and exclusive opportunities.</p>
+                </div>
+                <div class="newsletter-form">
+                    <input type="email" placeholder="Enter your email address">
+                    <button class="btn btn-primary">Subscribe</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer (Same as index.html) -->
+    <footer class="footer">
+        <!-- Same footer content as index.html -->
+    </footer>
+
+    <!-- Same modals and chat as index.html -->
+    <div class="ai-chat-container">
+        <!-- Same chat as index.html -->
+    </div>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+    <script src="news.js"></script>
+</body>
+</html>
