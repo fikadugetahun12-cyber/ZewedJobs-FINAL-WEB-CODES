@@ -1,0 +1,42 @@
+{
+  "environment": "production",
+  
+  "application": {
+    "debug": false,
+    "logLevel": "error"
+  },
+  
+  "api": {
+    "baseURL": "https://api.mycompany.com/v1",
+    "timeout": 15000
+  },
+  
+  "features": {
+    "enabled": {
+      "debugMode": false,
+      "developerTools": false
+    }
+  },
+  
+  "logging": {
+    "level": "error",
+    "console": false,
+    "remote": true
+  },
+  
+  "integrations": {
+    "stripe": {
+      "publishableKey": "pk_live_xxxxxxxxxxxxxxxxxxxxxxxx"
+    },
+    
+    "googleMaps": {
+      "apiKey": "AIzaSyXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+    }
+  },
+  
+  "security": {
+    "headers": {
+      "contentSecurityPolicy": "default-src 'self' https:; script-src 'self' https: 'unsafe-inline' 'unsafe-eval'; style-src 'self' https: 'unsafe-inline';"
+    }
+  }
+}
