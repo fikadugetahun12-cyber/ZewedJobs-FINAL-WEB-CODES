@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment System Demo</title>
+    <style>
+        .payment-container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .payment-method {
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin: 10px 0;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+        .payment-method:hover {
+            border-color: #3498db;
+            background: #f8f9fa;
+        }
+        .payment-form {
+            display: none;
+            margin-top: 20px;
+        }
+        .payment-form.active {
+            display: block;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .btn-pay {
+            background: #2ecc71;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .btn-pay:hover {
+            background: #27ae60;
+        }
+    </style>
+</head>
+<body>
+    <div class="payment-container">
+        <h1>Make a Payment</h1>
+        
+        <div class="payment-system-selector">
+            <h3>Select Payment System</h3>
+            <button onclick="setPaymentSystem('ethiopian')">Ethiopian Payment</button>
+            <button onclick="setPaymentSystem('international')">International Payment</button>
+        </div>
+
+        <div id="payment-details">
+            <div class="form-group">
+                <label>Amount:</label>
+                <input type="number" id="amount" placeholder="Enter amount">
+            </div>
+            <div class="form-group">
+                <label>Currency:</label>
+                <select id="currency">
+                    <option value="ETB">ETB</option>
+                    <option value="USD">USD</option>
+                    <option value="EUR">EUR</option>
+                </select>
+            </div>
+        </div>
+
+        <div id="payment-methods-container">
+            <!-- Payment methods will be dynamically loaded -->
+        </div>
+
+        <div id="payment-form-container">
+            <!-- Payment form will be dynamically loaded -->
+        </div>
+
+        <button class="btn-pay" onclick="processPayment()">Pay Now</button>
+    </div>
+
+    <script type="module">
+        import PaymentManager from './js/main.js';
+        
+        // Initialize payment manager
+        const paymentManager = new PaymentManager();
+        
+        // Global functions for UI interaction
+        window.setPaymentSystem = async (system) => {
+            const success = paymentManager.setActivePaymentSystem(system);
+            if (success) {
+                alert(`Switched to ${system} payment system`);
+                await loadPaymentMethods();
+            } else {
+                alert('Failed to switch payment system');
+            }
+        };
+
+        window.loadPaymentMethods = async () => {
+            if (!paymentManager.activeSystem) return;
+            
+            const container = document.getElementById('payment-methods-container');
+            container.innerHTML = paymentManager.getPaymentMethodOptions();
+            
+            // Add click handlers
+            container.querySelectorAll('.payment-method-option').forEach(option => {
+                option.addEventListener('click', (e) => {
+                    const method = e.currentTarget.dataset.method;
+                    showPaymentForm(method);
+                });
+            });
+        };
+
+        window.showPaymentForm = (method) => {
+            const formContainer = document.getElementById('payment-form-container');
+            
+            // Create form based on payment method
+            if (paymentManager.activeSystem.name.includes('Ethiopian')) {
+                formContainer.innerHTML = getEthiopianPaymentForm(method);
+            } else {
+                formContainer.innerHTML = getInternationalPaymentForm(method);
+            }
+        };
+
+        window.processPayment = async () => {
+            const amount = parseFloat(document.getElementById('amount').value);
+            const currency = document.getElementById('currency').value;
+            
+            if (!amount || amount <= 0) {
+                alert('Please enter a valid amount');
+                return;
+            }
+
+            try {
+                const result = await paymentManager.processPayment(
+                    amount,
+                    currency,
+                    {
+                        name: 'John Doe',
+                        email: 'john@example.com',
+                        phone: '+251911111111'
+                    },
+                    'cbe' // Example method
+                );
+
+                if (result.success) {
+                    alert('Payment initiated successfully!');
+                } else {
+                    alert(`Payment failed: ${result.error}`);
+                }
+            } catch (error) {
+                alert(`Error: ${error.message}`);
+            }
+        };
+
+        // Initialize when page loads
+        document.addEventListener('DOMContentLoaded', async () => {
+            await paymentManager.initialize();
+            await loadPaymentMethods();
+        });
+    </script>
+</body>
+</html>
