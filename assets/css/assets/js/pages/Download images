@@ -1,0 +1,14 @@
+# Download hero background image (replace with your link)
+curl -o assets/images/hero-bg.jpg "https://gemini.google.com/share/c11c6ba53b67"
+
+# Download placeholder image (replace with your link)
+curl -o assets/images/placeholder.jpg "https://gemini.google.com/share/55a24f651003"
+
+# Download economy graph image (replace with your link)
+curl -o assets/images/economy-graph.png "https://gemini.google.com/share/2ebb9fd98e24"
+
+# Download bot avatar image (replace with your link)
+curl -o assets/images/bot-avatar.png "https://gemini.google.com/share/6a035e4f045a"
+
+# Additional image if needed (optional)
+curl -o assets/images/extra-image.jpg "https://gemini.google.com/share/8c97642a5983"
