@@ -1,0 +1,17 @@
+# Make setup script executable
+chmod +x setup.sh
+
+# Run setup
+./setup.sh
+
+# Or run manually:
+bash setup.sh
+
+# After setup, replace placeholder logos with your actual logos:
+# cp your-logo-192.png assets/images/logos/logo-192.png
+# cp your-logo-512.png assets/images/logos/logo-512.png
+# cp your-favicon.png assets/images/logos/favicon.png
+# cp telebirr-logo.png assets/images/logos/telebirr.png
+# cp cbe-logo.png assets/images/logos/cbe.png
+# cp paypal-logo.png assets/images/logos/paypal.png
+# cp visa-mastercard-logo.png assets/images/logos/visa-mastercard.png
