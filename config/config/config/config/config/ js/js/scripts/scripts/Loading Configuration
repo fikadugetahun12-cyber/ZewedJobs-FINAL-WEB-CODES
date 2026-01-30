@@ -1,0 +1,10 @@
+// In development (auto-detected)
+const config = await Config.initialize();
+// API will point to http://localhost:3000
+
+// In production
+const config = await Config.initialize();
+// API will point to https://api.mycompany.com
+
+// Override environment via URL parameter
+// http://localhost:8080?env=staging
