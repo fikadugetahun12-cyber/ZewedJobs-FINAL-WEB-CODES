@@ -1,0 +1,36 @@
+{
+  "environment": "staging",
+  
+  "application": {
+    "debug": true,
+    "logLevel": "info"
+  },
+  
+  "api": {
+    "baseURL": "https://staging-api.mycompany.com/v1",
+    "timeout": 30000
+  },
+  
+  "features": {
+    "enabled": {
+      "debugMode": true,
+      "developerTools": true
+    }
+  },
+  
+  "logging": {
+    "level": "info",
+    "console": true,
+    "remote": true
+  },
+  
+  "integrations": {
+    "stripe": {
+      "publishableKey": "pk_test_xxxxxxxxxxxxxxxxxxxxxxxx"
+    },
+    
+    "googleMaps": {
+      "apiKey": "AIzaSyXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+    }
+  }
+}
