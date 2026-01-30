@@ -1,0 +1,37 @@
+/* responsive.css - Responsive design */
+/* Mobile First */
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 0.5rem;
+  }
+  
+  h1 {
+    font-size: 2rem;
+  }
+  
+  .grid-3 {
+    grid-template-columns: 1fr;
+  }
+  
+  .nav-menu {
+    display: none;
+  }
+  
+  .nav-menu.active {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media (min-width: 768px) {
+  .md\\:grid-2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .lg\\:grid-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
