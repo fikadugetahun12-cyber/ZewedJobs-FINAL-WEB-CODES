@@ -1,0 +1,8 @@
+// Get endpoint with path parameters
+const userEndpoint = Config.getApiEndpoint('users.details', { id: 123 });
+// Returns: https://api.mycompany.com/v1/users/123
+
+// Use in API calls
+const response = await fetch(userEndpoint, {
+    headers: Config.get('api.headers')
+});
