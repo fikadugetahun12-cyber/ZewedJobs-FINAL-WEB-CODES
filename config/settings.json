@@ -1,0 +1,348 @@
+{
+  "$schema": "./config-schema.json",
+  "version": "1.0.0",
+  "environment": "development",
+  
+  "application": {
+    "name": "Business Intelligence Dashboard",
+    "version": "2.5.0",
+    "copyright": "© 2024 MyCompany Inc.",
+    "supportEmail": "support@mycompany.com",
+    "timezone": "UTC",
+    "locale": "en-US",
+    "dateFormat": "YYYY-MM-DD",
+    "timeFormat": "HH:mm:ss",
+    "currency": "USD",
+    "decimalSeparator": ".",
+    "thousandsSeparator": ",",
+    "itemsPerPage": 25,
+    "autoSaveInterval": 30000,
+    "sessionTimeout": 3600000,
+    "maxUploadSize": 10485760,
+    "supportedFileTypes": [".jpg", ".png", ".pdf", ".doc", ".docx", ".xls", ".xlsx", ".csv"]
+  },
+  
+  "api": {
+    "baseURL": "https://api.mycompany.com/v1",
+    "timeout": 30000,
+    "retryAttempts": 3,
+    "retryDelay": 1000,
+    "authType": "jwt",
+    
+    "endpoints": {
+      "auth": {
+        "login": "/auth/login",
+        "logout": "/auth/logout",
+        "refresh": "/auth/refresh",
+        "register": "/auth/register",
+        "forgotPassword": "/auth/forgot-password",
+        "resetPassword": "/auth/reset-password"
+      },
+      "users": {
+        "profile": "/users/profile",
+        "update": "/users/update",
+        "list": "/users",
+        "details": "/users/{id}",
+        "create": "/users",
+        "delete": "/users/{id}"
+      },
+      "payments": {
+        "initiate": "/payments/initiate",
+        "verify": "/payments/verify/{id}",
+        "history": "/payments/history",
+        "refund": "/payments/{id}/refund"
+      },
+      "reports": {
+        "generate": "/reports/generate",
+        "list": "/reports",
+        "download": "/reports/{id}/download"
+      }
+    },
+    
+    "headers": {
+      "Content-Type": "application/json",
+      "Accept": "application/json",
+      "X-Application-Version": "2.5.0"
+    }
+  },
+  
+  "features": {
+    "enabled": {
+      "multiLanguage": true,
+      "darkMode": true,
+      "offlineMode": true,
+      "pushNotifications": true,
+      "analytics": true,
+      "exportData": true,
+      "importData": true,
+      "aiAssistance": true,
+      "voiceCommands": true,
+      "screenSharing": true,
+      "videoCalls": true
+    },
+    
+    "flags": {
+      "beta": ["aiAssistance", "voiceCommands"],
+      "experimental": ["screenSharing", "videoCalls"],
+      "requiresAuth": ["exportData", "importData", "aiAssistance"]
+    },
+    
+    "limits": {
+      "maxParticipants": 10,
+      "maxFileSize": 10485760,
+      "maxHistoryDays": 365,
+      "maxExportRows": 100000,
+      "concurrentUploads": 3
+    }
+  },
+  
+  "internationalization": {
+    "defaultLanguage": "en",
+    "supportedLanguages": [
+      {
+        "code": "en",
+        "name": "English",
+        "nativeName": "English",
+        "direction": "ltr",
+        "flag": "🇺🇸"
+      },
+      {
+        "code": "am",
+        "name": "Amharic",
+        "nativeName": "አማርኛ",
+        "direction": "ltr",
+        "flag": "🇪🇹"
+      },
+      {
+        "code": "es",
+        "name": "Spanish",
+        "nativeName": "Español",
+        "direction": "ltr",
+        "flag": "🇪🇸"
+      },
+      {
+        "code": "fr",
+        "name": "French",
+        "nativeName": "Français",
+        "direction": "ltr",
+        "flag": "🇫🇷"
+      },
+      {
+        "code": "ar",
+        "name": "Arabic",
+        "nativeName": "العربية",
+        "direction": "rtl",
+        "flag": "🇸🇦"
+      }
+    ],
+    
+    "dateFormats": {
+      "en": "MM/DD/YYYY",
+      "am": "DD/MM/YYYY",
+      "es": "DD/MM/YYYY",
+      "fr": "DD/MM/YYYY",
+      "ar": "DD/MM/YYYY"
+    },
+    
+    "timeFormats": {
+      "en": "12h",
+      "am": "12h",
+      "es": "24h",
+      "fr": "24h",
+      "ar": "12h"
+    }
+  },
+  
+  "theme": {
+    "default": "light",
+    "availableThemes": ["light", "dark", "auto"],
+    
+    "colors": {
+      "primary": "#3498db",
+      "secondary": "#2ecc71",
+      "danger": "#e74c3c",
+      "warning": "#f39c12",
+      "info": "#17a2b8",
+      "success": "#27ae60"
+    },
+    
+    "light": {
+      "background": "#ffffff",
+      "surface": "#f8f9fa",
+      "text": "#212529",
+      "textSecondary": "#6c757d",
+      "border": "#dee2e6"
+    },
+    
+    "dark": {
+      "background": "#1a1d21",
+      "surface": "#2d3239",
+      "text": "#e9ecef",
+      "textSecondary": "#adb5bd",
+      "border": "#495057"
+    }
+  },
+  
+  "notifications": {
+    "position": "top-right",
+    "duration": 5000,
+    "maxVisible": 3,
+    
+    "types": {
+      "success": {
+        "icon": "✅",
+        "color": "#27ae60",
+        "sound": "success.mp3"
+      },
+      "error": {
+        "icon": "❌",
+        "color": "#e74c3c",
+        "sound": "error.mp3"
+      },
+      "warning": {
+        "icon": "⚠️",
+        "color": "#f39c12",
+        "sound": "warning.mp3"
+      },
+      "info": {
+        "icon": "ℹ️",
+        "color": "#3498db",
+        "sound": "info.mp3"
+      }
+    }
+  },
+  
+  "analytics": {
+    "enabled": true,
+    "provider": "google-analytics",
+    "trackingId": "UA-XXXXX-Y",
+    
+    "events": {
+      "pageView": true,
+      "buttonClick": true,
+      "formSubmit": true,
+      "fileDownload": true,
+      "error": true
+    },
+    
+    "privacy": {
+      "anonymizeIp": true,
+      "respectDoNotTrack": true
+    }
+  },
+  
+  "security": {
+    "password": {
+      "minLength": 8,
+      "requireUppercase": true,
+      "requireLowercase": true,
+      "requireNumbers": true,
+      "requireSpecialChars": true,
+      "expiryDays": 90,
+      "historyCount": 5
+    },
+    
+    "session": {
+      "timeout": 3600,
+      "refreshInterval": 300,
+      "maxConcurrentSessions": 3
+    },
+    
+    "cors": {
+      "allowedOrigins": [
+        "https://mycompany.com",
+        "https://app.mycompany.com",
+        "http://localhost:3000",
+        "http://localhost:8080"
+      ],
+      "allowCredentials": true
+    },
+    
+    "headers": {
+      "xFrameOptions": "DENY",
+      "contentSecurityPolicy": "default-src 'self'",
+      "strictTransportSecurity": "max-age=31536000"
+    }
+  },
+  
+  "logging": {
+    "level": "info",
+    "console": true,
+    "remote": false,
+    "remoteEndpoint": "/api/logs",
+    
+    "levels": {
+      "error": true,
+      "warn": true,
+      "info": true,
+      "debug": false,
+      "trace": false
+    }
+  },
+  
+  "cache": {
+    "enabled": true,
+    "strategy": "localStorage",
+    "ttl": 3600000,
+    
+    "keys": {
+      "userProfile": "user_profile",
+      "appSettings": "app_settings",
+      "recentSearches": "recent_searches",
+      "favorites": "user_favorites"
+    }
+  },
+  
+  "integrations": {
+    "stripe": {
+      "publishableKey": "pk_test_xxxxxxxxxxxxxxxxxxxxxxxx",
+      "apiVersion": "2023-10-16"
+    },
+    
+    "googleMaps": {
+      "apiKey": "AIzaSyXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+      "libraries": ["places", "geometry"],
+      "defaultZoom": 12,
+      "defaultCenter": {
+        "lat": 9.032,
+        "lng": 38.746
+      }
+    },
+    
+    "firebase": {
+      "apiKey": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+      "authDomain": "myapp.firebaseapp.com",
+      "projectId": "myapp",
+      "storageBucket": "myapp.appspot.com",
+      "messagingSenderId": "123456789012",
+      "appId": "1:123456789012:web:abcdef1234567890abcdef"
+    },
+    
+    "openai": {
+      "apiKey": "sk-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+      "model": "gpt-3.5-turbo",
+      "maxTokens": 1000,
+      "temperature": 0.7
+    }
+  },
+  
+  "performance": {
+    "lazyLoadImages": true,
+    "enableCaching": true,
+    "minifyAssets": true,
+    "enableGzip": true,
+    
+    "timeouts": {
+      "apiRequest": 30000,
+      "imageLoad": 10000,
+      "pageLoad": 5000
+    }
+  },
+  
+  "metadata": {
+    "lastUpdated": "2024-01-15T10:30:00Z",
+    "updatedBy": "system",
+    "checksum": "a1b2c3d4e5f6g7h8i9j0",
+    "signature": "signed-by-server"
+  }
+}
