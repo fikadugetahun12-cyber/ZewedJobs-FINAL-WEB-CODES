@@ -1,0 +1,121 @@
+// assets/scripts/icon-loader.js
+class IconManager {
+  constructor() {
+    this.cache = new Map();
+    this.observers = new Set();
+  }
+
+  // Load icon as SVG element
+  async loadIcon(name, options = {}) {
+    const { color = 'currentColor', size = 24, className = '' } = options;
+    
+    if (this.cache.has(name)) {
+      return this.cloneIcon(this.cache.get(name), options);
+    }
+
+    try {
+      const response = await fetch(`/assets/images/icons/${name}.svg`);
+      const svgText = await response.text();
+      
+      // Parse SVG
+      const parser = new DOMParser();
+      const doc = parser.parseFromString(svgText, 'image/svg+xml');
+      const svg = doc.querySelector('svg');
+      
+      if (!svg) {
+        throw new Error('Invalid SVG');
+      }
+
+      // Apply styles
+      svg.setAttribute('width', `${size}px`);
+      svg.setAttribute('height', `${size}px`);
+      svg.setAttribute('fill', color);
+      svg.classList.add('icon', ...className.split(' '));
+      
+      // Store in cache
+      const template = svg.cloneNode(true);
+      this.cache.set(name, template);
+      
+      return svg;
+    } catch (error) {
+      console.error(`Failed to load icon: ${name}`, error);
+      return this.createFallbackIcon(name, options);
+    }
+  }
+
+  cloneIcon(template, options) {
+    const { color = 'currentColor', size = 24, className = '' } = options;
+    const svg = template.cloneNode(true);
+    
+    svg.setAttribute('width', `${size}px`);
+    svg.setAttribute('height', `${size}px`);
+    svg.setAttribute('fill', color);
+    svg.classList.add('icon', ...className.split(' '));
+    
+    return svg;
+  }
+
+  createFallbackIcon(name, options) {
+    const { size = 24, className = '' } = options;
+    const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    const text = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+    
+    svg.setAttribute('width', `${size}px`);
+    svg.setAttribute('height', `${size}px`);
+    svg.setAttribute('viewBox', '0 0 24 24');
+    svg.classList.add('icon', 'icon-fallback', ...className.split(' '));
+    
+    text.setAttribute('x', '12');
+    text.setAttribute('y', '12');
+    text.setAttribute('text-anchor', 'middle');
+    text.setAttribute('dominant-baseline', 'central');
+    text.textContent = name.charAt(0).toUpperCase();
+    
+    svg.appendChild(text);
+    return svg;
+  }
+
+  // Replace all [data-icon] elements
+  async replaceIcons() {
+    const iconElements = document.querySelectorAll('[data-icon]');
+    
+    for (const element of iconElements) {
+      const iconName = element.getAttribute('data-icon');
+      const color = element.getAttribute('data-color') || 'currentColor';
+      const size = element.getAttribute('data-size') || 24;
+      const className = element.getAttribute('class') || '';
+      
+      const icon = await this.loadIcon(iconName, { color, size, className });
+      element.replaceWith(icon);
+    }
+  }
+
+  // Preload frequently used icons
+  async preloadIcons(iconNames) {
+    const promises = iconNames.map(name => this.loadIcon(name));
+    await Promise.all(promises);
+  }
+}
+
+// Singleton instance
+window.iconManager = new IconManager();
+
+// Auto-replace icons on DOM load
+document.addEventListener('DOMContentLoaded', () => {
+  iconManager.replaceIcons();
+  
+  // Preload common icons
+  iconManager.preloadIcons([
+    'search',
+    'user',
+    'settings',
+    'bank-transfer',
+    'mobile-money',
+    'credit-card'
+  ]);
+});
+
+// Export for module systems
+if (typeof module !== 'undefined' && module.exports) {
+  module.exports = IconManager;
+}
