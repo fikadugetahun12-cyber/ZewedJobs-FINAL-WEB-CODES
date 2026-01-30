@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JobPortal - Find Your Dream Career</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/images/logos/favicon.png">
+    <link rel="apple-touch-icon" href="assets/images/logos/logo-192.png">
+    <link rel="manifest" href="manifest.json">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="JobPortal - Find jobs, connect with employers, and develop career skills">
+    <meta name="keywords" content="jobs, career, employment, courses, hiring, Ethiopia">
+    <meta name="author" content="JobPortal">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="assets/images/logos/logo-192.png" alt="JobPortal Logo" class="logo-image">
+                <span class="logo-text">Job<span>Portal</span></span>
+            </a>
+            
+            <button class="mobile-menu-btn" aria-label="Toggle menu">☰</button>
+            
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="pages/jobs.html">Jobs</a></li>
+                <li><a href="pages/employers.html">Employers</a></li>
+                <li><a href="pages/courses.html">Courses</a></li>
+                <li><a href="pages/about.html">About</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-logo">
+                <img src="assets/images/logos/logo-512.png" alt="JobPortal" class="logo-image large">
+            </div>
+            <h1>Find Your Dream Career</h1>
+            <p>Connect with top employers, discover exciting opportunities, and develop the skills you need for tomorrow's job market.</p>
+            <div class="hero-buttons">
+                <a href="pages/jobs.html" class="btn btn-primary">Browse Jobs</a>
+                <a href="pages/courses.html" class="btn btn-outline">Explore Courses</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Why Choose JobPortal?</h2>
+            <div class="grid grid-3">
+                <div class="card">
+                    <div class="feature-icon">🔍</div>
+                    <h3>Smart Job Search</h3>
+                    <p>AI-powered job matching helps you find the perfect opportunities.</p>
+                </div>
+                <div class="card">
+                    <div class="feature-icon">🏢</div>
+                    <h3>Top Companies</h3>
+                    <p>Access thousands of verified employers and companies.</p>
+                </div>
+                <div class="card">
+                    <div class="feature-icon">🎓</div>
+                    <h3>Skill Development</h3>
+                    <p>Upskill with industry-relevant courses and certifications.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Payment Methods Section -->
+    <section class="section" style="background: #f8f9fa;">
+        <div class="container">
+            <h2 class="section-title">Accepted Payment Methods</h2>
+            <p class="text-center mb-3">Secure payments with trusted providers</p>
+            
+            <div class="payment-logos">
+                <img src="assets/images/logos/visa-mastercard.png" alt="Visa & Mastercard" class="payment-logo" data-logo="payment">
+                <img src="assets/images/logos/paypal.png" alt="PayPal" class="payment-logo" data-logo="payment">
+                <img src="assets/images/logos/telebirr.png" alt="Telebirr" class="payment-logo" data-logo="payment">
+                <img src="assets/images/logos/cbe.png" alt="Commercial Bank of Ethiopia" class="payment-logo" data-logo="payment">
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Companies -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Trusted by Top Companies</h2>
+            <div class="company-logos">
+                <img src="assets/images/placeholder.jpg" alt="TechCorp" class="company-logo">
+                <img src="assets/images/placeholder.jpg" alt="DataWorks" class="company-logo">
+                <img src="assets/images/placeholder.jpg" alt="CreativeStudio" class="company-logo">
+                <img src="assets/images/placeholder.jpg" alt="CloudSystems" class="company-logo">
+                <img src="assets/images/placeholder.jpg" alt="GrowthHackers" class="company-logo">
+                <img src="assets/images/placeholder.jpg" alt="AppWorks" class="company-logo">
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <img src="assets/images/logos/logo-192.png" alt="JobPortal" class="footer-logo">
+                    <h3>JobPortal</h3>
+                    <p>Connecting talent with opportunity since 2024.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-icon" aria-label="Facebook">
+                            <img src="assets/images/logos/facebook-icon.png" alt="Facebook" class="social-logo" onerror="this.style.display='none'">
+                        </a>
+                        <a href="#" class="social-icon" aria-label="Twitter">
+                            <img src="assets/images/logos/twitter-icon.png" alt="Twitter" class="social-logo" onerror="this.style.display='none'">
+                        </a>
+                        <a href="#" class="social-icon" aria-label="LinkedIn">
+                            <img src="assets/images/logos/linkedin-icon.png" alt="LinkedIn" class="social-logo" onerror="this.style.display='none'">
+                        </a>
+                        <a href="#" class="social-icon" aria-label="Telegram">
+                            <img src="assets/images/logos/telegram-icon.png" alt="Telegram" class="social-logo" onerror="this.style.display='none'">
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="pages/jobs.html">Find Jobs</a></li>
+                        <li><a href="pages/employers.html">For Employers</a></li>
+                        <li><a href="pages/courses.html">Learning</a></li>
+                        <li><a href="pages/about.html">About Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Payment Methods</h3>
+                    <div class="payment-logos" style="justify-content: flex-start;">
+                        <img src="assets/images/logos/visa-mastercard.png" alt="Visa/Mastercard" class="payment-logo small">
+                        <img src="assets/images/logos/paypal.png" alt="PayPal" class="payment-logo small">
+                        <img src="assets/images/logos/telebirr.png" alt="Telebirr" class="payment-logo small">
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li>📧 info@jobportal.com</li>
+                        <li>📱 +251 911 234 567</li>
+                        <li>📍 Addis Ababa, Ethiopia</li>
+                        <li>🏦 CBE: 1000 2345 6789</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- QR Code for Mobile Payment -->
+            <div class="text-center mt-4">
+                <h4>Scan to Pay with Telebirr</h4>
+                <div class="qr-code">
+                    <img src="assets/images/placeholder.jpg" alt="Telebirr QR Code" onerror="this.src='assets/images/logos/telebirr.png'">
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2024 JobPortal. All rights reserved.</p>
+                <div class="bank-logos mt-2">
+                    <img src="assets/images/logos/cbe.png" alt="CBE" class="bank-logo">
+                    <img src="assets/images/logos/telebirr.png" alt="Telebirr" class="bank-logo">
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
