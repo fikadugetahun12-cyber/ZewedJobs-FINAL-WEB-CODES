@@ -1,0 +1,1536 @@
+#!/bin/bash
+
+# Create directory structure
+mkdir -p css/themes
+
+# Create all CSS files
+echo "Creating CSS files for Zewed Jobs..."
+
+# File 1: themes/zewed-theme.css
+cat > css/themes/zewed-theme.css << 'EOF'
+/* zewed-theme.css - Custom theme for Zewed Jobs */
+:root {
+  /* Primary Colors - Zewed Brand */
+  --primary-50: #f0f9ff;
+  --primary-100: #e0f2fe;
+  --primary-200: #bae6fd;
+  --primary-300: #7dd3fc;
+  --primary-400: #38bdf8;
+  --primary-500: #0ea5e9;
+  --primary-600: #0284c7;
+  --primary-700: #0369a1;
+  --primary-800: #075985;
+  --primary-900: #0c4a6e;
+  
+  /* Secondary Colors */
+  --secondary-50: #fefce8;
+  --secondary-100: #fef9c3;
+  --secondary-200: #fef08a;
+  --secondary-300: #fde047;
+  --secondary-400: #facc15;
+  --secondary-500: #eab308;
+  --secondary-600: #ca8a04;
+  --secondary-700: #a16207;
+  --secondary-800: #854d0e;
+  --secondary-900: #713f12;
+  
+  /* Neutral Colors */
+  --gray-50: #f9fafb;
+  --gray-100: #f3f4f6;
+  --gray-200: #e5e7eb;
+  --gray-300: #d1d5db;
+  --gray-400: #9ca3af;
+  --gray-500: #6b7280;
+  --gray-600: #4b5563;
+  --gray-700: #374151;
+  --gray-800: #1f2937;
+  --gray-900: #111827;
+  
+  /* Background Colors */
+  --bg-primary: #ffffff;
+  --bg-secondary: var(--gray-50);
+  --bg-tertiary: var(--gray-100);
+  
+  /* Text Colors */
+  --text-primary: var(--gray-900);
+  --text-secondary: var(--gray-700);
+  --text-tertiary: var(--gray-500);
+  --text-heading: var(--gray-900);
+  
+  /* Border Colors */
+  --border-primary: var(--gray-300);
+  --border-secondary: var(--gray-200);
+  
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  
+  /* Transitions */
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-base: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Dark theme */
+[data-theme="dark"] {
+  --bg-primary: var(--gray-900);
+  --bg-secondary: var(--gray-800);
+  --text-primary: var(--gray-100);
+  --text-heading: #ffffff;
+  --border-primary: var(--gray-700);
+}
+EOF
+echo "✅ Created: css/themes/zewed-theme.css"
+
+# File 2: main.css
+cat > css/main.css << 'EOF'
+/* main.css - Core styles for Zewed Jobs */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import 'themes/zewed-theme.css';
+
+/* Reset & Base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  line-height: 1.5;
+  color: var(--text-primary);
+  background: var(--bg-primary);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Container */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--text-heading);
+  margin-bottom: 1rem;
+}
+
+h1 { font-size: 2.5rem; }
+h2 { font-size: 2rem; }
+h3 { font-size: 1.5rem; }
+h4 { font-size: 1.25rem; }
+h5 { font-size: 1.125rem; }
+
+p {
+  margin-bottom: 1rem;
+}
+
+a {
+  color: var(--primary-600);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--primary-700);
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem;
+  font-weight: 500;
+  font-size: 0.875rem;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all var(--transition-base);
+  gap: 0.5rem;
+}
+
+.btn-primary {
+  background: var(--primary-600);
+  color: white;
+}
+
+.btn-primary:hover {
+  background: var(--primary-700);
+}
+
+.btn-secondary {
+  background: var(--gray-100);
+  color: var(--gray-800);
+  border-color: var(--gray-300);
+}
+
+.btn-secondary:hover {
+  background: var(--gray-200);
+}
+
+.btn-lg {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+}
+
+/* Cards */
+.card {
+  background: white;
+  border: 1px solid var(--border-primary);
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
+}
+
+/* Forms */
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: var(--gray-700);
+}
+
+.form-control {
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--border-primary);
+  border-radius: 0.375rem;
+  font-size: 0.875rem;
+  transition: border-color var(--transition-fast);
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: var(--primary-500);
+  box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.1);
+}
+
+/* Navigation */
+.navbar {
+  position: sticky;
+  top: 0;
+  background: white;
+  border-bottom: 1px solid var(--border-primary);
+  padding: 1rem 0;
+  z-index: 1000;
+}
+
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-brand {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary-600);
+}
+
+.nav-menu {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+
+.nav-link {
+  color: var(--gray-700);
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem;
+}
+
+.nav-link:hover {
+  color: var(--primary-600);
+  background: var(--primary-50);
+}
+
+/* Grid */
+.grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.grid-2 { grid-template-columns: repeat(2, 1fr); }
+.grid-3 { grid-template-columns: repeat(3, 1fr); }
+.grid-4 { grid-template-columns: repeat(4, 1fr); }
+
+/* Utilities */
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+.mt-4 { margin-top: 1rem; }
+.mb-4 { margin-bottom: 1rem; }
+.p-4 { padding: 1rem; }
+.w-full { width: 100%; }
+.hidden { display: none; }
+.block { display: block; }
+.flex { display: flex; }
+.items-center { align-items: center; }
+.justify-between { justify-content: space-between; }
+.gap-4 { gap: 1rem; }
+
+/* Alert */
+.alert {
+  padding: 1rem;
+  border-radius: 0.375rem;
+  border: 1px solid transparent;
+  margin-bottom: 1rem;
+}
+
+.alert-success {
+  background: #f0fdf4;
+  border-color: #bbf7d0;
+  color: #166534;
+}
+
+.alert-error {
+  background: #fef2f2;
+  border-color: #fecaca;
+  color: #991b1b;
+}
+
+/* Loading */
+.loading {
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+  border: 2px solid var(--gray-300);
+  border-radius: 50%;
+  border-top-color: var(--primary-600);
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+EOF
+echo "✅ Created: css/main.css"
+
+# File 3: payment.css
+cat > css/payment.css << 'EOF'
+/* payment.css - Payment page styles */
+.payment-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.payment-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.payment-amount {
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--primary-600);
+  margin: 1rem 0;
+}
+
+/* Payment Methods */
+.payment-methods {
+  display: grid;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.payment-method {
+  display: flex;
+  align-items: center;
+  padding: 1.5rem;
+  border: 2px solid var(--border-primary);
+  border-radius: 0.75rem;
+  cursor: pointer;
+  transition: all var(--transition-base);
+  background: white;
+}
+
+.payment-method:hover {
+  border-color: var(--primary-400);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.payment-method.active {
+  border-color: var(--primary-600);
+  background: var(--primary-50);
+}
+
+.payment-method-icon {
+  width: 48px;
+  height: 48px;
+  margin-right: 1rem;
+  padding: 0.5rem;
+  background: white;
+  border-radius: 0.5rem;
+}
+
+.payment-method-info {
+  flex: 1;
+}
+
+.payment-method-name {
+  font-weight: 600;
+  color: var(--gray-800);
+  margin-bottom: 0.25rem;
+}
+
+.payment-method-description {
+  font-size: 0.875rem;
+  color: var(--gray-600);
+}
+
+/* Bank Selection */
+.bank-selection {
+  margin: 1.5rem 0;
+  padding: 1.5rem;
+  background: var(--gray-50);
+  border-radius: 0.75rem;
+}
+
+.bank-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.bank-option {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  border: 1px solid var(--gray-300);
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: all var(--transition-base);
+  background: white;
+}
+
+.bank-option:hover {
+  border-color: var(--primary-400);
+  transform: scale(1.05);
+}
+
+.bank-option.active {
+  border-color: var(--primary-600);
+  background: var(--primary-50);
+}
+
+.bank-logo {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+  margin-bottom: 0.5rem;
+}
+
+/* Credit Card Form */
+.credit-card-form {
+  padding: 1.5rem;
+  background: var(--gray-50);
+  border-radius: 0.75rem;
+}
+
+.card-preview {
+  position: relative;
+  height: 180px;
+  background: linear-gradient(135deg, var(--primary-500), var(--primary-700));
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  color: white;
+  overflow: hidden;
+}
+
+.card-number {
+  font-size: 1.25rem;
+  letter-spacing: 2px;
+  font-family: monospace;
+  margin: 1rem 0;
+}
+
+.card-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+/* Payment Summary */
+.payment-summary {
+  background: var(--gray-50);
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--gray-200);
+}
+
+.summary-row:last-child {
+  border-bottom: none;
+  font-weight: 600;
+  color: var(--primary-600);
+  font-size: 1.25rem;
+}
+
+/* Mobile Money */
+.mobile-money-form {
+  padding: 1.5rem;
+  background: var(--gray-50);
+  border-radius: 0.75rem;
+}
+
+.phone-input-group {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.country-code {
+  flex: 0 0 80px;
+}
+
+.phone-number {
+  flex: 1;
+}
+
+/* Payment Processing */
+.payment-processing {
+  text-align: center;
+  padding: 3rem;
+}
+
+.processing-spinner {
+  width: 60px;
+  height: 60px;
+  border: 4px solid var(--gray-300);
+  border-top-color: var(--primary-600);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 1rem;
+}
+
+/* Transaction Status */
+.transaction-status {
+  text-align: center;
+  padding: 3rem;
+}
+
+.status-icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1rem;
+  font-size: 2rem;
+}
+
+.status-icon.success {
+  background: #dcfce7;
+  color: #16a34a;
+}
+
+.status-icon.error {
+  background: #fee2e2;
+  color: #dc2626;
+}
+
+.transaction-id {
+  font-family: monospace;
+  background: var(--gray-100);
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem;
+  margin: 1rem 0;
+}
+
+/* Payment Security */
+.payment-security {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin: 1.5rem 0;
+  padding: 1rem;
+  background: #f0fdf4;
+  border-radius: 0.75rem;
+  color: #166534;
+}
+
+.security-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+}
+
+/* Mobile Responsive for Payment */
+@media (max-width: 768px) {
+  .payment-amount {
+    font-size: 2.5rem;
+  }
+  
+  .card-row {
+    grid-template-columns: 1fr;
+  }
+  
+  .payment-method {
+    padding: 1rem;
+  }
+}
+EOF
+echo "✅ Created: css/payment.css"
+
+# File 4: ai-chat.css
+cat > css/ai-chat.css << 'EOF'
+/* ai-chat.css - AI Assistant styles */
+.ai-chat-container {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 1000;
+  width: 100%;
+  max-width: 400px;
+}
+
+/* Chat Toggle Button */
+.chat-toggle {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: var(--primary-600);
+  color: white;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-base);
+  z-index: 1;
+}
+
+.chat-toggle:hover {
+  transform: scale(1.1);
+  background: var(--primary-700);
+}
+
+.chat-toggle.active {
+  background: #dc2626;
+}
+
+.chat-toggle-icon {
+  width: 24px;
+  height: 24px;
+  transition: transform var(--transition-base);
+}
+
+.chat-toggle.active .chat-toggle-icon {
+  transform: rotate(45deg);
+}
+
+/* Chat Window */
+.chat-window {
+  position: absolute;
+  bottom: 70px;
+  right: 0;
+  width: 100%;
+  height: 500px;
+  background: white;
+  border-radius: 1rem;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  display: none;
+  flex-direction: column;
+  border: 1px solid var(--gray-200);
+}
+
+.chat-window.active {
+  display: flex;
+  animation: slideUp 0.3s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Chat Header */
+.chat-header {
+  background: var(--primary-600);
+  color: white;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.chat-title {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.chat-title h3 {
+  color: white;
+  margin: 0;
+}
+
+.ai-avatar {
+  width: 32px;
+  height: 32px;
+  background: linear-gradient(135deg, #eab308, #22c55e);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: white;
+}
+
+.chat-status {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.status-indicator {
+  width: 8px;
+  height: 8px;
+  background: #4ade80;
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+/* Chat Messages */
+.chat-messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background: var(--gray-50);
+}
+
+.message {
+  max-width: 80%;
+  padding: 0.75rem 1rem;
+  border-radius: 0.75rem;
+  animation: messageAppear 0.3s ease-out;
+}
+
+@keyframes messageAppear {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.message.user {
+  align-self: flex-end;
+  background: var(--primary-600);
+  color: white;
+  border-bottom-right-radius: 0.25rem;
+}
+
+.message.ai {
+  align-self: flex-start;
+  background: white;
+  border: 1px solid var(--gray-200);
+  border-bottom-left-radius: 0.25rem;
+}
+
+.message.typing {
+  background: var(--gray-200);
+  width: 80px;
+  padding: 1rem;
+}
+
+.message-time {
+  font-size: 0.75rem;
+  opacity: 0.7;
+  margin-top: 0.25rem;
+  text-align: right;
+}
+
+/* Typing Indicator */
+.typing-indicator {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 0.75rem;
+}
+
+.typing-dot {
+  width: 8px;
+  height: 8px;
+  background: var(--gray-400);
+  border-radius: 50%;
+  animation: typingAnimation 1.4s infinite;
+}
+
+.typing-dot:nth-child(2) { animation-delay: 0.2s; }
+.typing-dot:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes typingAnimation {
+  0%, 60%, 100% { transform: translateY(0); }
+  30% { transform: translateY(-10px); }
+}
+
+/* Chat Input */
+.chat-input-container {
+  padding: 1rem;
+  border-top: 1px solid var(--gray-200);
+  background: white;
+}
+
+.chat-input-wrapper {
+  display: flex;
+  gap: 0.5rem;
+  align-items: flex-end;
+}
+
+.chat-input {
+  flex: 1;
+  min-height: 44px;
+  max-height: 120px;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--gray-300);
+  border-radius: 0.75rem;
+  resize: none;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.chat-input:focus {
+  outline: none;
+  border-color: var(--primary-500);
+  box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.1);
+}
+
+.send-button {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--primary-600);
+  color: white;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background var(--transition-base);
+  flex-shrink: 0;
+}
+
+.send-button:hover:not(:disabled) {
+  background: var(--primary-700);
+}
+
+.send-button:disabled {
+  background: var(--gray-400);
+  cursor: not-allowed;
+}
+
+/* Quick Actions */
+.quick-actions {
+  padding: 0.75rem 1rem;
+  background: var(--gray-50);
+  border-top: 1px solid var(--gray-200);
+  display: flex;
+  gap: 0.5rem;
+  overflow-x: auto;
+}
+
+.quick-action {
+  flex-shrink: 0;
+  padding: 0.5rem 0.75rem;
+  background: white;
+  border: 1px solid var(--gray-300);
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all var(--transition-base);
+}
+
+.quick-action:hover {
+  background: var(--primary-50);
+  border-color: var(--primary-400);
+  color: var(--primary-600);
+}
+
+/* AI Suggestions */
+.ai-suggestions {
+  background: var(--primary-50);
+  border-radius: 0.75rem;
+  padding: 1rem;
+  margin: 1rem;
+  border: 1px solid var(--primary-200);
+}
+
+.suggestion-title {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--primary-700);
+  margin-bottom: 0.5rem;
+}
+
+.suggestion-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.suggestion-item {
+  padding: 0.5rem 0.75rem;
+  background: white;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: background var(--transition-base);
+  border: 1px solid var(--gray-200);
+}
+
+.suggestion-item:hover {
+  background: var(--primary-100);
+  border-color: var(--primary-300);
+}
+
+/* Code Blocks */
+.code-block {
+  background: var(--gray-900);
+  color: var(--gray-100);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  margin: 0.5rem 0;
+  overflow-x: auto;
+  font-family: monospace;
+  font-size: 0.875rem;
+}
+
+.code-block pre {
+  margin: 0;
+}
+
+/* Responsive Chat */
+@media (max-width: 768px) {
+  .ai-chat-container {
+    bottom: 1rem;
+    right: 1rem;
+    left: 1rem;
+    max-width: none;
+  }
+  
+  .chat-window {
+    bottom: 60px;
+    height: 400px;
+  }
+  
+  .message {
+    max-width: 90%;
+  }
+}
+
+@media (max-width: 480px) {
+  .chat-window {
+    height: calc(100vh - 120px);
+    border-radius: 0.5rem;
+  }
+  
+  .ai-chat-container {
+    bottom: 0;
+    right: 0;
+    left: 0;
+  }
+}
+EOF
+echo "✅ Created: css/ai-chat.css"
+
+# File 5: responsive.css
+cat > css/responsive.css << 'EOF'
+/* responsive.css - Responsive design */
+/* Mobile First Styles (up to 639px) */
+
+/* Small devices (640px and up) */
+@media (min-width: 640px) {
+  .container {
+    padding: 0 1.5rem;
+  }
+  
+  .grid-sm-2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Medium devices (768px and up) */
+@media (min-width: 768px) {
+  .md\\:flex {
+    display: flex;
+  }
+  
+  .md\\:grid {
+    display: grid;
+  }
+  
+  .md\\:hidden {
+    display: none;
+  }
+  
+  .md\\:grid-2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .md\\:grid-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .md\\:flex-row {
+    flex-direction: row;
+  }
+  
+  .md\\:text-center {
+    text-align: center;
+  }
+  
+  /* Navigation for medium screens */
+  .nav-menu-toggle {
+    display: none;
+  }
+}
+
+/* Large devices (1024px and up) */
+@media (min-width: 1024px) {
+  .lg\\:grid-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .lg\\:grid-4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  
+  .lg\\:hidden {
+    display: none;
+  }
+  
+  .lg\\:block {
+    display: block;
+  }
+  
+  h1 {
+    font-size: 3rem;
+  }
+  
+  h2 {
+    font-size: 2.5rem;
+  }
+}
+
+/* Extra large devices (1280px and up) */
+@media (min-width: 1280px) {
+  .container {
+    max-width: 1280px;
+  }
+  
+  .xl\\:grid-4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  
+  .xl\\:grid-5 {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+/* Mobile Navigation (768px and below) */
+@media (max-width: 768px) {
+  .nav-menu {
+    position: fixed;
+    top: 70px;
+    left: 0;
+    right: 0;
+    background: white;
+    flex-direction: column;
+    padding: 1rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    display: none;
+    z-index: 999;
+  }
+  
+  .nav-menu.active {
+    display: flex;
+    animation: slideDown 0.3s ease-out;
+  }
+  
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .nav-menu-toggle {
+    display: block;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+  }
+  
+  .hamburger {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--gray-700);
+    position: relative;
+    transition: background 0.3s;
+  }
+  
+  .hamburger::before,
+  .hamburger::after {
+    content: '';
+    position: absolute;
+    width: 24px;
+    height: 2px;
+    background: var(--gray-700);
+    left: 0;
+    transition: transform 0.3s;
+  }
+  
+  .hamburger::before {
+    top: -6px;
+  }
+  
+  .hamburger::after {
+    bottom: -6px;
+  }
+  
+  .nav-menu-toggle.active .hamburger {
+    background: transparent;
+  }
+  
+  .nav-menu-toggle.active .hamburger::before {
+    transform: rotate(45deg) translate(4px, 4px);
+  }
+  
+  .nav-menu-toggle.active .hamburger::after {
+    transform: rotate(-45deg) translate(4px, -4px);
+  }
+}
+
+/* Mobile Typography */
+@media (max-width: 639px) {
+  html {
+    font-size: 14px;
+  }
+  
+  h1 {
+    font-size: 2rem;
+  }
+  
+  h2 {
+    font-size: 1.75rem;
+  }
+  
+  h3 {
+    font-size: 1.5rem;
+  }
+}
+
+/* Tablet Adjustments */
+@media (max-width: 1023px) {
+  .responsive-table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* Mobile Forms */
+@media (max-width: 639px) {
+  .form-row {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .form-row .form-group {
+    width: 100%;
+  }
+  
+  .btn-group {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .btn-group .btn {
+    width: 100%;
+    margin-bottom: 0.5rem;
+  }
+}
+
+/* Hide/Show Utilities */
+.hide-on-mobile {
+  display: block;
+}
+
+.show-on-mobile {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  .hide-on-mobile {
+    display: none !important;
+  }
+  
+  .show-on-mobile {
+    display: block !important;
+  }
+}
+
+/* Touch Device Optimizations */
+@media (hover: none) and (pointer: coarse) {
+  .btn,
+  .nav-link,
+  .payment-method {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  input,
+  select,
+  textarea {
+    font-size: 16px;
+  }
+}
+
+/* Landscape Mobile */
+@media (max-height: 500px) and (orientation: landscape) {
+  .navbar {
+    position: relative;
+  }
+  
+  .chat-window {
+    height: 300px;
+  }
+  
+  .section {
+    padding: 2rem 0;
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Dark Mode Preference */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    --bg-primary: var(--gray-900);
+    --text-primary: var(--gray-100);
+    --text-heading: #ffffff;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  
+  body {
+    font-size: 12pt;
+    line-height: 1.5;
+  }
+  
+  .container {
+    width: 100%;
+    max-width: none;
+    padding: 0;
+  }
+  
+  a {
+    color: black !important;
+    text-decoration: underline !important;
+  }
+  
+  .btn {
+    border: 1px solid black !important;
+    background: white !important;
+    color: black !important;
+  }
+}
+EOF
+echo "✅ Created: css/responsive.css"
+
+# Create HTML example file
+cat > example.html << 'EOF'
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zewed Jobs - CSS Example</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/payment.css">
+    <link rel="stylesheet" href="css/ai-chat.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="#" class="nav-brand">Zewed Jobs</a>
+            <button class="nav-menu-toggle">
+                <span class="hamburger"></span>
+            </button>
+            <ul class="nav-menu">
+                <li><a href="#" class="nav-link">Home</a></li>
+                <li><a href="#" class="nav-link">Jobs</a></li>
+                <li><a href="#" class="nav-link">Payments</a></li>
+                <li><a href="#" class="nav-link">AI Assistant</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <section class="mt-4">
+            <h1>Welcome to Zewed Jobs</h1>
+            <p>Your complete job marketplace with integrated payments and AI assistant.</p>
+            
+            <div class="grid grid-3 mt-4">
+                <div class="card">
+                    <h3>Find Jobs</h3>
+                    <p>Browse thousands of job opportunities</p>
+                    <button class="btn btn-primary mt-4">Explore Jobs</button>
+                </div>
+                <div class="card">
+                    <h3>Make Payments</h3>
+                    <p>Secure payment processing</p>
+                    <button class="btn btn-primary mt-4">Pay Now</button>
+                </div>
+                <div class="card">
+                    <h3>AI Assistant</h3>
+                    <p>Get help with job applications</p>
+                    <button class="btn btn-primary mt-4">Chat Now</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Payment Section Example -->
+        <section class="mt-4 payment-container">
+            <div class="payment-header">
+                <h2>Make a Payment</h2>
+                <div class="payment-amount">ETB 1,500.00</div>
+            </div>
+            
+            <div class="payment-methods">
+                <div class="payment-method active">
+                    <div class="payment-method-icon">💳</div>
+                    <div class="payment-method-info">
+                        <div class="payment-method-name">Credit Card</div>
+                        <div class="payment-method-description">Visa, MasterCard, American Express</div>
+                    </div>
+                </div>
+                
+                <div class="payment-method">
+                    <div class="payment-method-icon">📱</div>
+                    <div class="payment-method-info">
+                        <div class="payment-method-name">Mobile Money</div>
+                        <div class="payment-method-description">Telebirr, CBE Birr, M-Pesa</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- AI Chat Container -->
+    <div class="ai-chat-container">
+        <button class="chat-toggle">
+            <svg class="chat-toggle-icon" viewBox="0 0 24 24">
+                <path fill="currentColor" d="M12,2C6.48,2,2,6.48,2,12c0,1.54,0.36,2.98,0.97,4.29L1,23l6.71-1.97 C9.02,21.64,10.46,22,12,22c5.52,0,10-4.48,10-10S17.52,2,12,2z"/>
+            </svg>
+        </button>
+        
+        <div class="chat-window">
+            <div class="chat-header">
+                <div class="chat-title">
+                    <div class="ai-avatar">AI</div>
+                    <h3>Job Assistant</h3>
+                </div>
+                <div class="chat-status">
+                    <span class="status-indicator"></span>
+                    Online
+                </div>
+            </div>
+            
+            <div class="chat-messages">
+                <div class="message ai">
+                    Hello! I'm your AI job assistant. How can I help you today?
+                    <div class="message-time">12:00 PM</div>
+                </div>
+            </div>
+            
+            <div class="quick-actions">
+                <button class="quick-action">Find Jobs</button>
+                <button class="quick-action">Resume Help</button>
+                <button class="quick-action">Payment Help</button>
+            </div>
+            
+            <div class="chat-input-container">
+                <div class="chat-input-wrapper">
+                    <textarea class="chat-input" placeholder="Type your message..."></textarea>
+                    <button class="send-button">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.nav-menu-toggle').addEventListener('click', function() {
+            this.classList.toggle('active');
+            document.querySelector('.nav-menu').classList.toggle('active');
+        });
+
+        // Chat toggle
+        document.querySelector('.chat-toggle').addEventListener('click', function() {
+            this.classList.toggle('active');
+            document.querySelector('.chat-window').classList.toggle('active');
+        });
+
+        // Payment method selection
+        document.querySelectorAll('.payment-method').forEach(method => {
+            method.addEventListener('click', function() {
+                document.querySelectorAll('.payment-method').forEach(m => m.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+
+        // Bank option selection
+        document.querySelectorAll('.bank-option').forEach(option => {
+            option.addEventListener('click', function() {
+                document.querySelectorAll('.bank-option').forEach(o => o.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>
+EOF
+echo "✅ Created: example.html"
+
+# Create CSS bundler script
+cat > bundle-css.sh << 'EOF'
+#!/bin/bash
+
+# CSS Bundler for Zewed Jobs
+# Combines all CSS into single files for production
+
+echo "📦 Bundling CSS files..."
+
+# Create development bundle (unminified)
+cat > css/bundle.css << 'BUNDLE'
+/* Zewed Jobs CSS Bundle - Development Version */
+/* Generated: $(date) */
+
+/* 1. Theme Variables */
+$(cat css/themes/zewed-theme.css)
+
+/* 2. Main Styles */
+$(sed '1,2d' css/main.css)  # Remove @import lines
+
+/* 3. Payment Styles */
+$(cat css/payment.css)
+
+/* 4. AI Chat Styles */
+$(cat css/ai-chat.css)
+BUNDLE
+
+# Create minified version (requires clean-css-cli)
+if command -v cleancss &> /dev/null; then
+    cleancss -o css/bundle.min.css css/bundle.css
+    echo "✅ Created: css/bundle.min.css"
+else
+    echo "⚠️  Install clean-css-cli for minification: npm install -g clean-css-cli"
+fi
+
+echo "✅ Bundle created: css/bundle.css"
+echo ""
+echo "📊 File sizes:"
+du -h css/*.css | sort -h
+EOF
+
+chmod +x bundle-css.sh
+
+echo ""
+echo "🎉 All CSS files created successfully!"
+echo ""
+echo "📁 Directory structure created:"
+find css -type f -name "*.css" | sort
+echo ""
+echo "🚀 Next steps:"
+echo "1. Open example.html in your browser to see the design"
+echo "2. Run ./bundle-css.sh to create production bundles"
+echo "3. Include CSS in your HTML:"
+echo "   <link rel=\"stylesheet\" href=\"css/main.css\">"
+echo "   <link rel=\"stylesheet\" href=\"css/payment.css\">"
+echo "   <link rel=\"stylesheet\" href=\"css/ai-chat.css\">"
+echo "   <link rel=\"stylesheet\" href=\"css/responsive.css\">"
+echo ""
+echo "📦 Or use the bundle for production:"
+echo "   <link rel=\"stylesheet\" href=\"css/bundle.min.css\">"
+echo "   <link rel=\"stylesheet\" href=\"css/responsive.css\">"
