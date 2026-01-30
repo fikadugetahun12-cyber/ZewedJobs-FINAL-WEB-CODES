@@ -1,0 +1,29 @@
+<!-- In your HTML files -->
+
+<!-- Using CSS classes -->
+<div class="payment-methods">
+  <div class="payment-icon">
+    <svg class="icon icon-lg icon-primary">
+      <use href="/assets/images/icons/bank-transfer.svg#bank-transfer"></use>
+    </svg>
+    <span>Bank Transfer</span>
+  </div>
+  
+  <div class="payment-icon">
+    <svg class="icon icon-lg icon-success">
+      <use href="/assets/images/icons/mobile-money.svg#mobile-money"></use>
+    </svg>
+    <span>Mobile Money</span>
+  </div>
+  
+  <div class="payment-icon">
+    <svg class="icon icon-lg icon-warning">
+      <use href="/assets/images/icons/credit-card.svg#credit-card"></use>
+    </svg>
+    <span>Credit Card</span>
+  </div>
+</div>
+
+<!-- Using JavaScript loader -->
+<div data-icon="search" data-size="20" class="icon-button"></div>
+<div data-icon="user" data-color="#3b82f6" data-size="32"></div>
