@@ -1,0 +1,11 @@
+// Get current theme colors
+const colors = Config.getThemeColors();
+// Returns: { background: '#ffffff', text: '#212529', ... }
+
+// Toggle theme
+Config.setTheme(Config.getCurrentTheme() === 'light' ? 'dark' : 'light');
+
+// Listen for theme changes
+document.addEventListener('themeChanged', (event) => {
+    console.log('New theme:', event.detail.theme);
+});
