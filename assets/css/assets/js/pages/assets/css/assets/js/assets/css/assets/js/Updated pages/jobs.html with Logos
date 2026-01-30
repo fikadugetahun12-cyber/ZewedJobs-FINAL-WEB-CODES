@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JobPortal - Find Jobs</title>
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="icon" type="image/png" href="../assets/images/logos/favicon.png">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="../index.html" class="logo">
+                <img src="../assets/images/logos/logo-192.png" alt="JobPortal Logo" class="logo-image">
+                <span class="logo-text">Job<span>Portal</span></span>
+            </a>
+            
+            <button class="mobile-menu-btn">☰</button>
+            
+            <ul class="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="jobs.html" class="active">Jobs</a></li>
+                <li><a href="employers.html">Employers</a></li>
+                <li><a href="courses.html">Courses</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Find Your Dream Job</h1>
+            <p>Browse thousands of job opportunities from top companies in Ethiopia and worldwide</p>
+        </div>
+    </section>
+
+    <!-- Search Section -->
+    <section class="section">
+        <div class="container">
+            <div class="search-container">
+                <!-- Search form here -->
+            </div>
+            
+            <!-- Job Listings -->
+            <div class="grid grid-2">
+                <!-- Job Cards with Company Logos -->
+                <div class="card job-card">
+                    <div class="job-header">
+                        <div class="company-logo-small">
+                            <img src="../assets/images/placeholder.jpg" alt="TechCorp">
+                        </div>
+                        <div>
+                            <h3 class="job-title">Frontend Developer</h3>
+                            <p class="company">TechCorp Solutions</p>
+                        </div>
+                    </div>
+                    <!-- Rest of job card -->
+                </div>
+                <!-- More job cards -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Payment Options for Premium Jobs -->
+    <section class="section" style="background: #f8f9fa;">
+        <div class="container">
+            <h2 class="section-title">Apply with Confidence</h2>
+            <p class="text-center">Secure payment options for premium job applications</p>
+            
+            <div class="payment-logos">
+                <img src="../assets/images/logos/visa-mastercard.png" alt="Visa & Mastercard" class="payment-logo">
+                <img src="../assets/images/logos/paypal.png" alt="PayPal" class="payment-logo">
+                <img src="../assets/images/logos/telebirr.png" alt="Telebirr" class="payment-logo">
+                <img src="../assets/images/logos/cbe.png" alt="CBE" class="payment-logo">
+            </div>
+        </div>
+    </section>
+
+    <script src="../assets/js/main.js"></script>
+</body>
+</html>
