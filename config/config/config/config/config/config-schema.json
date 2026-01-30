@@ -1,0 +1,57 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://mycompany.com/schemas/config-schema.json",
+  "title": "Application Configuration Schema",
+  "description": "Schema for validating application configuration",
+  "type": "object",
+  "required": ["version", "environment", "application", "api"],
+  "properties": {
+    "version": {
+      "type": "string",
+      "description": "Configuration schema version"
+    },
+    "environment": {
+      "type": "string",
+      "enum": ["development", "staging", "production"],
+      "description": "Current environment"
+    },
+    "application": {
+      "type": "object",
+      "required": ["name", "version"],
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Application name"
+        },
+        "version": {
+          "type": "string",
+          "pattern": "^\\d+\\.\\d+\\.\\d+$",
+          "description": "Application version (semver)"
+        },
+        "debug": {
+          "type": "boolean",
+          "description": "Enable debug mode"
+        }
+      }
+    },
+    "api": {
+      "type": "object",
+      "required": ["baseURL"],
+      "properties": {
+        "baseURL": {
+          "type": "string",
+          "format": "uri",
+          "description": "Base URL for API requests"
+        },
+        "timeout": {
+          "type": "integer",
+          "minimum": 1000,
+          "maximum": 60000,
+          "description": "API timeout in milliseconds"
+        }
+      }
+    }
+  },
+  "additionalProperties": true
+}
