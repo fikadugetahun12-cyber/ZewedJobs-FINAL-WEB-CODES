@@ -1,0 +1,183 @@
+/* Hero Section with Background Image */
+.hero {
+    background: linear-gradient(rgba(44, 62, 80, 0.8), rgba(52, 152, 219, 0.8)), 
+                url('../images/hero-bg.jpg') center/cover no-repeat;
+    color: var(--white);
+    padding: 8rem 0 5rem;
+    text-align: center;
+    margin-top: 60px;
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+}
+
+.hero h1 {
+    color: var(--white);
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+}
+
+/* Quick Link Cards */
+.quick-link-card {
+    background: var(--white);
+    border-radius: var(--border-radius-lg);
+    padding: 2rem;
+    text-decoration: none;
+    color: inherit;
+    transition: var(--transition);
+    text-align: center;
+    border: 2px solid transparent;
+}
+
+.quick-link-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--primary);
+}
+
+.quick-link-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: var(--primary);
+}
+
+/* Testimonial Section */
+.testimonial-section {
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+}
+
+.testimonial-slider {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.testimonial-card {
+    background: var(--white);
+    border-radius: var(--border-radius-lg);
+    padding: 2.5rem;
+    box-shadow: var(--shadow-md);
+    position: relative;
+}
+
+.testimonial-card::before {
+    content: '"';
+    font-size: 4rem;
+    color: var(--primary);
+    opacity: 0.2;
+    position: absolute;
+    top: 10px;
+    left: 20px;
+}
+
+.testimonial-content {
+    font-style: italic;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    color: var(--dark);
+}
+
+.testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.author-avatar {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid var(--primary);
+}
+
+.author-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.author-info h4 {
+    margin-bottom: 0.3rem;
+    color: var(--dark);
+}
+
+.author-info p {
+    color: var(--gray);
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+/* Image Styles for Pages */
+.course-image img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.employer-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.team-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+/* Economy Graph Image */
+.economy-graph-container {
+    background: var(--white);
+    border-radius: var(--border-radius-lg);
+    padding: 2rem;
+    box-shadow: var(--shadow-md);
+    text-align: center;
+    margin: 3rem 0;
+}
+
+.economy-graph {
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--border-radius);
+    margin-top: 1rem;
+}
+
+.economy-graph img {
+    width: 100%;
+    height: auto;
+    border-radius: var(--border-radius);
+}
+
+/* Responsive Images */
+@media (max-width: 768px) {
+    .hero {
+        min-height: 60vh;
+        padding: 6rem 0 3rem;
+    }
+    
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+    
+    .course-image img {
+        height: 150px;
+    }
+    
+    .author-avatar {
+        width: 60px;
+        height: 60px;
+    }
+}
