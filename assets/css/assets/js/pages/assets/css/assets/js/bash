@@ -1,0 +1,71 @@
+#!/bin/bash
+
+# Create logos directory
+mkdir -p assets/images/logos
+
+# Array of logo configurations
+declare -A logos=(
+    ["telebirr"]="file:///C:/Users/Dell5000/AppData/Local/Temp/178dec52-ded7-466a-a54a-42b4d781ce50_compressed.zip.e50/TeleBirr-Logo.svg"
+    ["cbe"]="YOUR_CBE_LOGO_URL"
+    ["paypal"]="YOUR_PAYPAL_LOGO_URL"
+    ["visa-mastercard"]="file:///C:/Users/Dell5000/AppData/Local/Temp/e1393681-98bb-4bda-918a-20446bc4ea15_compressed.zip.a15/212-2128435_master-e-visa-png-vi.svg"
+    ["zewedjobs"]="file:///C:/Users/Dell5000/Downloads/zewedjobs%20LOGO.svg"
+    ["search-icon"]="file:///C:/Users/Dell5000/AppData/Local/Temp/ab92dac6-d8a6-4afa-8130-8be5e1ffb13a_compressed.zip.13a/search.svg"
+)
+
+# Download all logos
+echo "Starting logo downloads..."
+echo "=========================="
+
+for logo_name in "${!logos[@]}"; do
+    url="${logos[$logo_name]}"
+    
+    # Skip placeholder URLs
+    if [[ "$url" == *"YOUR_"* ]]; then
+        echo "⚠️  Skipping $logo_name - placeholder URL needs replacement"
+        continue
+    fi
+    
+    # Determine file extension from URL
+    extension="${url##*.}"
+    extension="${extension%%[?#]*}" # Remove query strings and fragments
+    
+    # Default to svg if no clear extension
+    if [[ ! "$extension" =~ ^(svg|png|jpg|jpeg|gif|webp)$ ]]; then
+        extension="svg"
+    fi
+    
+    output_file="assets/images/logos/${logo_name}.${extension}"
+    
+    echo "📥 Downloading $logo_name..."
+    echo "   From: $url"
+    echo "   To: $output_file"
+    
+    # Download using curl with retry logic
+    if curl -L --retry 3 --retry-delay 2 --max-time 30 -o "$output_file" "$url" 2>/dev/null; then
+        echo "   ✅ Success"
+    else
+        echo "   ❌ Failed to download $logo_name"
+        # Check if file:// URLs are accessible (they only work locally)
+        if [[ "$url" == file://* ]]; then
+            echo "   ℹ️  Note: file:// URLs only work on local system"
+            echo "   ℹ️  Manually copy file from: ${url#file://}"
+        fi
+    fi
+    echo ""
+done
+
+echo "Download process completed!"
+echo ""
+echo "⚠️  MANUAL ACTIONS REQUIRED:"
+echo "==========================="
+echo "1. Replace placeholder URLs in the script:"
+echo "   - cbe.png"
+echo "   - paypal.png"
+echo ""
+echo "2. For file:// URLs, ensure files exist locally at:"
+echo "   - Check if source files exist in the specified temp directories"
+echo ""
+echo "3. Consider uploading logos to a CDN and using HTTPS URLs"
+echo ""
+echo "4. Verify logo sizes and convert to consistent format if needed"
