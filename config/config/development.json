@@ -1,0 +1,45 @@
+{
+  "environment": "development",
+  
+  "application": {
+    "debug": true,
+    "logLevel": "debug"
+  },
+  
+  "api": {
+    "baseURL": "http://localhost:3000/api/v1",
+    "timeout": 60000
+  },
+  
+  "features": {
+    "enabled": {
+      "debugMode": true,
+      "developerTools": true
+    }
+  },
+  
+  "logging": {
+    "level": "debug",
+    "console": true,
+    "remote": false
+  },
+  
+  "integrations": {
+    "stripe": {
+      "publishableKey": "pk_test_xxxxxxxxxxxxxxxxxxxxxxxx"
+    },
+    
+    "googleMaps": {
+      "apiKey": "AIzaSyXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+    }
+  },
+  
+  "debug": {
+    "showConsoleLogs": true,
+    "logNetworkRequests": true,
+    "logPerformance": true,
+    "mockData": true,
+    "simulateSlowNetwork": false,
+    "simulateNetworkErrors": false
+  }
+}
