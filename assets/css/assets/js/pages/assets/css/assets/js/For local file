@@ -1,0 +1,22 @@
+#!/bin/bash
+
+mkdir -p assets/images/logos
+
+# Copy local files if they exist
+declare -A local_files=(
+    ["telebirr.svg"]="/c/Users/Dell5000/AppData/Local/Temp/178dec52-ded7-466a-a54a-42b4d781ce50_compressed.zip.e50/TeleBirr-Logo.svg"
+    ["visa-mastercard.svg"]="/c/Users/Dell5000/AppData/Local/Temp/e1393681-98bb-4bda-918a-20446bc4ea15_compressed.zip.a15/212-2128435_master-e-visa-png-vi.svg"
+    ["zewedjobs.svg"]="/c/Users/Dell5000/Downloads/zewedjobs LOGO.svg"
+    ["search.svg"]="/c/Users/Dell5000/AppData/Local/Temp/ab92dac6-d8a6-4afa-8130-8be5e1ffb13a_compressed.zip.13a/search.svg"
+)
+
+for dest_name in "${!local_files[@]}"; do
+    source_path="${local_files[$dest_name]}"
+    
+    if [ -f "$source_path" ]; then
+        cp "$source_path" "assets/images/logos/$dest_name"
+        echo "✅ Copied: $dest_name"
+    else
+        echo "⚠️  Missing: $source_path"
+    fi
+done
