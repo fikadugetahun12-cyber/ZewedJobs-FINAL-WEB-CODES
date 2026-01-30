@@ -3,505 +3,745 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Find Jobs in Ethiopia - ZewedJobs</title>
-    <meta name="description" content="Browse thousands of job opportunities in Ethiopia. Find your perfect match with advanced search and filtering.">
-    
-    <!-- Same head content as index.html -->
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="responsive.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <title>JobPortal - Find Jobs</title>
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        /* Navigation */
+        .navbar {
+            background: linear-gradient(135deg, #2c3e50, #1a252f);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .logo {
+            color: white;
+            font-size: 1.8rem;
+            font-weight: 700;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo span {
+            color: #3498db;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            background: rgba(52, 152, 219, 0.2);
+            color: #3498db;
+        }
+        
+        .nav-links a.active {
+            background: #3498db;
+            color: white;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #3498db, #2c3e50);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            opacity: 0.9;
+        }
+        
+        /* Search Section */
+        .search-container {
+            max-width: 1200px;
+            margin: -3rem auto 0;
+            padding: 0 2rem;
+        }
+        
+        .search-box {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+        }
+        
+        .search-bar {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .search-input {
+            flex: 1;
+            padding: 1rem 1.5rem;
+            border: 2px solid #e1e8ed;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+        
+        .search-input:focus {
+            outline: none;
+            border-color: #3498db;
+        }
+        
+        .search-btn {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 1rem 2.5rem;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .search-btn:hover {
+            background: #2980b9;
+        }
+        
+        /* Filters */
+        .filters {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .filter-group {
+            flex: 1;
+            min-width: 180px;
+        }
+        
+        .filter-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        
+        .filter-select {
+            width: 100%;
+            padding: 0.8rem;
+            border: 2px solid #e1e8ed;
+            border-radius: 6px;
+            background: white;
+            font-size: 0.95rem;
+        }
+        
+        /* Content Section */
+        .content-section {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+        }
+        
+        .section-title {
+            font-size: 2.2rem;
+            color: #2c3e50;
+            margin-bottom: 2.5rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: #3498db;
+            border-radius: 2px;
+        }
+        
+        /* Job Grid */
+        .job-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .job-card {
+            background: white;
+            border-radius: 10px;
+            padding: 1.8rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            border-left: 4px solid #3498db;
+        }
+        
+        .job-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+        }
+        
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+        
+        .job-title {
+            font-size: 1.4rem;
+            color: #2c3e50;
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+        }
+        
+        .company {
+            color: #7f8c8d;
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .job-meta {
+            display: flex;
+            gap: 0.8rem;
+            margin: 1.2rem 0;
+            flex-wrap: wrap;
+        }
+        
+        .badge {
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+        
+        .badge.remote {
+            background: #e8f6f3;
+            color: #27ae60;
+        }
+        
+        .badge.full-time {
+            background: #e8f4fc;
+            color: #2980b9;
+        }
+        
+        .badge.contract {
+            background: #fef9e7;
+            color: #f39c12;
+        }
+        
+        .salary {
+            color: #27ae60;
+            font-weight: 600;
+            margin: 1rem 0;
+        }
+        
+        .job-description {
+            color: #555;
+            margin: 1.2rem 0;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+        
+        .apply-btn {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 0.9rem 1.8rem;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 1.2rem;
+            transition: background 0.3s;
+        }
+        
+        .apply-btn:hover {
+            background: #2980b9;
+        }
+        
+        /* Stats */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 4rem 0;
+        }
+        
+        .stat-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #3498db;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-label {
+            color: #7f8c8d;
+            font-size: 1.1rem;
+        }
+        
+        /* Footer */
+        .footer {
+            background: linear-gradient(135deg, #2c3e50, #1a252f);
+            color: white;
+            padding: 4rem 2rem 2rem;
+            margin-top: 4rem;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+        }
+        
+        .footer-section h3 {
+            color: #3498db;
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-section a {
+            color: #ecf0f1;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-section a:hover {
+            color: #3498db;
+        }
+        
+        .copyright {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.7);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                padding: 1rem;
+            }
+            
+            .nav-links {
+                margin-top: 1rem;
+                gap: 1rem;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .search-bar {
+                flex-direction: column;
+            }
+            
+            .filters {
+                flex-direction: column;
+            }
+            
+            .content-section {
+                padding: 0 1rem;
+            }
+            
+            .job-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
-    <!-- Navigation (Same as index.html) -->
+    <!-- Navigation -->
     <nav class="navbar">
-        <div class="container">
-            <div class="nav-content">
-                <a href="index.html" class="logo">
-                    <div class="logo-icon">ZJ</div>
-                    <div class="logo-text">ZewedJobs</div>
-                </a>
-                
-                <div class="nav-links">
-                    <a href="index.html"><i class="fas fa-home"></i> Home</a>
-                    <a href="jobs.html" class="active"><i class="fas fa-briefcase"></i> Jobs</a>
-                    <a href="news.html"><i class="fas fa-newspaper"></i> News</a>
-                    <a href="events.html"><i class="fas fa-calendar-alt"></i> Events</a>
-                    <a href="media-room.html"><i class="fas fa-video"></i> Media Room</a>
-                </div>
-                
-                <div class="nav-actions">
-                    <div class="translate-container">
-                        <div id="google_translate_element"></div>
-                    </div>
-                    <button class="btn btn-primary" onclick="ZewedJobs.showModal('post-job')">
-                        <i class="fas fa-plus"></i> Post a Job
-                    </button>
-                </div>
-                
-                <button class="mobile-menu-btn" id="mobileMenuBtn">
-                    <i class="fas fa-bars"></i>
-                </button>
-            </div>
-        </div>
+        <a href="../index.html" class="logo">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M20 6H16V4C16 2.89 15.11 2 14 2H10C8.89 2 8 2.89 8 4V6H4C2.89 6 2.01 6.89 2.01 8L2 19C2 20.11 2.89 21 4 21H20C21.11 21 22 20.11 22 19V8C22 6.89 21.11 6 20 6ZM10 4H14V6H10V4ZM20 19H4V8H20V19Z" fill="#3498db"/>
+            </svg>
+            Job<span>Portal</span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="jobs.html" class="active">Jobs</a></li>
+            <li><a href="employers.html">Employers</a></li>
+            <li><a href="courses.html">Courses</a></li>
+            <li><a href="about.html">About</a></li>
+        </ul>
     </nav>
 
-    <!-- Jobs Hero -->
-    <section class="page-hero jobs-hero">
-        <div class="container">
-            <div class="page-hero-content">
-                <h1>Find Your Dream Job in Ethiopia</h1>
-                <p>Browse 50,000+ opportunities from top Ethiopian companies</p>
-                
-                <!-- Advanced Search -->
-                <div class="advanced-search">
-                    <div class="search-row">
-                        <div class="search-group">
-                            <i class="fas fa-search"></i>
-                            <input type="text" placeholder="Job title, keywords, or company" id="jobSearchInput">
-                        </div>
-                        <div class="search-group">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <select id="locationSelect">
-                                <option value="">All Locations</option>
-                                <option value="addis-ababa">Addis Ababa</option>
-                                <option value="dire-dawa">Dire Dawa</option>
-                                <option value="bahir-dar">Bahir Dar</option>
-                                <option value="hawassa">Hawassa</option>
-                                <option value="mekele">Mekele</option>
-                                <option value="remote">Remote</option>
-                                <option value="hybrid">Hybrid</option>
-                            </select>
-                        </div>
-                        <div class="search-group">
-                            <i class="fas fa-filter"></i>
-                            <select id="categorySelect">
-                                <option value="">All Categories</option>
-                                <option value="technology">Technology</option>
-                                <option value="healthcare">Healthcare</option>
-                                <option value="finance">Finance</option>
-                                <option value="marketing">Marketing</option>
-                                <option value="engineering">Engineering</option>
-                                <option value="education">Education</option>
-                            </select>
-                        </div>
-                        <button class="btn btn-primary btn-lg" onclick="ZewedJobs.searchJobsAdvanced()">
-                            <i class="fas fa-search"></i> Search Jobs
-                        </button>
-                    </div>
-                    <div class="search-options">
-                        <a href="#" class="option-link" onclick="ZewedJobs.toggleAdvancedFilters()">
-                            <i class="fas fa-sliders-h"></i> Advanced Filters
-                        </a>
-                        <a href="#" class="option-link" onclick="ZewedJobs.saveSearch()">
-                            <i class="far fa-bell"></i> Save Search
-                        </a>
-                        <a href="#" class="option-link" onclick="ZewedJobs.createJobAlert()">
-                            <i class="fas fa-envelope"></i> Create Job Alert
-                        </a>
-                    </div>
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Find Your Dream Job</h1>
+        <p>Browse thousands of job opportunities from top companies worldwide</p>
+    </section>
+
+    <!-- Search Section -->
+    <div class="search-container">
+        <div class="search-box">
+            <div class="search-bar">
+                <input type="text" class="search-input" placeholder="Job title, keywords, or company">
+                <input type="text" class="search-input" placeholder="City, state, or remote">
+                <button class="search-btn">Search Jobs</button>
+            </div>
+            <div class="filters">
+                <div class="filter-group">
+                    <label class="filter-label">Job Type</label>
+                    <select class="filter-select">
+                        <option value="">All Types</option>
+                        <option value="full-time">Full-time</option>
+                        <option value="part-time">Part-time</option>
+                        <option value="contract">Contract</option>
+                        <option value="remote">Remote</option>
+                    </select>
                 </div>
-                
-                <!-- Quick Filters -->
-                <div class="quick-filters">
-                    <span class="filter-tag active">All Jobs</span>
-                    <span class="filter-tag">Remote</span>
-                    <span class="filter-tag">Full-time</span>
-                    <span class="filter-tag">Part-time</span>
-                    <span class="filter-tag">Internship</span>
-                    <span class="filter-tag">Contract</span>
-                    <span class="filter-tag">Urgent Hiring</span>
+                <div class="filter-group">
+                    <label class="filter-label">Experience</label>
+                    <select class="filter-select">
+                        <option value="">All Levels</option>
+                        <option value="entry">Entry Level</option>
+                        <option value="mid">Mid Level</option>
+                        <option value="senior">Senior Level</option>
+                    </select>
                 </div>
+                <div class="filter-group">
+                    <label class="filter-label">Salary Range</label>
+                    <select class="filter-select">
+                        <option value="">Any Salary</option>
+                        <option value="50k">$50,000+</option>
+                        <option value="80k">$80,000+</option>
+                        <option value="100k">$100,000+</option>
+                        <option value="120k">$120,000+</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label class="filter-label">Date Posted</label>
+                    <select class="filter-select">
+                        <option value="">Any Time</option>
+                        <option value="24h">Last 24 hours</option>
+                        <option value="week">Last Week</option>
+                        <option value="month">Last Month</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Jobs Section -->
+    <section class="content-section">
+        <h2 class="section-title">Featured Jobs</h2>
+        
+        <div class="job-grid">
+            <!-- Job Card 1 -->
+            <div class="job-card">
+                <div class="job-header">
+                    <div>
+                        <h3 class="job-title">Senior Frontend Developer</h3>
+                        <p class="company">TechCorp Solutions</p>
+                    </div>
+                    <span class="badge remote">Remote</span>
+                </div>
+                <div class="job-meta">
+                    <span class="badge full-time">Full-time</span>
+                    <span class="badge">React</span>
+                    <span class="badge">JavaScript</span>
+                </div>
+                <p class="salary">$110,000 - $140,000</p>
+                <p class="job-description">We're looking for a Senior Frontend Developer with 5+ years of experience in React, TypeScript, and modern frontend architectures...</p>
+                <button class="apply-btn">Apply Now</button>
+            </div>
+
+            <!-- Job Card 2 -->
+            <div class="job-card">
+                <div class="job-header">
+                    <div>
+                        <h3 class="job-title">Data Scientist</h3>
+                        <p class="company">DataWorks Inc.</p>
+                    </div>
+                    <span class="badge">Hybrid</span>
+                </div>
+                <div class="job-meta">
+                    <span class="badge full-time">Full-time</span>
+                    <span class="badge">Python</span>
+                    <span class="badge">Machine Learning</span>
+                </div>
+                <p class="salary">$120,000 - $150,000</p>
+                <p class="job-description">Join our data science team to work on cutting-edge AI projects. Experience with TensorFlow, PyTorch, and big data required...</p>
+                <button class="apply-btn">Apply Now</button>
+            </div>
+
+            <!-- Job Card 3 -->
+            <div class="job-card">
+                <div class="job-header">
+                    <div>
+                        <h3 class="job-title">UX/UI Designer</h3>
+                        <p class="company">CreativeStudio</p>
+                    </div>
+                    <span class="badge remote">Remote</span>
+                </div>
+                <div class="job-meta">
+                    <span class="badge full-time">Full-time</span>
+                    <span class="badge">Figma</span>
+                    <span class="badge">Design Systems</span>
+                </div>
+                <p class="salary">$85,000 - $110,000</p>
+                <p class="job-description">Design beautiful and intuitive user interfaces for web and mobile applications. Portfolio showcasing design thinking required...</p>
+                <button class="apply-btn">Apply Now</button>
+            </div>
+
+            <!-- Job Card 4 -->
+            <div class="job-card">
+                <div class="job-header">
+                    <div>
+                        <h3 class="job-title">DevOps Engineer</h3>
+                        <p class="company">CloudSystems</p>
+                    </div>
+                    <span class="badge">On-site</span>
+                </div>
+                <div class="job-meta">
+                    <span class="badge full-time">Full-time</span>
+                    <span class="badge">AWS</span>
+                    <span class="badge">Kubernetes</span>
+                </div>
+                <p class="salary">$130,000 - $160,000</p>
+                <p class="job-description">Manage and scale our cloud infrastructure. Experience with AWS, Docker, Kubernetes, and CI/CD pipelines required...</p>
+                <button class="apply-btn">Apply Now</button>
+            </div>
+
+            <!-- Job Card 5 -->
+            <div class="job-card">
+                <div class="job-header">
+                    <div>
+                        <h3 class="job-title">Product Manager</h3>
+                        <p class="company">GrowthLabs</p>
+                    </div>
+                    <span class="badge">Hybrid</span>
+                </div>
+                <div class="job-meta">
+                    <span class="badge full-time">Full-time</span>
+                    <span class="badge">Agile</span>
+                    <span class="badge">Strategy</span>
+                </div>
+                <p class="salary">$140,000 - $180,000</p>
+                <p class="job-description">Lead product strategy and development for our flagship SaaS platform. Experience in B2B software products required...</p>
+                <button class="apply-btn">Apply Now</button>
+            </div>
+
+            <!-- Job Card 6 -->
+            <div class="job-card">
+                <div class="job-header">
+                    <div>
+                        <h3 class="job-title">Backend Developer</h3>
+                        <p class="company">API Masters</p>
+                    </div>
+                    <span class="badge remote">Remote</span>
+                </div>
+                <div class="job-meta">
+                    <span class="badge full-time">Full-time</span>
+                    <span class="badge">Node.js</span>
+                    <span class="badge">Microservices</span>
+                </div>
+                <p class="salary">$100,000 - $130,000</p>
+                <p class="job-description">Build scalable backend services and APIs. Experience with Node.js, PostgreSQL, and cloud deployment required...</p>
+                <button class="apply-btn">Apply Now</button>
+            </div>
+        </div>
+
+        <!-- Stats Section -->
+        <div class="stats">
+            <div class="stat-item">
+                <div class="stat-number">2,500+</div>
+                <div class="stat-label">Jobs Available</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">800+</div>
+                <div class="stat-label">Companies Hiring</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">15,000+</div>
+                <div class="stat-label">Successful Hires</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">95%</div>
+                <div class="stat-label">Satisfaction Rate</div>
             </div>
         </div>
     </section>
 
-    <!-- Advanced Filters -->
-    <section class="section section-light" id="advancedFilters" style="display: none;">
-        <div class="container">
-            <div class="advanced-filters-content">
-                <h3>Advanced Filters</h3>
-                <div class="filters-grid">
-                    <div class="filter-column">
-                        <h4>Salary Range</h4>
-                        <div class="salary-range">
-                            <div class="range-inputs">
-                                <input type="number" placeholder="Min" id="minSalary">
-                                <span>to</span>
-                                <input type="number" placeholder="Max" id="maxSalary">
-                            </div>
-                            <select id="salaryCurrency">
-                                <option value="ETB">ETB</option>
-                                <option value="USD">USD</option>
-                            </select>
-                        </div>
-                    </div>
-                    
-                    <div class="filter-column">
-                        <h4>Experience Level</h4>
-                        <div class="experience-levels">
-                            <label class="checkbox-label">
-                                <input type="checkbox" value="entry"> Entry Level (0-2 years)
-                            </label>
-                            <label class="checkbox-label">
-                                <input type="checkbox" value="mid"> Mid Level (2-5 years)
-                            </label>
-                            <label class="checkbox-label">
-                                <input type="checkbox" value="senior"> Senior Level (5+ years)
-                            </label>
-                            <label class="checkbox-label">
-                                <input type="checkbox" value="executive"> Executive
-                            </label>
-                        </div>
-                    </div>
-                    
-                    <div class="filter-column">
-                        <h4>Date Posted</h4>
-                        <div class="date-posted">
-                            <label class="radio-label">
-                                <input type="radio" name="datePosted" value="1"> Last 24 hours
-                            </label>
-                            <label class="radio-label">
-                                <input type="radio" name="datePosted" value="3"> Last 3 days
-                            </label>
-                            <label class="radio-label">
-                                <input type="radio" name="datePosted" value="7"> Last week
-                            </label>
-                            <label class="radio-label">
-                                <input type="radio" name="datePosted" value="30"> Last month
-                            </label>
-                        </div>
-                    </div>
-                    
-                    <div class="filter-column">
-                        <h4>Job Type</h4>
-                        <div class="job-types">
-                            <label class="checkbox-label">
-                                <input type="checkbox" value="fulltime"> Full-time
-                            </label>
-                            <label class="checkbox-label">
-                                <input type="checkbox" value="parttime"> Part-time
-                            </label>
-                            <label class="checkbox-label">
-                                <input type="checkbox" value="contract"> Contract
-                            </label>
-                            <label class="checkbox-label">
-                                <input type="checkbox" value="internship"> Internship
-                            </label>
-                            <label class="checkbox-label">
-                                <input type="checkbox" value="remote"> Remote
-                            </label>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="filter-actions">
-                    <button class="btn btn-primary" onclick="ZewedJobs.applyAdvancedFilters()">
-                        Apply Filters
-                    </button>
-                    <button class="btn btn-outline" onclick="ZewedJobs.resetFilters()">
-                        Reset All
-                    </button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Jobs Listing -->
-    <section class="section">
-        <div class="container">
-            <div class="jobs-listing">
-                <!-- Sidebar Filters -->
-                <aside class="jobs-sidebar">
-                    <div class="sidebar-widget">
-                        <h4>Filter by Industry</h4>
-                        <div class="industry-filters">
-                            <label class="checkbox-label">
-                                <input type="checkbox" value="technology"> Technology
-                                <span class="count">(2,450)</span>
-                            </label>
-                            <label class="checkbox-label">
-                                <input type="checkbox" value="healthcare"> Healthcare
-                                <span class="count">(1,876)</span>
-                            </label>
-                            <label class="checkbox-label">
-                                <input type="checkbox" value="finance"> Finance & Banking
-                                <span class="count">(1,654)</span>
-                            </label>
-                            <label class="checkbox-label">
-                                <input type="checkbox" value="education"> Education
-                                <span class="count">(1,543)</span>
-                            </label>
-                            <label class="checkbox-label">
-                                <input type="checkbox" value="marketing"> Marketing & Sales
-                                <span class="count">(1,432)</span>
-                            </label>
-                            <label class="checkbox-label">
-                                <input type="checkbox" value="engineering"> Engineering
-                                <span class="count">(1,321)</span>
-                            </label>
-                            <label class="checkbox-label">
-                                <input type="checkbox" value="manufacturing"> Manufacturing
-                                <span class="count">(987)</span>
-                            </label>
-                            <label class="checkbox-label">
-                                <input type="checkbox" value="hospitality"> Hospitality & Tourism
-                                <span class="count">(876)</span>
-                            </label>
-                        </div>
-                    </div>
-                    
-                    <div class="sidebar-widget">
-                        <h4>Filter by Company</h4>
-                        <div class="company-filters">
-                            <label class="checkbox-label">
-                                <input type="checkbox" value="safaricom"> Safaricom Ethiopia
-                                <span class="count">(45)</span>
-                            </label>
-                            <label class="checkbox-label">
-                                <input type="checkbox" value="ethio-telecom"> Ethio Telecom
-                                <span class="count">(38)</span>
-                            </label>
-                            <label class="checkbox-label">
-                                <input type="checkbox" value="awash-bank"> Awash Bank
-                                <span class="count">(32)</span>
-                            </label>
-                            <label class="checkbox-label">
-                                <input type="checkbox" value="ethiopian-airlines"> Ethiopian Airlines
-                                <span class="count">(28)</span>
-                            </label>
-                            <label class="checkbox-label">
-                                <input type="checkbox" value="cbe"> Commercial Bank of Ethiopia
-                                <span class="count">(25)</span>
-                            </label>
-                        </div>
-                    </div>
-                    
-                    <div class="sidebar-widget">
-                        <h4>Popular Searches</h4>
-                        <div class="popular-searches">
-                            <a href="#" class="search-tag">Software Developer</a>
-                            <a href="#" class="search-tag">Data Analyst</a>
-                            <a href="#" class="search-tag">Project Manager</a>
-                            <a href="#" class="search-tag">Nurse</a>
-                            <a href="#" class="search-tag">Accountant</a>
-                            <a href="#" class="search-tag">Digital Marketing</a>
-                            <a href="#" class="search-tag">Civil Engineer</a>
-                            <a href="#" class="search-tag">Teacher</a>
-                        </div>
-                    </div>
-                    
-                    <div class="sidebar-widget">
-                        <div class="job-alert-box">
-                            <h4>Get Job Alerts</h4>
-                            <p>Never miss a job opportunity that matches your profile.</p>
-                            <input type="email" placeholder="Your email">
-                            <button class="btn btn-primary">Create Alert</button>
-                        </div>
-                    </div>
-                </aside>
-                
-                <!-- Main Jobs Content -->
-                <main class="jobs-main">
-                    <div class="jobs-header">
-                        <div class="jobs-count">
-                            <h3>Showing <span id="jobsCount">1,245</span> Jobs</h3>
-                            <p>Sorted by: <select class="sort-select">
-                                <option value="relevance">Relevance</option>
-                                <option value="date">Date Posted</option>
-                                <option value="salary">Salary</option>
-                                <option value="popular">Most Popular</option>
-                            </select></p>
-                        </div>
-                        <div class="view-options">
-                            <button class="view-btn active" data-view="list">
-                                <i class="fas fa-list"></i> List
-                            </button>
-                            <button class="view-btn" data-view="grid">
-                                <i class="fas fa-th-large"></i> Grid
-                            </button>
-                        </div>
-                    </div>
-                    
-                    <!-- Jobs List -->
-                    <div class="jobs-list" id="jobsList">
-                        <!-- Job items will be loaded here by JavaScript -->
-                    </div>
-                    
-                    <!-- Pagination -->
-                    <div class="jobs-pagination">
-                        <nav class="pagination">
-                            <a href="#" class="page-item disabled"><i class="fas fa-chevron-left"></i></a>
-                            <a href="#" class="page-item active">1</a>
-                            <a href="#" class="page-item">2</a>
-                            <a href="#" class="page-item">3</a>
-                            <a href="#" class="page-item">4</a>
-                            <a href="#" class="page-item">5</a>
-                            <span class="page-dots">...</span>
-                            <a href="#" class="page-item">25</a>
-                            <a href="#" class="page-item"><i class="fas fa-chevron-right"></i></a>
-                        </nav>
-                        <div class="jobs-per-page">
-                            <span>Jobs per page:</span>
-                            <select class="per-page-select">
-                                <option value="10">10</option>
-                                <option value="20" selected>20</option>
-                                <option value="50">50</option>
-                                <option value="100">100</option>
-                            </select>
-                        </div>
-                    </div>
-                </main>
-            </div>
-        </div>
-    </section>
-
-    <!-- Featured Employers -->
-    <section class="section section-light">
-        <div class="container">
-            <div class="section-title">
-                <h2>🏢 <span>Featured</span> Employers</h2>
-                <p>Top companies hiring now on ZewedJobs</p>
-            </div>
-            
-            <div class="employers-grid">
-                <div class="employer-card">
-                    <div class="employer-logo">
-                        <i class="fas fa-briefcase"></i>
-                    </div>
-                    <h4>Safaricom Ethiopia</h4>
-                    <p>Technology • Telecommunications</p>
-                    <div class="employer-stats">
-                        <span><i class="fas fa-briefcase"></i> 45 open jobs</span>
-                    </div>
-                    <button class="btn btn-outline" onclick="ZewedJobs.viewCompany('safaricom')">View Jobs</button>
-                </div>
-                
-                <div class="employer-card">
-                    <div class="employer-logo">
-                        <i class="fas fa-plane"></i>
-                    </div>
-                    <h4>Ethiopian Airlines</h4>
-                    <p>Aviation • Transportation</p>
-                    <div class="employer-stats">
-                        <span><i class="fas fa-briefcase"></i> 28 open jobs</span>
-                    </div>
-                    <button class="btn btn-outline" onclick="ZewedJobs.viewCompany('ethiopian-airlines')">View Jobs</button>
-                </div>
-                
-                <div class="employer-card">
-                    <div class="employer-logo">
-                        <i class="fas fa-university"></i>
-                    </div>
-                    <h4>Awash Bank</h4>
-                    <p>Banking • Finance</p>
-                    <div class="employer-stats">
-                        <span><i class="fas fa-briefcase"></i> 32 open jobs</span>
-                    </div>
-                    <button class="btn btn-outline" onclick="ZewedJobs.viewCompany('awash-bank')">View Jobs</button>
-                </div>
-                
-                <div class="employer-card">
-                    <div class="employer-logo">
-                        <i class="fas fa-hospital"></i>
-                    </div>
-                    <h4>St. Paul Hospital</h4>
-                    <p>Healthcare • Medical</p>
-                    <div class="employer-stats">
-                        <span><i class="fas fa-briefcase"></i> 18 open jobs</span>
-                    </div>
-                    <button class="btn btn-outline" onclick="ZewedJobs.viewCompany('st-paul-hospital')">View Jobs</button>
-                </div>
-                
-                <div class="employer-card">
-                    <div class="employer-logo">
-                        <i class="fas fa-phone-alt"></i>
-                    </div>
-                    <h4>Ethio Telecom</h4>
-                    <p>Telecommunications • Technology</p>
-                    <div class="employer-stats">
-                        <span><i class="fas fa-briefcase"></i> 38 open jobs</span>
-                    </div>
-                    <button class="btn btn-outline" onclick="ZewedJobs.viewCompany('ethio-telecom')">View Jobs</button>
-                </div>
-                
-                <div class="employer-card">
-                    <div class="employer-logo">
-                        <i class="fas fa-building"></i>
-                    </div>
-                    <h4>Commercial Bank of Ethiopia</h4>
-                    <p>Banking • Finance</p>
-                    <div class="employer-stats">
-                        <span><i class="fas fa-briefcase"></i> 25 open jobs</span>
-                    </div>
-                    <button class="btn btn-outline" onclick="ZewedJobs.viewCompany('cbe')">View Jobs</button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Job Search Tips -->
-    <section class="section">
-        <div class="container">
-            <div class="job-tips">
-                <h2>💡 Job Search Tips</h2>
-                <div class="tips-grid">
-                    <div class="tip-card">
-                        <div class="tip-icon">
-                            <i class="fas fa-file-alt"></i>
-                        </div>
-                        <h4>Optimize Your CV</h4>
-                        <p>Tailor your CV for each application. Use keywords from the job description.</p>
-                    </div>
-                    
-                    <div class="tip-card">
-                        <div class="tip-icon">
-                            <i class="fas fa-bell"></i>
-                        </div>
-                        <h4>Set Up Job Alerts</h4>
-                        <p>Get notified when new jobs matching your criteria are posted.</p>
-                    </div>
-                    
-                    <div class="tip-card">
-                        <div class="tip-icon">
-                            <i class="fas fa-network-wired"></i>
-                        </div>
-                        <h4>Network Effectively</h4>
-                        <p>Connect with professionals in your industry on LinkedIn and at events.</p>
-                    </div>
-                    
-                    <div class="tip-card">
-                        <div class="tip-icon">
-                            <i class="fas fa-graduation-cap"></i>
-                        </div>
-                        <h4>Upskill Constantly</h4>
-                        <p>Take free courses to stay competitive in the job market.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer (Same as index.html) -->
+    <!-- Footer -->
     <footer class="footer">
-        <!-- Same footer content as index.html -->
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>JobPortal</h3>
+                <p>Connecting talent with opportunity since 2023. Your career journey starts here.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="jobs.html">Find Jobs</a></li>
+                    <li><a href="employers.html">For Employers</a></li>
+                    <li><a href="courses.html">Learning</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Resources</h3>
+                <ul>
+                    <li><a href="#">Career Advice</a></li>
+                    <li><a href="#">Resume Builder</a></li>
+                    <li><a href="#">Interview Tips</a></li>
+                    <li><a href="#">Salary Calculator</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <ul>
+                    <li><a href="mailto:info@jobportal.com">info@jobportal.com</a></li>
+                    <li><a href="tel:+15551234567">+1 (555) 123-4567</a></li>
+                    <li>123 Career Street</li>
+                    <li>San Francisco, CA 94107</li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2024 JobPortal. All rights reserved. | <a href="#" style="color: rgba(255,255,255,0.7);">Privacy Policy</a> | <a href="#" style="color: rgba(255,255,255,0.7);">Terms of Service</a></p>
+        </div>
     </footer>
 
-    <!-- Same modals and chat as index.html -->
-    <div class="ai-chat-container">
-        <!-- Same chat as index.html -->
-    </div>
+    <script>
+        // Search functionality
+        document.querySelector('.search-btn').addEventListener('click', function() {
+            const jobTitle = document.querySelectorAll('.search-input')[0].value;
+            const location = document.querySelectorAll('.search-input')[1].value;
+            
+            if (jobTitle || location) {
+                alert(`Searching for "${jobTitle}" in "${location}"...\nResults would be filtered based on your search criteria.`);
+            } else {
+                alert('Please enter job title or location to search.');
+            }
+        });
 
-    <!-- Job Application Modal -->
-    <div id="jobModal" class="modal modal-lg">
-        <div class="modal-content">
-            <button class="close-modal" onclick="ZewedJobs.closeJobModal()">&times;</button>
-            <div id="jobModalBody"></div>
-        </div>
-    </div>
+        // Apply button functionality
+        document.querySelectorAll('.apply-btn').forEach((button, index) => {
+            button.addEventListener('click', function() {
+                const jobTitle = this.parentElement.querySelector('.job-title').textContent;
+                const company = this.parentElement.querySelector('.company').textContent;
+                
+                alert(`Application Started!\n\nPosition: ${jobTitle}\nCompany: ${company}\n\nYou will be redirected to the application form.`);
+            });
+        });
 
-    <!-- Scripts -->
-    <script src="script.js"></script>
-    <script src="jobs.js"></script>
+        // Filter functionality
+        document.querySelectorAll('.filter-select').forEach(select => {
+            select.addEventListener('change', function() {
+                if (this.value) {
+                    console.log(`Filter applied: ${this.options[this.selectedIndex].text}`);
+                }
+            });
+        });
+
+        // Job card hover effect
+        document.querySelectorAll('.job-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-8px)';
+                this.style.boxShadow = '0 12px 25px rgba(0,0,0,0.15)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+                this.style.boxShadow = '0 4px 15px rgba(0,0,0,0.08)';
+            });
+        });
+
+        // Initialize stats counter animation
+        const stats = document.querySelectorAll('.stat-number');
+        const observerOptions = {
+            threshold: 0.5,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const stat = entry.target;
+                    const target = parseInt(stat.textContent.replace('+', '').replace(',', ''));
+                    const duration = 2000;
+                    const step = target / (duration / 16);
+                    let current = 0;
+                    
+                    const timer = setInterval(() => {
+                        current += step;
+                        if (current >= target) {
+                            stat.textContent = target.toLocaleString() + (stat.textContent.includes('+') ? '+' : '');
+                            clearInterval(timer);
+                        } else {
+                            stat.textContent = Math.floor(current).toLocaleString() + (stat.textContent.includes('+') ? '+' : '');
+                        }
+                    }, 16);
+                    
+                    observer.unobserve(stat);
+                }
+            });
+        }, observerOptions);
+
+        stats.forEach(stat => observer.observe(stat));
+    </script>
 </body>
 </html>
