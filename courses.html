@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JobPortal - Career Courses</title>
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        /* Navigation */
+        .navbar {
+            background: linear-gradient(135deg, #2c3e50, #1a252f);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .logo {
+            color: white;
+            font-size: 1.8rem;
+            font-weight: 700;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo span {
+            color: #9b59b6;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            background: rgba(155, 89, 182, 0.2);
+            color: #9b59b6;
+        }
+        
+        .nav-links a.active {
+            background: #9b59b6;
+            color: white;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #9b59b6, #8e44ad);
+            color: white;
+            padding: 5rem 2rem;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            opacity: 0.95;
+        }
+        
+        .search-box {
+            max-width: 600px;
+            margin: 2rem auto 0;
+        }
+        
+        .search-input {
+            width: 100%;
+            padding: 1rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .search-input:focus {
+            outline: none;
+        }
+        
+        /* Content Section */
+        .content-section {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+        }
+        
+        .section-title {
+            font-size: 2.2rem;
+            color: #2c3e50;
+            margin-bottom: 2.5rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: #9b59b6;
+            border-radius: 2px;
+        }
+        
+        .section-title.center {
+            text-align: center;
+        }
+        
+        .section-title.center::after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        /* Categories */
+        .categories {
+            display: flex;
+            gap: 1rem;
+            margin: 2rem 0 3rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .category-btn {
+            padding: 0.8rem 1.8rem;
+            background: white;
+            border: 2px solid #e1e8ed;
+            border-radius: 25px;
+            font-weight: 600;
+            color: #555;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .category-btn:hover,
+        .category-btn.active {
+            background: #9b59b6;
+            color: white;
+            border-color: #9b59b6;
+        }
+        
+        /* Courses Grid */
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2.5rem;
+            margin: 3rem 0;
+        }
+        
+        .course-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+        }
+        
+        .course-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        
+        .course-header {
+            height: 180px;
+            background: linear-gradient(135deg, #9b59b6, #8e44ad);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            position: relative;
+        }
+        
+        .course-icon {
+            font-size: 3.5rem;
+        }
+        
+        .course-level {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: rgba(255,255,255,0.2);
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            backdrop-filter: blur(10px);
+        }
+        
+        .course-content {
+            padding: 2rem;
+        }
+        
+        .course-title {
+            font-size: 1.4rem;
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+        
+        .course-instructor {
+            color: #7f8c8d;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+        
+        .course-description {
+            color: #555;
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+        
+        .course-meta {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1.5rem;
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        .course-rating {
+            color: #f39c12;
+            font-weight: 600;
+        }
+        
+        .course-price {
+            font-size: 1.5rem;
+            color: #2c3e50;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+        
+        .course-price.free {
+            color: #27ae60;
+        }
+        
+        .enroll-btn {
+            background: #9b59b6;
+            color: white;
+            border: none;
+            padding: 1rem 1.5rem;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            transition: background 0.3s;
+        }
+        
+        .enroll-btn:hover {
+            background: #8e44ad;
+        }
+        
+        /* Learning Paths */
+        .paths-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 4rem 0;
+        }
+        
+        .path-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+        }
+        
+        .path-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+        
+        .path-title {
+            font-size: 1.5rem;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        
+        .path-courses {
+            list-style: none;
+            margin: 1.5rem 0;
+        }
+        
+        .path-courses li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+        }
+        
+        .path-courses li:before {
+            content: '→';
+            color: #9b59b6;
+            margin-right: 10px;
+            font-weight: bold;
+        }
+        
+        /* Stats */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 4rem 0;
+        }
+        
+        .stat-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #9b59b6;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-label {
+            color: #7f8c8d;
+            font-size: 1.1rem;
+        }
+        
+        /* Footer */
+        .footer {
+            background: linear-gradient(135deg, #2c3e50, #1a252f);
+            color: white;
+            padding: 4rem 2rem 2rem;
+            margin-top: 4rem;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+        }
+        
+        .footer-section h3 {
+            color: #9b59b6;
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-section a {
+            color: #ecf0f1;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-section a:hover {
+            color: #9b59b6;
+        }
+        
+        .copyright {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.7);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                padding: 1rem;
+            }
+            
+            .nav-links {
+                margin-top: 1rem;
+                gap: 1rem;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .content-section {
+                padding: 0 1rem;
+            }
+            
+            .courses-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .categories {
+                justify-content: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <a href="../index.html" class="logo">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2L1 9L12 16L23 9L12 2ZM12 4.5L19.5 9L12 13.5L4.5 9L12 4.5ZM2.5 10.5L11.5 15.5V21.5L2.5 16.5V10.5ZM12.5 21.5V15.5L21.5 10.5V16.5L12.5 21.5Z" fill="#9b59b6"/>
+            </svg>
+            Job<span>Portal</span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="jobs.html">Jobs</a></li>
+            <li><a href="employers.html">Employers</a></li>
+            <li><a href="courses.html" class="active">Courses</a></li>
+            <li><a href="about.html">About</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Advance Your Career</h1>
+        <p>Learn in-demand skills with expert-led courses and certifications that employers are looking for.</p>
+        <div class="search-box">
+            <input type="text" class="search-input" placeholder="Search courses by skill, topic, or instructor...">
+        </div>
+    </section>
+
+    <!-- Categories -->
+    <section class="content-section">
+        <h2 class="section-title center">Browse by Category</h2>
+        
+        <div class="categories">
+            <button class="category-btn active">All Categories</button>
+            <button class="category-btn">Technology</button>
+            <button class="category-btn">Business</button>
+            <button class="category-btn">Design</button>
+            <button class="category-btn">Marketing</button>
+            <button class="category-btn">Data Science</button>
+            <button class="category-btn">Leadership</button>
+        </div>
+    </section>
+
+    <!-- Featured Courses -->
+    <section class="content-section">
+        <h2 class="section-title">Featured Courses</h2>
+        
+        <div class="courses-grid">
+            <!-- Course 1 -->
+            <div class="course-card">
+                <div class="course-header">
+                    <div class="course-icon">💻</div>
+                    <span class="course-level">Beginner</span>
+                </div>
+                <div class="course-content">
+                    <h3 class="course-title">Full-Stack Web Development</h3>
+                    <p class="course-instructor">By Alex Johnson • Senior Developer</p>
+                    <p class="course-description">Master HTML, CSS, JavaScript, React, Node.js, and MongoDB to build complete web applications from scratch.</p>
+                    <div class="course-meta">
+                        <span>📚 45 hours</span>
+                        <span class="course-rating">★★★★★ (4.9)</span>
+                    </div>
+                    <div class="course-price">$49.99</div>
+                    <button class="enroll-btn">Enroll Now</button>
+                </div>
+            </div>
+
+            <!-- Course 2 -->
+            <div class="course-card">
+                <div class="course-header">
+                    <div class="course-icon">📊</div>
+                    <span class="course-level">Advanced</span>
+                </div>
+                <div class="course-content">
+                    <h3 class="course-title">Data Science & Machine Learning</h3>
+                    <p class="course-instructor">By Dr. Sarah Chen • Data Scientist</p>
+                    <p class="course-description">Learn Python, Pandas, NumPy, Scikit-learn, and TensorFlow for data analysis and machine learning projects.</p>
+                    <div class="course-meta">
+                        <span>📚 60 hours</span>
+                        <span class="course-rating">★★★★★ (4.8)</span>
+                    </div>
+                    <div class="course-price">$59.99</div>
+                    <button class="enroll-btn">Enroll Now</button>
+                </div>
+            </div>
+
+            <!-- Course 3 -->
+            <div class="course-card">
+                <div class="course-header">
+                    <div class="course-icon">🎨</div>
+                    <span class="course-level">Intermediate</span>
+                </div>
+                <div class="course-content">
+                    <h3 class="course-title">UX/UI Design Masterclass</h3>
+                    <p class="course-instructor">By Maria Rodriguez • Design Lead</p>
+                    <p class="course-description">Learn user research, wireframing, prototyping, and design systems using Figma and Adobe XD.</p>
+                    <div class="course-meta">
+                        <span>📚 40 hours</span>
+                        <span class="course-rating">★★★★★ (4.7)</span>
+                    </div>
+                    <div class="course-price">$44.99</div>
+                    <button class="enroll-btn">Enroll Now</button>
+                </div>
+            </div>
+
+            <!-- Course 4 -->
+            <div class="course-card">
+                <div class="course-header">
+                    <div class="course-icon">☁️</div>
+                    <span class="course-level">Intermediate</span>
+                </div>
+                <div class="course-content">
+                    <h3 class="course-title">AWS Certified Solutions Architect</h3>
+                    <p class="course-instructor">By Michael Brown • Cloud Architect</p>
+                    <p class="course-description">Prepare for AWS certification and master cloud computing fundamentals, services, and best practices.</p>
+                    <div class="course-meta">
+                        <span>📚 35 hours</span>
+                        <span class="course-rating">★★★★★ (4.9)</span>
+                    </div>
+                    <div class="course-price">$54.99</div>
+                    <button class="enroll-btn">Enroll Now</button>
+                </div>
+            </div>
+
+            <!-- Course 5 -->
+            <div class="course-card">
+                <div class="course-header">
+                    <div class="course-icon">📱</div>
+                    <span class="course-level">Intermediate</span>
+                </div>
+                <div class="course-content">
+                    <h3 class="course-title">Mobile App Development with React Native</h3>
+                    <p class="course-instructor">By David Kim • Mobile Developer</p>
+                    <p class="course-description">Build cross-platform mobile applications for iOS and Android using React Native and modern tools.</p>
+                    <div class="course-meta">
+                        <span>📚 50 hours</span>
+                        <span class="course-rating">★★★★☆ (4.6)</span>
+                    </div>
+                    <div class="course-price">$49.99</div>
+                    <button class="enroll-btn">Enroll Now</button>
+                </div>
+            </div>
+
+            <!-- Course 6 -->
+            <div class="course-card">
+                <div class="course-header">
+                    <div class="course-icon">🚀</div>
+                    <span class="course-level">Beginner</span>
+                </div>
+                <div class="course-content">
+                    <h3 class="course-title">Digital Marketing Fundamentals</h3>
+                    <p class="course-instructor">By Jennifer Lee • Marketing Director</p>
+                    <p class="course-description">Master SEO, social media marketing, content strategy, email campaigns, and digital advertising.</p>
+                    <div class="course-meta">
+                        <span>📚 30 hours</span>
+                        <span class="course-rating">★★★★☆ (4.5)</span>
+                    </div>
+                    <div class="course-price free">Free</div>
+                    <button class="enroll-btn">Start Learning</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Learning Paths -->
+    <section class="content-section">
+        <h2 class="section-title center">Career Learning Paths</h2>
+        
+        <div class="paths-grid">
+            <div class="path-card">
+                <h3 class="path-title">Frontend Developer Path</h3>
+                <p>Become a professional frontend developer with this comprehensive learning path.</p>
+                <ul class="path-courses">
+                    <li>HTML & CSS Fundamentals</li>
+                    <li>JavaScript Mastery</li>
+                    <li>React.js Development</li>
+                    <li>Advanced Frontend Architecture</li>
+                </ul>
+                <button class="enroll-btn">Start Path</button>
+            </div>
+            
+            <div class="path-card">
+                <h3 class="path-title">Data Analyst Path</h3>
+                <p>Learn the skills needed to analyze data and make data-driven decisions.</p>
+                <ul class="path-courses">
+                    <li>Excel for Data Analysis</li>
+                    <li>SQL Fundamentals</li>
+                    <li>Python for Data Science</li>
+                    <li>Data Visualization</li>
+                </ul>
+                <button class="enroll-btn">Start Path</button>
+            </div>
+            
+            <div class="path-card">
+                <h3 class="path-title">Product Manager Path</h3>
+                <p>Develop the skills to lead product development from concept to launch.</p>
+                <ul class="path-courses">
+                    <li>Product Strategy</li>
+                    <li>User Research Methods</li>
+                    <li>Agile & Scrum</li>
+                    <li>Product Analytics</li>
+                </ul>
+                <button class="enroll-btn">Start Path</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats -->
+    <section class="content-section">
+        <div class="stats">
+            <div class="stat-item">
+                <div class="stat-number">500+</div>
+                <div class="stat-label">Courses Available</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">50K+</div>
+                <div class="stat-label">Students Enrolled</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">98%</div>
+                <div class="stat-label">Satisfaction Rate</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">100+</div>
+                <div class="stat-label">Expert Instructors</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>JobPortal Learning</h3>
+                <p>Advancing careers through quality education and skill development.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Learning</h3>
+                <ul>
+                    <li><a href="#">All Courses</a></li>
+                    <li><a href="#">Learning Paths</a></li>
+                    <li><a href="#">Certifications</a></li>
+                    <li><a href="#">Free Resources</a></li>
+                    <li><a href="#">Instructor Resources</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Support</h3>
+                <ul>
+                    <li><a href="#">Help Center</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Technical Support</a></li>
+                    <li><a href="#">Contact Instructors</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <ul>
+                    <li><a href="mailto:learning@jobportal.com">learning@jobportal.com</a></li>
+                    <li><a href="tel:+15554567890">+1 (555) 456-7890</a></li>
+                    <li>789 Learning Lane</li>
+                    <li>Boston, MA 02108</li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2024 JobPortal. All rights reserved. | <a href="#" style="color: rgba(255,255,255,0.7);">Privacy Policy</a> | <a href="#" style="color: rgba(255,255,255,0.7);">Terms of Service</a></p>
+        </div>
+    </footer>
+
+    <script>
+        // Category filtering
+        document.querySelectorAll('.category-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                // Remove active class from all buttons
+                document.querySelectorAll('.category-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                
+                // Add active class to clicked button
+                this.classList.add('active');
+                
+                const category = this.textContent;
+                if (category === 'All Categories') {
+                    alert('Showing all courses...');
+                } else {
+                    alert(`Filtering courses by category: ${category}`);
+                }
+            });
+        });
+
+        // Course enrollment
+        document.querySelectorAll('.enroll-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const courseTitle = this.parentElement.querySelector('.course-title').textContent;
+                const price = this.parentElement.querySelector('.course-price').textContent;
+                
+                if (price === 'Free') {
+                    alert(`Enrolling in FREE course: ${courseTitle}\n\nRedirecting to course content...`);
+                } else {
+                    alert(`Enrolling in course: ${courseTitle}\nPrice: ${price}\n\nRedirecting to checkout...`);
+                }
+            });
+        });
+
+        // Search functionality
+        const searchInput = document.querySelector('.search-input');
+        searchInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                const searchTerm = this.value;
+                if (searchTerm) {
+                    alert(`Searching for courses: "${searchTerm}"`);
+                } else {
+                    alert('Please enter a search term');
+                }
+            }
+        });
+
+        // Course card hover effect
+        document.querySelectorAll('.course-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px)';
+                this.style.boxShadow = '0 15px 30px rgba(0,0,0,0.15)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+                this.style.boxShadow = '0 4px 15px rgba(0,0,0,0.08)';
+            });
+        });
+
+        // Learning path enrollment
+        document.querySelectorAll('.path-card .enroll-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const pathTitle = this.parentElement.querySelector('.path-title').textContent;
+                alert(`Starting learning path: ${pathTitle}\n\nThis will enroll you in the complete series of courses.`);
+            });
+        });
+
+        // Initialize stats counter animation
+        const stats = document.querySelectorAll('.stat-number');
+        stats.forEach(stat => {
+            const target = parseInt(stat.textContent.replace('+', '').replace('K', '000').replace('%', ''));
+            const duration = 2000;
+            const step = target / (duration / 16);
+            let current = 0;
+            
+            const timer = setInterval(() => {
+                current += step;
+                if (current >= target) {
+                    stat.textContent = target.toLocaleString() + 
+                        (stat.textContent.includes('+') ? '+' : '') +
+                        (stat.textContent.includes('K') ? 'K' : '') +
+                        (stat.textContent.includes('%') ? '%' : '');
+                    clearInterval(timer);
+                } else {
+                    const displayValue = Math.floor(current);
+                    stat.textContent = displayValue.toLocaleString() + 
+                        (stat.textContent.includes('+') ? '+' : '') +
+                        (stat.textContent.includes('K') ? 'K' : '') +
+                        (stat.textContent.includes('%') ? '%' : '');
+                }
+            }, 16);
+        });
+    </script>
+</body>
+</html>
