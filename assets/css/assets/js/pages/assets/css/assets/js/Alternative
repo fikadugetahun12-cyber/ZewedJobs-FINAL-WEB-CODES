@@ -1,0 +1,31 @@
+#!/bin/bash
+
+# Create logos directory
+mkdir -p assets/images/logos
+
+# Download common payment logos from known sources
+echo "Downloading payment service logos..."
+
+# Telebirr (using placeholder - you need actual source)
+echo "Note: Telebirr logo needs to be sourced manually"
+
+# Commercial Bank of Ethiopia (placeholder)
+echo "Note: CBE logo needs to be sourced manually"
+
+# PayPal logo
+curl -L -o assets/images/logos/paypal.png "https://logos-download.com/wp-content/uploads/2016/03/PayPal_Logo_2014.png" 2>/dev/null || echo "Failed to download PayPal logo"
+
+# Visa & Mastercard combined logo
+curl -L -o assets/images/logos/visa-mastercard.svg "https://upload.wikimedia.org/wikipedia/commons/5/5e/Visa_Inc._logo.svg" 2>/dev/null
+curl -L -o assets/images/logos/mastercard.svg "https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" 2>/dev/null
+
+# Search icon (FontAwesome alternative)
+curl -L -o assets/images/logos/search.svg "https://raw.githubusercontent.com/FortAwesome/Font-Awesome/6.x/svgs/solid/magnifying-glass.svg" 2>/dev/null || \
+curl -L -o assets/images/logos/search.png "https://cdn-icons-png.flaticon.com/512/54/54481.png" 2>/dev/null
+
+echo "✅ Logo directory structure created at: assets/images/logos/"
+echo ""
+echo "📋 Next steps:"
+echo "1. Manually add Telebirr and CBE logos"
+echo "2. Optimize images: consider using SVG or WebP format"
+echo "3. Add logo attribution if required by license"
