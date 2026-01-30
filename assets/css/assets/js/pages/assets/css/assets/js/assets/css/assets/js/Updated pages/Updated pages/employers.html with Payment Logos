@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JobPortal - For Employers</title>
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="icon" type="image/png" href="../assets/images/logos/favicon.png">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="../index.html" class="logo">
+                <img src="../assets/images/logos/logo-192.png" alt="JobPortal Logo" class="logo-image">
+                <span class="logo-text">Job<span>Portal</span></span>
+            </a>
+            
+            <button class="mobile-menu-btn">☰</button>
+            
+            <ul class="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="jobs.html">Jobs</a></li>
+                <li><a href="employers.html" class="active">Employers</a></li>
+                <li><a href="courses.html">Courses</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Hire Top Talent</h1>
+            <p>Post jobs, find qualified candidates, and grow your team with JobPortal</p>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Simple Pricing Plans</h2>
+            
+            <div class="grid grid-3">
+                <!-- Pricing Card 1 -->
+                <div class="card pricing-card">
+                    <h3>Starter Plan</h3>
+                    <div class="price">$299<span>/month</span></div>
+                    <ul>
+                        <li>✓ 5 Job Postings</li>
+                        <li>✓ 30-Day Listings</li>
+                        <li>✓ Basic Analytics</li>
+                    </ul>
+                    <button class="btn btn-primary mt-3">Choose Plan</button>
+                </div>
+                
+                <!-- Pricing Card 2 -->
+                <div class="card pricing-card featured">
+                    <div class="badge">Most Popular</div>
+                    <h3>Business Plan</h3>
+                    <div class="price">$699<span>/month</span></div>
+                    <ul>
+                        <li>✓ 20 Job Postings</li>
+                        <li>✓ 60-Day Listings</li>
+                        <li>✓ Advanced Analytics</li>
+                        <li>✓ Priority Support</li>
+                    </ul>
+                    <button class="btn btn-primary mt-3">Choose Plan</button>
+                </div>
+                
+                <!-- Pricing Card 3 -->
+                <div class="card pricing-card">
+                    <h3>Enterprise Plan</h3>
+                    <div class="price">Custom</div>
+                    <ul>
+                        <li>✓ Unlimited Postings</li>
+                        <li>✓ Dedicated Support</li>
+                        <li>✓ API Access</li>
+                        <li>✓ Custom Features</li>
+                    </ul>
+                    <button class="btn btn-primary mt-3">Contact Sales</button>
+                </div>
+            </div>
+            
+            <!-- Payment Methods -->
+            <div class="text-center mt-4">
+                <h3>Accepted Payment Methods</h3>
+                <div class="payment-logos">
+                    <img src="../assets/images/logos/visa-mastercard.png" alt="Visa & Mastercard" class="payment-logo">
+                    <img src="../assets/images/logos/paypal.png" alt="PayPal" class="payment-logo">
+                    <img src="../assets/images/logos/telebirr.png" alt="Telebirr" class="payment-logo">
+                    <img src="../assets/images/logos/cbe.png" alt="CBE" class="payment-logo">
+                </div>
+                
+                <!-- Bank Transfer Info -->
+                <div class="mt-4 p-3" style="background: #f8f9fa; border-radius: 8px;">
+                    <h4>Bank Transfer (Ethiopia)</h4>
+                    <div class="bank-info">
+                        <div class="bank-logo-container">
+                            <img src="../assets/images/logos/cbe.png" alt="CBE" class="bank-logo">
+                        </div>
+                        <div class="bank-details">
+                            <p><strong>Bank:</strong> Commercial Bank of Ethiopia</p>
+                            <p><strong>Account Name:</strong> JobPortal Inc.</p>
+                            <p><strong>Account Number:</strong> 1000 2345 6789</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mobile Payment -->
+    <section class="section" style="background: #f8f9fa;">
+        <div class="container">
+            <h2 class="section-title">Mobile Payment</h2>
+            <div class="grid grid-2">
+                <div class="text-center">
+                    <img src="../assets/images/logos/telebirr.png" alt="Telebirr" class="payment-logo large">
+                    <h3>Telebirr</h3>
+                    <p>Send payment to: <strong>0911 234 567</strong></p>
+                    <p>Reference: JobPortal Business</p>
+                </div>
+                <div class="text-center">
+                    <div class="qr-code">
+                        <img src="../assets/images/placeholder.jpg" alt="Payment QR Code">
+                    </div>
+                    <p>Scan QR code to pay</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="../assets/js/main.js"></script>
+</body>
+</html>
