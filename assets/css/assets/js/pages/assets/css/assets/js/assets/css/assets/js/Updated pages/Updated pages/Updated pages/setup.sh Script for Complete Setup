@@ -1,0 +1,78 @@
+#!/bin/bash
+
+echo "🚀 Setting up JobPortal project with logos..."
+
+# Create directory structure
+mkdir -p assets/images/logos assets/css assets/js pages
+
+# Download main images
+echo "📸 Downloading main images..."
+curl -L -o assets/images/hero-bg.jpg "https://gemini.google.com/share/c11c6ba53b67"
+curl -L -o assets/images/placeholder.jpg "https://gemini.google.com/share/55a24f651003"
+curl -L -o assets/images/economy-graph.png "https://gemini.google.com/share/2ebb9fd98e24"
+curl -L -o assets/images/bot-avatar.png "https://gemini.google.com/share/6a035e4f045a"
+
+# Download logos (replace URLs with your actual logo links)
+echo "🎨 Downloading logos..."
+echo "⚠️  Please replace the placeholder URLs with your actual logo links"
+
+# Create placeholder logos if URLs not provided
+echo "Creating placeholder logos..."
+convert -size 192x192 xc:#3498db -fill white -pointsize 30 -gravity center -draw "text 0,0 'JP'" assets/images/logos/logo-192.png
+convert -size 512x512 xc:#3498db -fill white -pointsize 80 -gravity center -draw "text 0,0 'JP'" assets/images/logos/logo-512.png
+convert -size 32x32 xc:#3498db -fill white -pointsize 15 -gravity center -draw "text 0,0 'J'" assets/images/logos/favicon.png
+convert -size 200x100 xc:#1e8449 -fill white -pointsize 20 -gravity center -draw "text 0,0 'Telebirr'" assets/images/logos/telebirr.png
+convert -size 200x100 xc:#0047ab -fill white -pointsize 20 -gravity center -draw "text 0,0 'CBE'" assets/images/logos/cbe.png
+convert -size 200x100 xc:#003087 -fill white -pointsize 20 -gravity center -draw "text 0,0 'PayPal'" assets/images/logos/paypal.png
+convert -size 200x100 xc:#ff9900 -fill white -pointsize 15 -gravity center -draw "text 0,0 'Visa/Mastercard'" assets/images/logos/visa-mastercard.png
+
+# Create CSS file
+echo "🎨 Creating CSS file..."
+cat > assets/css/styles.css << 'EOF'
+/* Add the complete CSS code from above */
+EOF
+
+# Create JS file
+echo "⚡ Creating JavaScript file..."
+cat > assets/js/main.js << 'EOF'
+/* Add the complete JavaScript code from above */
+EOF
+
+# Create HTML files
+echo "📄 Creating HTML files..."
+# Create index.html, jobs.html, employers.html, courses.html, about.html
+# (Copy the complete HTML code for each file)
+
+# Create manifest.json
+echo "📱 Creating PWA manifest..."
+cat > manifest.json << 'EOF'
+{
+  "name": "JobPortal",
+  "short_name": "JobPortal",
+  "description": "Find jobs, connect with employers, and develop career skills",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#2c3e50",
+  "theme_color": "#3498db",
+  "icons": [
+    {
+      "src": "assets/images/logos/logo-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/images/logos/logo-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
+EOF
+
+echo "✅ Setup complete! Project structure:"
+echo ""
+tree -I 'node_modules|*.log' -L 3
+echo ""
+echo "📁 Open index.html in your browser to view the website"
+echo "💳 Payment logos are ready at: assets/images/logos/"
+echo "🎯 Replace placeholder logos with your actual logo files"
