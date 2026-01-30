@@ -1,0 +1,51 @@
+/* payment.css - Payment page styles */
+.payment-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.payment-amount {
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--primary-600);
+}
+
+.payment-methods {
+  display: grid;
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.payment-method {
+  display: flex;
+  align-items: center;
+  padding: 1.5rem;
+  border: 2px solid var(--border-primary);
+  border-radius: 0.75rem;
+  cursor: pointer;
+  background: white;
+}
+
+.payment-method:hover {
+  border-color: var(--primary-400);
+}
+
+.payment-method.active {
+  border-color: var(--primary-600);
+  background: var(--primary-50);
+}
+
+.payment-summary {
+  background: var(--gray-50);
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--gray-200);
+}
