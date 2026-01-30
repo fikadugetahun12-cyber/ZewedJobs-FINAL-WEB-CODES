@@ -1,0 +1,130 @@
+/* assets/styles/icons.css */
+.icon {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+}
+
+/* Icon Sizes */
+.icon-sm {
+  width: 16px;
+  height: 16px;
+}
+
+.icon-md {
+  width: 24px;
+  height: 24px;
+}
+
+.icon-lg {
+  width: 32px;
+  height: 32px;
+}
+
+.icon-xl {
+  width: 48px;
+  height: 48px;
+}
+
+/* Icon Colors */
+.icon-primary {
+  color: var(--primary-color, #3b82f6);
+  stroke: currentColor;
+}
+
+.icon-secondary {
+  color: var(--secondary-color, #6b7280);
+  stroke: currentColor;
+}
+
+.icon-success {
+  color: var(--success-color, #10b981);
+  stroke: currentColor;
+}
+
+.icon-warning {
+  color: var(--warning-color, #f59e0b);
+  stroke: currentColor;
+}
+
+.icon-danger {
+  color: var(--danger-color, #ef4444);
+  stroke: currentColor;
+}
+
+/* Payment Method Icons */
+.payment-icon {
+  width: 32px;
+  height: 32px;
+  padding: 4px;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  background: white;
+  transition: all 0.2s ease;
+}
+
+.payment-icon:hover {
+  border-color: var(--primary-color);
+  box-shadow: 0 2px 8px rgba(59, 130, 246, 0.1);
+  transform: translateY(-1px);
+}
+
+.payment-icon.active {
+  border-color: var(--primary-color);
+  background: rgba(59, 130, 246, 0.05);
+}
+
+/* Animated Icons */
+.icon-spin {
+  animation: icon-spin 2s linear infinite;
+}
+
+@keyframes icon-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.icon-pulse {
+  animation: icon-pulse 2s ease-in-out infinite;
+}
+
+@keyframes icon-pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+/* Icon Button */
+.icon-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: white;
+  border: 1px solid #e5e7eb;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.icon-button:hover {
+  background: #f9fafb;
+  border-color: #d1d5db;
+  transform: scale(1.05);
+}
+
+.icon-button:active {
+  transform: scale(0.95);
+}
