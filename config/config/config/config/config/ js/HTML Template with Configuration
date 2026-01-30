@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="page-title">My Application</title>
+    
+    <!-- Load configuration from data attribute -->
+    <div id="app" data-config='{"environment":"production","debug":false}'></div>
+    
+    <!-- Load jQuery from libs -->
+    <script src="/libs/jquery/jquery.min.js"></script>
+    <script src="/libs/jquery/jquery-migrate.min.js"></script>
+    
+    <!-- Load Chart.js from libs -->
+    <script src="/libs/chartjs/chart.min.js"></script>
+    <script src="/libs/chartjs/chartjs-adapter-date-fns.min.js"></script>
+    <script src="/libs/chartjs/chartjs-plugin-annotation.min.js"></script>
+    
+    <!-- Load configuration loader -->
+    <script type="module" src="/js/config-loader.js"></script>
+    
+    <!-- Load main application -->
+    <script type="module" src="/js/main.js"></script>
+    
+    <style>
+        :root {
+            --theme-background: #ffffff;
+            --theme-surface: #f8f9fa;
+            --theme-text: #212529;
+            --theme-text-secondary: #6c757d;
+            --theme-border: #dee2e6;
+            --theme-primary: #3498db;
+            --theme-secondary: #2ecc71;
+            --theme-danger: #e74c3c;
+            --theme-warning: #f39c12;
+            --theme-info: #17a2b8;
+            --theme-success: #27ae60;
+        }
+        
+        [data-theme="dark"] {
+            --theme-background: #1a1d21;
+            --theme-surface: #2d3239;
+            --theme-text: #e9ecef;
+            --theme-text-secondary: #adb5bd;
+            --theme-border: #495057;
+        }
+    </style>
+</head>
+<body>
+    <div id="app-container">
+        <!-- Application content will be loaded here -->
+    </div>
+    
+    <script>
+        // Initialize configuration before main app loads
+        (async function() {
+            // Set environment from URL parameter
+            const urlParams = new URLSearchParams(window.location.search);
+            const env = urlParams.get('env');
+            if (env) {
+                localStorage.setItem('app_environment', env);
+            }
+            
+            // Load configuration
+            await Config.initialize();
+            
+            // Update page title
+            document.title = Config.getAppName();
+            document.getElementById('page-title').textContent = Config.getAppName();
+            
+            // Apply theme
+            document.documentElement.setAttribute('data-theme', Config.getCurrentTheme());
+            
+            console.log(`Application: ${Config.getAppName()} v${Config.getAppVersion()}`);
+            console.log(`Environment: ${Config.environment}`);
+            console.log(`API: ${Config.getApiBaseUrl()}`);
+            
+        })().catch(console.error);
+    </script>
+</body>
+</html>
