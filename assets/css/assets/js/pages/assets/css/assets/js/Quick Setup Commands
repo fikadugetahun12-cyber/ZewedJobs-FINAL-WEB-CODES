@@ -1,0 +1,20 @@
+# Create project structure
+mkdir -p job-portal/{assets/{images,css,js},pages}
+cd job-portal
+
+# Download images with your new links
+curl -L -o assets/images/hero-bg.jpg "https://gemini.google.com/share/c11c6ba53b67"
+curl -L -o assets/images/placeholder.jpg "https://gemini.google.com/share/55a24f651003"
+curl -L -o assets/images/economy-graph.png "https://gemini.google.com/share/2ebb9fd98e24"
+curl -L -o assets/images/bot-avatar.png "https://gemini.google.com/share/6a035e4f045a"
+
+# Optional: Download extra image
+curl -L -o assets/images/extra-image.jpg "https://gemini.google.com/share/8c97642a5983"
+
+# Create CSS and JS files (paste the code from above)
+touch assets/css/styles.css
+touch assets/js/main.js
+
+# Create HTML pages (use the complete code from previous responses)
+touch index.html
+touch pages/{jobs.html,employers.html,courses.html,about.html}
