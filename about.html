@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JobPortal - About Us</title>
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        /* Navigation */
+        .navbar {
+            background: linear-gradient(135deg, #2c3e50, #1a252f);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .logo {
+            color: white;
+            font-size: 1.8rem;
+            font-weight: 700;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo span {
+            color: #e74c3c;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            background: rgba(231, 76, 60, 0.2);
+            color: #e74c3c;
+        }
+        
+        .nav-links a.active {
+            background: #e74c3c;
+            color: white;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+            color: white;
+            padding: 5rem 2rem;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0.95;
+        }
+        
+        /* Content Section */
+        .content-section {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+        }
+        
+        .section-title {
+            font-size: 2.2rem;
+            color: #2c3e50;
+            margin-bottom: 2.5rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: #e74c3c;
+            border-radius: 2px;
+        }
+        
+        .section-title.center {
+            text-align: center;
+        }
+        
+        .section-title.center::after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        /* About Content */
+        .about-content {
+            background: white;
+            padding: 3rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            margin-bottom: 3rem;
+        }
+        
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 2rem;
+        }
+        
+        .about-text p {
+            margin-bottom: 1.5rem;
+        }
+        
+        /* Mission & Vision */
+        .mv-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .mv-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            text-align: center;
+        }
+        
+        .mv-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            color: #e74c3c;
+        }
+        
+        .mv-card h3 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        
+        /* Values */
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .value-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .value-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+        
+        .value-icon {
+            width: 70px;
+            height: 70px;
+            background: #ffeaea;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            color: #e74c3c;
+            font-size: 1.8rem;
+        }
+        
+        .value-card h3 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+        
+        /* Team */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .team-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .team-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+        
+        .team-avatar {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2.5rem;
+            font-weight: 700;
+        }
+        
+        .team-name {
+            color: #2c3e50;
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+        
+        .team-role {
+            color: #e74c3c;
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+        
+        /* Stats */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 4rem 0;
+        }
+        
+        .stat-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #e74c3c;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-label {
+            color: #7f8c8d;
+            font-size: 1.1rem;
+        }
+        
+        /* Contact CTA */
+        .contact-cta {
+            background: linear-gradient(135deg, #2c3e50, #1a252f);
+            color: white;
+            padding: 4rem 2rem;
+            border-radius: 10px;
+            text-align: center;
+            margin: 4rem 0;
+        }
+        
+        .contact-cta h2 {
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .contact-cta p {
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            opacity: 0.9;
+        }
+        
+        .contact-btn {
+            display: inline-block;
+            background: #e74c3c;
+            color: white;
+            padding: 1rem 2.5rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: background 0.3s;
+        }
+        
+        .contact-btn:hover {
+            background: #c0392b;
+        }
+        
+        /* Footer */
+        .footer {
+            background: linear-gradient(135deg, #2c3e50, #1a252f);
+            color: white;
+            padding: 4rem 2rem 2rem;
+            margin-top: 4rem;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+        }
+        
+        .footer-section h3 {
+            color: #e74c3c;
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-section a {
+            color: #ecf0f1;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-section a:hover {
+            color: #e74c3c;
+        }
+        
+        .copyright {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.7);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                padding: 1rem;
+            }
+            
+            .nav-links {
+                margin-top: 1rem;
+                gap: 1rem;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .content-section {
+                padding: 0 1rem;
+            }
+            
+            .about-content {
+                padding: 2rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <a href="../index.html" class="logo">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM12 20C7.59 20 4 16.41 4 12C4 7.59 7.59 4 12 4C16.41 4 20 7.59 20 12C20 16.41 16.41 20 12 20ZM12 6C9.79 6 8 7.79 8 10C8 12.21 9.79 14 12 14C14.21 14 16 12.21 16 10C16 7.79 14.21 6 12 6ZM12 12C10.9 12 10 11.1 10 10C10 8.9 10.9 8 12 8C13.1 8 14 8.9 14 10C14 11.1 13.1 12 12 12ZM12 16C9.33 16 4 17.67 4 20V22H20V20C20 17.67 14.67 16 12 16ZM12 18C14.67 18 18 18.67 18 20H6C6 18.67 9.33 18 12 18Z" fill="#e74c3c"/>
+            </svg>
+            Job<span>Portal</span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="jobs.html">Jobs</a></li>
+            <li><a href="employers.html">Employers</a></li>
+            <li><a href="courses.html">Courses</a></li>
+            <li><a href="about.html" class="active">About</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>About JobPortal</h1>
+        <p>Connecting talent with opportunity, transforming careers and businesses since 2023.</p>
+    </section>
+
+    <!-- About Content -->
+    <section class="content-section">
+        <div class="about-content">
+            <h2 class="section-title">Our Story</h2>
+            
+            <div class="about-text">
+                <p>Founded in 2023, JobPortal emerged from a simple observation: the job search process was fragmented, inefficient, and often demoralizing for both job seekers and employers. We saw an opportunity to create a platform that not only connects talent with opportunity but also empowers individuals to develop the skills needed for tomorrow's job market.</p>
+                
+                <p>What started as a small team of passionate professionals has grown into a comprehensive career platform serving thousands of users worldwide. We believe that everyone deserves access to meaningful work and that companies should have efficient tools to find the right talent.</p>
+                
+                <p>Today, JobPortal is more than just a job board—it's a career ecosystem that supports individuals at every stage of their professional journey, from skill development to career advancement.</p>
+            </div>
+        </div>
+
+        <!-- Mission & Vision -->
+        <div class="mv-grid">
+            <div class="mv-card">
+                <div class="mv-icon">🎯</div>
+                <h3>Our Mission</h3>
+                <p>To democratize career opportunities by providing accessible tools and resources that bridge the gap between talent and employers, while empowering individuals to reach their full professional potential.</p>
+            </div>
+            
+            <div class="mv-card">
+                <div class="mv-icon">🔭</div>
+                <h3>Our Vision</h3>
+                <p>To create a world where everyone has access to meaningful work and companies can efficiently build diverse, talented teams that drive innovation and growth.</p>
+            </div>
+        </div>
+
+        <!-- Values -->
+        <h2 class="section-title center">Our Values</h2>
+        
+        <div class="values-grid">
+            <div class="value-card">
+                <div class="value-icon">🤝</div>
+                <h3>Integrity</h3>
+                <p>We believe in transparency, honesty, and doing what's right for our users and partners.</p>
+            </div>
+            
+            <div class="value-card">
+                <div class="value-icon">🌍</div>
+                <h3>Inclusivity</h3>
+                <p>We're committed to creating opportunities for people from all backgrounds and experiences.</p>
+            </div>
+            
+            <div class="value-card">
+                <div class="value-icon">🚀</div>
+                <h3>Innovation</h3>
+                <p>We continuously improve our platform to provide the best experience for job seekers and employers.</p>
+            </div>
+            
+            <div class="value-card">
+                <div class="value-icon">💡</div>
+                <h3>Empowerment</h3>
+                <p>We provide tools and resources that help individuals take control of their career journey.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats -->
+    <section class="content-section">
+        <div class="stats">
+            <div class="stat-item">
+                <div class="stat-number">10K+</div>
+                <div class="stat-label">Jobs Posted</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">5K+</div>
+                <div class="stat-label">Companies Registered</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">50K+</div>
+                <div class="stat-label">Successful Hires</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">25+</div>
+                <div class="stat-label">Countries Served</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="content-section">
+        <h2 class="section-title center">Meet Our Leadership Team</h2>
+        
+        <div class="team-grid">
+            <div class="team-card">
+                <div class="team-avatar">SJ</div>
+                <h3 class="team-name">Sarah Johnson</h3>
+                <p class="team-role">CEO & Founder</p>
+                <p>Former HR Director with 15+ years of experience in talent acquisition and career development.</p>
+            </div>
+            
+            <div class="team-card">
+                <div class="team-avatar">MR</div>
+                <h3 class="team-name">Michael Rodriguez</h3>
+                <p class="team-role">Chief Technology Officer</p>
+                <p>Tech entrepreneur with expertise in scalable platform development and AI solutions.</p>
+            </div>
+            
+            <div class="team-card">
+                <div class="team-avatar">PL</div>
+                <h3 class="team-name">Priya Lee</h3>
+                <p class="team-role">Head of Learning</p>
+                <p>Education specialist focused on career development, upskilling, and online learning.</p>
+            </div>
+            
+            <div class="team-card">
+                <div class="team-avatar">DC</div>
+                <h3 class="team-name">David Chen</h3>
+                <p class="team-role">Head of Partnerships</p>
+                <p>Connecting companies with top talent through strategic alliances and employer solutions.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact CTA -->
+    <section class="content-section">
+        <div class="contact-cta">
+            <h2>Get In Touch</h2>
+            <p>Have questions about our platform? Interested in partnership opportunities? We'd love to hear from you.</p>
+            <a href="mailto:contact@jobportal.com" class="contact-btn">Contact Us</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>JobPortal</h3>
+                <p>Transforming careers and businesses through innovative job matching and skill development.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Company</h3>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Press & Media</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Sustainability</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Legal</h3>
+                <ul>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Cookie Policy</a></li>
+                    <li><a href="#">Accessibility</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <ul>
+                    <li><a href="mailto:hello@jobportal.com">hello@jobportal.com</a></li>
+                    <li><a href="tel:+15550001234">+1 (555) 000-1234</a></li>
+                    <li>123 Innovation Drive</li>
+                    <li>San Francisco, CA 94107</li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2024 JobPortal. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Stats counter animation
+        const stats = document.querySelectorAll('.stat-number');
+        const observerOptions = {
+            threshold: 0.5,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const stat = entry.target;
+                    const originalText = stat.textContent;
+                    const target = parseInt(originalText.replace('+', '').replace('K', '000').replace(',', ''));
+                    const duration = 2000;
+                    const step = target / (duration / 16);
+                    let current = 0;
+                    
+                    const timer = setInterval(() => {
+                        current += step;
+                        if (current >= target) {
+                            stat.textContent = originalText;
+                            clearInterval(timer);
+                        } else {
+                            const displayValue = Math.floor(current);
+                            stat.textContent = displayValue.toLocaleString() + 
+                                (originalText.includes('+') ? '+' : '') +
+                                (originalText.includes('K') ? 'K' : '');
+                        }
+                    }, 16);
+                    
+                    observer.unobserve(stat);
+                }
+            });
+        }, observerOptions);
+
+        stats.forEach(stat => observer.observe(stat));
+
+        // Team card hover effect
+        document.querySelectorAll('.team-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-5px)';
+                this.style.boxShadow = '0 10px 25px rgba(0,0,0,0.15)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+                this.style.boxShadow = '0 4px 15px rgba(0,0,0,0.08)';
+            });
+        });
+
+        // Value card hover effect
+        document.querySelectorAll('.value-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-5px)';
+                this.style.boxShadow = '0 10px 25px rgba(0,0,0,0.15)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+                this.style.boxShadow = '0 4px 15px rgba(0,0,0,0.08)';
+            });
+        });
+
+        // Contact button
+        document.querySelector('.contact-btn').addEventListener('click', function(e) {
+            e.preventDefault();
+            alert('Opening your default email client...\n\nEmail: contact@jobportal.com\n\nFeel free to reach out with any questions or partnership inquiries!');
+        });
+
+        // Smooth scroll for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href !== '#' && href.startsWith('#')) {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            });
+        });
+
+        // Add loading animation for stats
+        document.addEventListener('DOMContentLoaded', function() {
+            const teamCards = document.querySelectorAll('.team-card');
+            teamCards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                
+                setTimeout(() => {
+                    card.style.transition = 'all 0.5s ease';
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, index * 200);
+            });
+        });
+    </script>
+</body>
+</html>
