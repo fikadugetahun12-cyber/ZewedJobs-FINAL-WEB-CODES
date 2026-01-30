@@ -3,578 +3,442 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ZewedJobs - Find Your Dream Job in Ethiopia</title>
-    <meta name="description" content="Ethiopia's #1 job platform. Find jobs, internships, and free courses. Trusted by 15,000+ Ethiopian companies.">
-    <meta name="keywords" content="jobs Ethiopia, Ethiopian jobs, employment Ethiopia, career Ethiopia, ZewedJobs">
-    
-    <!-- Fonts & Icons -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <meta name="description" content="A sample HTML5 template with common elements">
+    <title>My Website - Home</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <!-- Optional: Include Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- CSS Files -->
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="responsive.css">
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
-    
-    <!-- Google Translate -->
-    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-    
-    <!-- Open Graph -->
-    <meta property="og:title" content="ZewedJobs - Find Your Dream Job in Ethiopia">
-    <meta property="og:description" content="Ethiopia's #1 job platform. Find jobs, internships, and free courses.">
-    <meta property="og:image" content="https://zewedjobs.com/assets/og-image.jpg">
-    <meta property="og:url" content="https://zewedjobs.com">
-    <meta property="og:type" content="website">
-    
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="ZewedJobs - Find Your Dream Job in Ethiopia">
-    <meta name="twitter:description" content="Ethiopia's #1 job platform. Find jobs, internships, and free courses.">
-    <meta name="twitter:image" content="https://zewedjobs.com/assets/twitter-card.jpg">
-    
-    <!-- Structured Data -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "WebSite",
-        "name": "ZewedJobs",
-        "description": "Ethiopia's leading job search platform",
-        "url": "https://zewedjobs.com",
-        "potentialAction": {
-            "@type": "SearchAction",
-            "target": "https://zewedjobs.com/search?q={search_term_string}",
-            "query-input": "required name=search_term_string"
+    <style>
+        /* Basic CSS for demonstration */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-    }
-    </script>
+        
+        body {
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+        
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 1rem 0;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 2rem;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: #3498db;
+        }
+        
+        main {
+            padding: 2rem 0;
+        }
+        
+        .hero {
+            background-color: #3498db;
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+            margin-bottom: 2rem;
+            border-radius: 5px;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .section {
+            margin-bottom: 3rem;
+            background-color: white;
+            padding: 2rem;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        h2 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #3498db;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+        
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+        
+        th {
+            background-color: #f2f2f2;
+        }
+        
+        form {
+            background-color: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 5px;
+        }
+        
+        .form-group {
+            margin-bottom: 1rem;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+        
+        input, textarea, select {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s;
+        }
+        
+        button:hover {
+            background-color: #2980b9;
+        }
+        
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 1.5rem 0;
+            margin-top: 2rem;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .social-links a {
+            color: white;
+            margin-left: 1rem;
+            font-size: 1.2rem;
+        }
+        
+        .copyright {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        
+        .ethiopian-date {
+            background-color: #1a252f;
+            padding: 0.5rem;
+            border-radius: 3px;
+            margin-top: 0.5rem;
+            font-size: 0.85rem;
+        }
+        
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul {
+                margin-top: 1rem;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 0 0.5rem;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="container">
-            <div class="nav-content">
-                <a href="index.html" class="logo">
-                    <div class="logo-icon">ZJ</div>
-                    <div class="logo-text">ZewedJobs</div>
-                </a>
-                
-                <div class="nav-links">
-                    <a href="index.html" class="active"><i class="fas fa-home"></i> Home</a>
-                    <a href="jobs.html"><i class="fas fa-briefcase"></i> Jobs</a>
-                    <a href="news.html"><i class="fas fa-newspaper"></i> News</a>
-                    <a href="events.html"><i class="fas fa-calendar-alt"></i> Events</a>
-                    <a href="media-room.html"><i class="fas fa-video"></i> Media Room</a>
-                    <a href="courses.html"><i class="fas fa-graduation-cap"></i> Courses</a>
-                    <a href="employers.html"><i class="fas fa-building"></i> Employers</a>
-                    <a href="about.html"><i class="fas fa-info-circle"></i> About</a>
-                </div>
-                
-                <div class="nav-actions">
-                    <div class="translate-container">
-                        <div id="google_translate_element"></div>
-                    </div>
-                    <button class="btn btn-outline" onclick="ZewedJobs.showModal('login')">
-                        <i class="fas fa-sign-in-alt"></i> Login
-                    </button>
-                    <button class="btn btn-primary" onclick="ZewedJobs.showModal('signup')">
-                        <i class="fas fa-user-plus"></i> Sign Up
-                    </button>
-                </div>
-                
-                <button class="mobile-menu-btn" id="mobileMenuBtn">
-                    <i class="fas fa-bars"></i>
-                </button>
+    <!-- Header with navigation -->
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <i class="fas fa-code"></i> MyWebsite
             </div>
+            <nav>
+                <ul>
+                    <li><a href="#home"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="#about"><i class="fas fa-info-circle"></i> About</a></li>
+                    <li><a href="#services"><i class="fas fa-cogs"></i> Services</a></li>
+                    <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
+                </ul>
+            </nav>
         </div>
-    </nav>
+    </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <h1>Find Your <span>Dream Job</span> in Ethiopia</h1>
-                <p class="hero-subtitle">Trusted by 15,000+ Ethiopian companies. Professional job matching with free career resources.</p>
-                
-                <div class="search-box">
-                    <input type="text" id="searchInput" placeholder="Search jobs, companies, or courses...">
-                    <button onclick="ZewedJobs.searchJobs()">
-                        <i class="fas fa-search"></i> Search Jobs
-                    </button>
-                </div>
-                
-                <div class="quick-tags">
-                    <span class="tag" onclick="ZewedJobs.searchTag('Software Developer')">💻 Software</span>
-                    <span class="tag" onclick="ZewedJobs.searchTag('Healthcare')">🏥 Healthcare</span>
-                    <span class="tag" onclick="ZewedJobs.searchTag('Marketing')">📢 Marketing</span>
-                    <span class="tag" onclick="ZewedJobs.searchTag('Engineering')">🔧 Engineering</span>
-                    <span class="tag" onclick="ZewedJobs.searchTag('Free Courses')">🎓 Free Courses</span>
-                </div>
-            </div>
-        </div>
-        
-        <div class="hero-wave">
-            <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
-                <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" fill="currentColor"></path>
-                <path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35,6.36,119.13-6.64C750.77,62.27,777,55.69,813.28,54.26c86.07-3.58,167.21,29.65,237.61,54.74C1109.78,96,1190.31,96.34,1200,96.34V0Z" opacity=".5" fill="currentColor"></path>
-                <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" fill="currentColor"></path>
-            </svg>
-        </div>
-    </section>
+    <!-- Main content -->
+    <main class="container">
+        <!-- Hero section -->
+        <section id="home" class="hero">
+            <h1>Welcome to Our Website</h1>
+            <p>This is a responsive HTML5 template with modern design elements</p>
+            <a href="#about"><button>Learn More</button></a>
+        </section>
 
-    <!-- Stats Section -->
-    <section class="stats-section">
-        <div class="container">
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <div class="stat-icon">🏢</div>
-                    <div class="stat-number">15,000+</div>
-                    <div class="stat-label">Companies</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-icon">👨‍💼</div>
-                    <div class="stat-number">250,000+</div>
-                    <div class="stat-label">Job Seekers</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-icon">💼</div>
-                    <div class="stat-number">50,000+</div>
-                    <div class="stat-label">Jobs Posted</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-icon">🎓</div>
-                    <div class="stat-number">10,000+</div>
-                    <div class="stat-label">Free Courses</div>
-                </div>
-            </div>
-        </div>
-    </section>
+        <!-- About section -->
+        <section id="about" class="section">
+            <h2>About Us</h2>
+            <p>This is a sample HTML5 page demonstrating common elements and structure. HTML5 provides semantic elements that help define the structure of web pages.</p>
+            
+            <h3>Key Features:</h3>
+            <ul>
+                <li>Fully responsive design</li>
+                <li>Clean and semantic HTML5 markup</li>
+                <li>Modern CSS with flexbox</li>
+                <li>Accessible navigation</li>
+                <li>Contact form example</li>
+            </ul>
+            
+            <h3>Our Team</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Role</th>
+                        <th>Email</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>John Doe</td>
+                        <td>Web Developer</td>
+                        <td>john@example.com</td>
+                    </tr>
+                    <tr>
+                        <td>Jane Smith</td>
+                        <td>Designer</td>
+                        <td>jane@example.com</td>
+                    </tr>
+                    <tr>
+                        <td>Bob Johnson</td>
+                        <td>Project Manager</td>
+                        <td>bob@example.com</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
 
-    <!-- Featured Jobs -->
-    <section class="section section-light">
-        <div class="container">
-            <div class="section-title">
-                <h2>🔥 <span>Featured</span> Jobs</h2>
-                <p>Hand-picked opportunities from top Ethiopian companies</p>
+        <!-- Services section -->
+        <section id="services" class="section">
+            <h2>Our Services</h2>
+            <div style="display: flex; flex-wrap: wrap; gap: 20px;">
+                <div style="flex: 1; min-width: 250px; background-color: #f1f8ff; padding: 1.5rem; border-radius: 5px;">
+                    <h3><i class="fas fa-laptop-code"></i> Web Development</h3>
+                    <p>Custom website development using modern technologies and best practices.</p>
+                </div>
+                <div style="flex: 1; min-width: 250px; background-color: #f1f8ff; padding: 1.5rem; border-radius: 5px;">
+                    <h3><i class="fas fa-palette"></i> UI/UX Design</h3>
+                    <p>Creating intuitive and beautiful user interfaces for better user experience.</p>
+                </div>
+                <div style="flex: 1; min-width: 250px; background-color: #f1f8ff; padding: 1.5rem; border-radius: 5px;">
+                    <h3><i class="fas fa-chart-line"></i> Digital Marketing</h3>
+                    <p>Promoting your business online to reach a wider audience and increase sales.</p>
+                </div>
             </div>
-            
-            <div class="jobs-grid" id="featuredJobs">
-                <!-- Jobs will be loaded by JavaScript -->
-            </div>
-            
-            <div class="text-center mt-40">
-                <a href="jobs.html" class="btn btn-primary btn-lg">
-                    <i class="fas fa-briefcase"></i> View All Jobs
-                </a>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Job Categories -->
-    <section class="section">
-        <div class="container">
-            <div class="section-title">
-                <h2>📁 Browse by <span>Category</span></h2>
-                <p>Find jobs in your field of expertise</p>
-            </div>
+        <!-- Contact section -->
+        <section id="contact" class="section">
+            <h2>Contact Us</h2>
+            <p>Fill out the form below to get in touch with us.</p>
             
-            <div class="categories-grid" id="jobCategories">
-                <!-- Categories will be loaded by JavaScript -->
-            </div>
-        </div>
-    </section>
-
-    <!-- News Section -->
-    <section class="section section-light">
-        <div class="container">
-            <div class="section-title">
-                <h2>📰 Latest <span>News</span></h2>
-                <p>Stay updated with Ethiopia's job market trends</p>
-            </div>
-            
-            <div class="news-grid">
-                <div class="news-card">
-                    <div class="news-image">
-                        <div class="news-category">Market Insights</div>
-                    </div>
-                    <div class="news-content">
-                        <div class="news-meta">
-                            <span><i class="far fa-calendar"></i> March 10, 2024</span>
-                            <span><i class="far fa-clock"></i> 5 min read</span>
-                        </div>
-                        <h3>Ethiopia's Tech Job Market Grows 40% in 2023</h3>
-                        <p>New report shows significant growth in tech employment opportunities across major cities in Ethiopia...</p>
-                        <a href="news-article.html" class="btn btn-outline">Read More</a>
-                    </div>
+            <form id="contactForm">
+                <div class="form-group">
+                    <label for="name">Full Name:</label>
+                    <input type="text" id="name" name="name" required placeholder="Enter your full name">
                 </div>
                 
-                <div class="news-card">
-                    <div class="news-image" style="background: linear-gradient(135deg, var(--teal), var(--purple));">
-                        <div class="news-category">Education</div>
-                    </div>
-                    <div class="news-content">
-                        <div class="news-meta">
-                            <span><i class="far fa-calendar"></i> March 5, 2024</span>
-                            <span><i class="far fa-clock"></i> 4 min read</span>
-                        </div>
-                        <h3>Free Digital Skills Training for 10,000 Ethiopian Youth</h3>
-                        <p>ZewedJobs partners with Ministry of Education to provide free digital skills training...</p>
-                        <a href="news-article.html" class="btn btn-outline">Read More</a>
-                    </div>
+                <div class="form-group">
+                    <label for="email">Email Address:</label>
+                    <input type="email" id="email" name="email" required placeholder="Enter your email">
                 </div>
                 
-                <div class="news-card">
-                    <div class="news-image" style="background: linear-gradient(135deg, var(--secondary), #e67e22);">
-                        <div class="news-category">Awards</div>
-                    </div>
-                    <div class="news-content">
-                        <div class="news-meta">
-                            <span><i class="far fa-calendar"></i> Feb 28, 2024</span>
-                            <span><i class="far fa-clock"></i> 3 min read</span>
-                        </div>
-                        <h3>ZewedJobs Wins "Best Digital Job Platform" Award 2024</h3>
-                        <p>Recognized for innovation and impact at Ethiopian Innovation Awards 2024...</p>
-                        <a href="news-article.html" class="btn btn-outline">Read More</a>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="text-center mt-40">
-                <a href="news.html" class="btn btn-primary btn-lg">
-                    <i class="fas fa-newspaper"></i> View All News
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Events Section -->
-    <section class="section">
-        <div class="container">
-            <div class="section-title">
-                <h2>📅 Upcoming <span>Events</span></h2>
-                <p>Career fairs, workshops, and networking events</p>
-            </div>
-            
-            <div class="events-grid">
-                <div class="event-card">
-                    <div class="event-date">
-                        <div class="day">15</div>
-                        <div class="month">MAR</div>
-                        <div class="year">2024</div>
-                    </div>
-                    <div class="event-content">
-                        <h3>Tech Jobs Fair 2024</h3>
-                        <div class="event-meta">
-                            <span><i class="fas fa-map-marker-alt"></i> Addis Ababa Exhibition Center</span>
-                            <span><i class="fas fa-clock"></i> 9:00 AM - 5:00 PM</span>
-                        </div>
-                        <p>Meet top tech companies hiring in Ethiopia. Free admission with registration.</p>
-                        <button class="btn btn-primary" onclick="ZewedJobs.registerEvent('Tech Jobs Fair')">Register Now</button>
-                    </div>
+                <div class="form-group">
+                    <label for="subject">Subject:</label>
+                    <select id="subject" name="subject">
+                        <option value="general">General Inquiry</option>
+                        <option value="support">Technical Support</option>
+                        <option value="quote">Request a Quote</option>
+                        <option value="feedback">Feedback</option>
+                    </select>
                 </div>
                 
-                <div class="event-card">
-                    <div class="event-date" style="background: var(--teal);">
-                        <div class="day">22</div>
-                        <div class="month">MAR</div>
-                        <div class="year">2024</div>
-                    </div>
-                    <div class="event-content">
-                        <h3>CV Writing Workshop</h3>
-                        <div class="event-meta">
-                            <span><i class="fas fa-map-marker-alt"></i> Online (Zoom)</span>
-                            <span><i class="fas fa-clock"></i> 2:00 PM - 4:00 PM</span>
-                        </div>
-                        <p>Learn how to create a winning CV that gets noticed by employers. Free workshop.</p>
-                        <button class="btn btn-teal" onclick="ZewedJobs.registerEvent('CV Workshop')">Join Free</button>
-                    </div>
+                <div class="form-group">
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" rows="5" required placeholder="Enter your message here"></textarea>
                 </div>
                 
-                <div class="event-card">
-                    <div class="event-date" style="background: var(--purple);">
-                        <div class="day">05</div>
-                        <div class="month">APR</div>
-                        <div class="year">2024</div>
-                    </div>
-                    <div class="event-content">
-                        <h3>Women in Tech Conference</h3>
-                        <div class="event-meta">
-                            <span><i class="fas fa-map-marker-alt"></i> Sheraton Addis</span>
-                            <span><i class="fas fa-clock"></i> 8:30 AM - 6:00 PM</span>
-                        </div>
-                        <p>Empowering women in technology careers. Networking and recruitment opportunities.</p>
-                        <button class="btn btn-purple" onclick="ZewedJobs.registerEvent('Women in Tech')">Book Ticket</button>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="text-center mt-40">
-                <a href="events.html" class="btn btn-primary btn-lg">
-                    <i class="fas fa-calendar-alt"></i> View All Events
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Pricing Section -->
-    <section class="section section-light">
-        <div class="container">
-            <div class="section-title">
-                <h2>💰 Simple <span>Pricing</span></h2>
-                <p>Affordable plans for job seekers and employers</p>
-            </div>
-            
-            <div class="pricing-grid">
-                <div class="pricing-card">
-                    <div class="pricing-icon">👤</div>
-                    <h3>Job Seeker</h3>
-                    <div class="price">FREE<span>/month</span></div>
-                    <p>Perfect for individuals looking for jobs</p>
-                    <ul class="pricing-features">
-                        <li><i class="fas fa-check"></i> Unlimited Job Applications</li>
-                        <li><i class="fas fa-check"></i> Free Career Courses</li>
-                        <li><i class="fas fa-check"></i> Resume Builder</li>
-                        <li><i class="fas fa-check"></i> Job Alerts</li>
-                        <li><i class="fas fa-check"></i> Basic Profile</li>
-                    </ul>
-                    <button class="btn btn-primary" onclick="ZewedJobs.selectPlan('Job Seeker')">Get Started</button>
-                </div>
-                
-                <div class="pricing-card popular">
-                    <div class="popular-badge">MOST POPULAR</div>
-                    <div class="pricing-icon">🏢</div>
-                    <h3>Business</h3>
-                    <div class="price">ETB 2,499<span>/month</span></div>
-                    <p>For companies hiring 5-20 employees</p>
-                    <ul class="pricing-features">
-                        <li><i class="fas fa-check"></i> 20 Job Postings</li>
-                        <li><i class="fas fa-check"></i> Featured Listings</li>
-                        <li><i class="fas fa-check"></i> AI Candidate Matching</li>
-                        <li><i class="fas fa-check"></i> Advanced Analytics</li>
-                        <li><i class="fas fa-check"></i> Priority Support</li>
-                    </ul>
-                    <button class="btn btn-primary" onclick="ZewedJobs.selectPlan('Business')">Choose Plan</button>
-                </div>
-                
-                <div class="pricing-card">
-                    <div class="pricing-icon">🏭</div>
-                    <h3>Enterprise</h3>
-                    <div class="price">ETB 7,999<span>/month</span></div>
-                    <p>For large organizations and agencies</p>
-                    <ul class="pricing-features">
-                        <li><i class="fas fa-check"></i> Unlimited Job Postings</li>
-                        <li><i class="fas fa-check"></i> Custom Branding</li>
-                        <li><i class="fas fa-check"></i> API Access</li>
-                        <li><i class="fas fa-check"></i> Dedicated Account Manager</li>
-                        <li><i class="fas fa-check"></i> Bulk Hiring Tools</li>
-                    </ul>
-                    <button class="btn btn-primary" onclick="ZewedJobs.selectPlan('Enterprise')">Contact Sales</button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials -->
-    <section class="section">
-        <div class="container">
-            <div class="section-title">
-                <h2>🌟 Success <span>Stories</span></h2>
-                <p>Real people, real jobs, real success</p>
-            </div>
-            
-            <div class="testimonials-grid">
-                <div class="testimonial-card">
-                    <div class="testimonial-quote">"</div>
-                    <p class="testimonial-content">After 6 months of searching, I found my dream job at Safaricom through ZewedJobs. The AI matching really works!</p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">SG</div>
-                        <div class="author-info">
-                            <div class="author-name">Samuel Getachew</div>
-                            <div class="author-role">Software Developer at Safaricom</div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="testimonial-card">
-                    <div class="testimonial-quote">"</div>
-                    <p class="testimonial-content">The free digital marketing course changed my career. I went from unemployed to marketing manager in 3 months.</p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">MS</div>
-                        <div class="author-info">
-                            <div class="author-name">Marta Solomon</div>
-                            <div class="author-role">Marketing Manager at Ethiopian Airlines</div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="testimonial-card">
-                    <div class="testimonial-quote">"</div>
-                    <p class="testimonial-content">As an employer, ZewedJobs helped us find qualified candidates 3x faster than traditional methods. Highly recommended!</p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">TA</div>
-                        <div class="author-info">
-                            <div class="author-name">Tewodros Ayele</div>
-                            <div class="author-role">HR Director at Awash Bank</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+                <button type="submit">Send Message</button>
+            </form>
+        </section>
+    </main>
 
     <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-col">
-                    <a href="index.html" class="logo">
-                        <div class="logo-icon">ZJ</div>
-                        <div class="logo-text">ZewedJobs</div>
-                    </a>
-                    <p class="footer-description">Ethiopia's trusted platform for job seekers and employers since 2020.</p>
-                    <div class="social-links">
-                        <a href="https://t.me/zewedjobs" target="_blank" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
-                        <a href="https://facebook.com/zewedjobs" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-                        <a href="https://linkedin.com/company/zewedjobs" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                        <a href="https://youtube.com/zewedjobs" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-                        <a href="https://twitter.com/zewedjobs" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                    </div>
-                </div>
-                
-                <div class="footer-col">
-                    <h4>Quick Links</h4>
-                    <ul class="footer-links">
-                        <li><a href="jobs.html"><i class="fas fa-briefcase"></i> Browse Jobs</a></li>
-                        <li><a href="courses.html"><i class="fas fa-graduation-cap"></i> Free Courses</a></li>
-                        <li><a href="employers.html"><i class="fas fa-plus-circle"></i> Post a Job</a></li>
-                        <li><a href="employers.html"><i class="fas fa-building"></i> For Employers</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-col">
-                    <h4>Resources</h4>
-                    <ul class="footer-links">
-                        <li><a href="career-advice.html"><i class="fas fa-lightbulb"></i> Career Advice</a></li>
-                        <li><a href="events.html"><i class="fas fa-calendar-alt"></i> Events</a></li>
-                        <li><a href="news.html"><i class="fas fa-newspaper"></i> News & Blog</a></li>
-                        <li><a href="help.html"><i class="fas fa-question-circle"></i> Help Center</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-col">
-                    <h4>Contact Us</h4>
-                    <div class="contact-info">
-                        <div><i class="fas fa-phone-alt"></i> +251 92 485 8244</div>
-                        <div><i class="fab fa-whatsapp"></i> +251 93 837 1557</div>
-                        <div><i class="fas fa-envelope"></i> support@zewedjobs.com</div>
-                        <div><i class="fas fa-map-marker-alt"></i> Addis Ababa, Ethiopia</div>
-                    </div>
+    <footer>
+        <div class="container footer-content">
+            <div class="copyright">
+                <p>&copy; 2026 ZewedJobs. All rights reserved.</p>
+                <div class="ethiopian-date">
+                    In Ethiopian Calendar: 2018 E.C
                 </div>
             </div>
-            
-            <div class="footer-bottom">
-                <div class="footer-bottom-content">
-                    <div class="copyright">
-                        © 2024 ZewedJobs. All rights reserved.
-                    </div>
-                    <div class="footer-links-bottom">
-                        <a href="privacy-policy.html">Privacy Policy</a>
-                        <a href="terms.html">Terms of Service</a>
-                        <a href="cookies.html">Cookie Policy</a>
-                        <a href="sitemap.html">Sitemap</a>
-                    </div>
-                </div>
+            <div class="social-links">
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
             </div>
         </div>
     </footer>
 
-    <!-- AI Chat Bot -->
-    <div class="ai-chat-container">
-        <div class="ai-chat-window" id="aiChatWindow">
-            <div class="ai-chat-header">
-                <div class="ai-chat-avatar">
-                    <i class="fas fa-robot"></i>
-                </div>
-                <h4>ZewedJobs AI Assistant</h4>
-                <button class="ai-chat-close" onclick="ZewedJobs.toggleChat()">
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
-            
-            <div class="ai-chat-messages" id="aiChatMessages">
-                <div class="ai-message bot">
-                    👋 Hello! I'm ZewedJobs AI Assistant. How can I help you find your dream job in Ethiopia today?
-                </div>
-                <div class="ai-message bot">
-                    I can help you with:
-                    • Job search tips
-                    • CV/resume advice
-                    • Interview preparation
-                    • Career guidance
-                    • Ethiopian job market info
-                </div>
-            </div>
-            
-            <div class="ai-quick-actions">
-                <button class="ai-quick-btn" onclick="ZewedJobs.sendQuickMessage('How to search for jobs?')">Job Search Tips</button>
-                <button class="ai-quick-btn" onclick="ZewedJobs.sendQuickMessage('CV writing help')">CV Help</button>
-                <button class="ai-quick-btn" onclick="ZewedJobs.sendQuickMessage('Interview preparation')">Interviews</button>
-                <button class="ai-quick-btn" onclick="ZewedJobs.sendQuickMessage('Career advice')">Career Advice</button>
-            </div>
-            
-            <div class="ai-chat-input">
-                <input type="text" id="aiChatInput" placeholder="Ask me about jobs, careers, or Ethiopia job market..." onkeypress="ZewedJobs.handleChatKeyPress(event)">
-                <button onclick="ZewedJobs.sendAIMessage()">
-                    <i class="fas fa-paper-plane"></i>
-                </button>
-            </div>
-        </div>
-        
-        <button class="ai-chat-btn pulse" onclick="ZewedJobs.toggleChat()">
-            <i class="fas fa-robot"></i>
-        </button>
-    </div>
-
-    <!-- Modals -->
-    <div id="modal" class="modal">
-        <div class="modal-content">
-            <button class="close-modal" onclick="ZewedJobs.hideModal()">&times;</button>
-            <div id="modalBody"></div>
-        </div>
-    </div>
-
-    <!-- Loading Overlay -->
-    <div id="loadingOverlay" class="loading-overlay" style="display: none;">
-        <div class="loading-content">
-            <div class="loading"></div>
-            <p>Loading...</p>
-        </div>
-    </div>
-
-    <!-- Scripts -->
-    <script src="script.js"></script>
-    <script src="chat.js"></script>
-    <script src="jobs.js"></script>
-    
-    <!-- Initialize -->
     <script>
-        // Initialize Google Translate
-        function googleTranslateElementInit() {
-            new google.translate.TranslateElement({
-                pageLanguage: 'en',
-                includedLanguages: 'en,am,fr,ar,es,om,so,ti',
-                layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-                autoDisplay: false
-            }, 'google_translate_element');
+        // Form submission handler
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+            
+            // Simple validation
+            if(name && email && message) {
+                // In a real application, you would send this data to a server
+                alert(`Thank you, ${name}! Your message has been sent. We'll get back to you at ${email} soon.`);
+                document.getElementById('contactForm').reset();
+            } else {
+                alert('Please fill in all required fields.');
+            }
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Highlight current section in navigation
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('nav a');
+            
+            let currentSection = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                const sectionHeight = section.clientHeight;
+                if(window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+                    currentSection = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if(link.getAttribute('href') === `#${currentSection}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+        
+        // Function to calculate and display current Ethiopian date (simplified)
+        function updateEthiopianDate() {
+            // Note: This is a simplified calculation
+            // For accurate conversion, you would need a more complex algorithm
+            const gregorianYear = new Date().getFullYear();
+            const ethiopianYear = gregorianYear - 8;
+            
+            // Update the Ethiopian date display
+            const ethiopianDateElement = document.querySelector('.ethiopian-date');
+            if (ethiopianDateElement) {
+                // This is just a placeholder - actual conversion would require a library
+                ethiopianDateElement.innerHTML = `In Ethiopian Calendar: 2018 E.C (Approx. ${ethiopianYear} E.C for current year)`;
+            }
         }
         
-        // Initialize app
-        document.addEventListener('DOMContentLoaded', function() {
-            ZewedJobs.init();
-        });
+        // Call the function when the page loads
+        window.addEventListener('load', updateEthiopianDate);
     </script>
 </body>
 </html>
