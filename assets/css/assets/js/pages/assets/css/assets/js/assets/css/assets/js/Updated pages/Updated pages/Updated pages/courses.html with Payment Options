@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JobPortal - Career Courses</title>
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="icon" type="image/png" href="../assets/images/logos/favicon.png">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="../index.html" class="logo">
+                <img src="../assets/images/logos/logo-192.png" alt="JobPortal Logo" class="logo-image">
+                <span class="logo-text">Job<span>Portal</span></span>
+            </a>
+            
+            <button class="mobile-menu-btn">☰</button>
+            
+            <ul class="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="jobs.html">Jobs</a></li>
+                <li><a href="employers.html">Employers</a></li>
+                <li><a href="courses.html" class="active">Courses</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Course Content -->
+    <section class="section">
+        <div class="container">
+            <!-- Course grid -->
+            
+            <!-- Payment Section -->
+            <div class="payment-section mt-4">
+                <h3 class="text-center">Secure Payment Options</h3>
+                <div class="payment-logos">
+                    <img src="../assets/images/logos/visa-mastercard.png" alt="Visa & Mastercard" class="payment-logo">
+                    <img src="../assets/images/logos/paypal.png" alt="PayPal" class="payment-logo">
+                    <img src="../assets/images/logos/telebirr.png" alt="Telebirr" class="payment-logo">
+                    <img src="../assets/images/logos/cbe.png" alt="CBE" class="payment-logo">
+                </div>
+                
+                <!-- Local Payment Instructions -->
+                <div class="local-payment mt-3 p-3" style="background: #f8f9fa; border-radius: 8px;">
+                    <h4>For Ethiopian Customers</h4>
+                    <div class="grid grid-2 mt-2">
+                        <div>
+                            <h5>Bank Transfer</h5>
+                            <div class="bank-info">
+                                <img src="../assets/images/logos/cbe.png" alt="CBE" class="bank-logo small">
+                                <div>
+                                    <p><strong>CBE Account:</strong></p>
+                                    <p>1000 2345 6789</p>
+                                    <p>JobPortal Inc.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <h5>Mobile Payment</h5>
+                            <div class="mobile-payment">
+                                <img src="../assets/images/logos/telebirr.png" alt="Telebirr" class="payment-logo small">
+                                <div>
+                                    <p><strong>Telebirr:</strong></p>
+                                    <p>0911 234 567</p>
+                                    <p>Reference: Course Payment</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
