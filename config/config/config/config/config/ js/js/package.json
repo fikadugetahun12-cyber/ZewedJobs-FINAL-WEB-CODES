@@ -1,0 +1,23 @@
+{
+  "name": "my-application",
+  "version": "2.5.0",
+  "description": "Business Intelligence Dashboard",
+  "scripts": {
+    "install-libs": "node scripts/install-libs.js",
+    "update-libs": "node scripts/update-libs.js",
+    "build-config": "node scripts/build-config.js",
+    "validate-config": "node scripts/validate-config.js",
+    "build": "npm run install-libs && npm run build-config && npm run validate-config",
+    "dev": "npm run build && concurrently \"npm run serve\" \"npm run watch-config\"",
+    "serve": "http-server -p 8080 -c-1",
+    "watch-config": "nodemon --watch config --ext json --exec \"npm run build-config\""
+  },
+  "devDependencies": {
+    "concurrently": "^8.0.0",
+    "http-server": "^14.0.0",
+    "nodemon": "^3.0.0",
+    "ajv": "^8.0.0",
+    "axios": "^1.0.0",
+    "fs-extra": "^11.0.0"
+  }
+}
