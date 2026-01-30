@@ -1,0 +1,219 @@
+#!/bin/bash
+
+# Function to convert a file:// URL to a valid file path for the current system
+get_local_path() {
+    local url=$1
+    local path="${url#file://}"
+    
+    # Check if the path exists as is
+    if [ -f "$path" ]; then
+        echo "$path"
+        return 0
+    fi
+    
+    # Try to convert from Windows path to Unix path (for Git Bash/Cygwin)
+    # Replace backslashes with forward slashes
+    path=$(echo "$path" | sed 's/\\/\//g')
+    
+    # If the path starts with a drive letter (e.g., C:/), convert to /c/
+    if [[ "$path" =~ ^[A-Za-z]:/ ]]; then
+        drive=$(echo "${path:0:1}" | tr '[:upper:]' '[:lower:]')
+        path="/${drive}${path:2}"
+    fi
+    
+    # Check again
+    if [ -f "$path" ]; then
+        echo "$path"
+        return 0
+    else
+        echo ""
+        return 1
+    fi
+}
+
+# Create directories
+mkdir -p assets/images/logos
+mkdir -p assets/images/icons
+mkdir -p assets/images/videos
+
+# Declare an associative array of files to copy/download
+declare -A files=(
+    ["assets/images/logos/telebirr.svg"]="file:///C:/Users/Dell5000/AppData/Local/Temp/178dec52-ded7-466a-a54a-42b4d781ce50_compressed.zip.e50/TeleBirr-Logo.svg"
+    ["assets/images/logos/cbe.png"]="YOUR_CBE_LOGO_URL"
+    ["assets/images/logos/paypal.png"]="YOUR_PAYPAL_LOGO_URL"
+    ["assets/images/logos/visa-mastercard.svg"]="file:///C:/Users/Dell5000/AppData/Local/Temp/e1393681-98bb-4bda-918a-20446bc4ea15_compressed.zip.a15/212-2128435_master-e-visa-png-vi.svg"
+    ["assets/images/logos/zewedjobs.svg"]="file:///C:/Users/Dell5000/Downloads/zewedjobs%20LOGO.svg"
+    ["assets/images/icons/search.svg"]="file:///C:/Users/Dell5000/AppData/Local/Temp/ab92dac6-d8a6-4afa-8130-8be5e1ffb13a_compressed.zip.13a/search.svg"
+)
+
+echo "Setting up assets directories and files..."
+
+for dest in "${!files[@]}"; do
+    src="${files[$dest]}"
+    
+    # Skip placeholder URLs
+    if [[ "$src" == YOUR_* ]]; then
+        echo "Skipping $dest (placeholder URL)"
+        continue
+    fi
+    
+    # Handle file:// URLs
+    if [[ "$src" == file://* ]]; then
+        local_path=$(get_local_path "$src")
+        if [ -n "$local_path" ]; then
+            echo "Copying $local_path to $dest"
+            cp "$local_path" "$dest"
+        else
+            echo "Warning: Source file for $dest not found at $src"
+        fi
+    # Handle http:// and https:// URLs
+    elif [[ "$src" == http://* || "$src" == https://* ]]; then
+        echo "Downloading $src to $dest"
+        curl -L -o "$dest" "$src" 2>/dev/null || echo "Failed to download $src"
+    else
+        echo "Warning: Unknown source type for $dest: $src"
+    fi
+done
+
+echo "Done."
+#!/bin/bash
+
+# Create the complete asset directory structure
+echo "Setting up asset directories..."
+mkdir -p assets/images/{logos,icons,videos}
+mkdir -p assets/{fonts,styles,scripts}
+
+echo "✅ Directory structure created:"
+tree -d assets/ || find assets/ -type d | sed 's|[^/]*/|- |g'
+
+# Download and create payment icons
+echo ""
+echo "📥 Setting up payment icons..."
+
+# Create SVG icons (using inline SVG content for better performance)
+cat > assets/images/icons/bank-transfer.svg << 'EOF'
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <rect x="2" y="6" width="20" height="12" rx="2"></rect>
+  <path d="M12 12h.01"></path>
+  <path d="M17 12h.01"></path>
+  <path d="M7 12h.01"></path>
+  <path d="M22 10v2"></path>
+  <path d="M2 10v2"></path>
+</svg>
+EOF
+
+cat > assets/images/icons/mobile-money.svg << 'EOF'
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+  <line x1="12" y1="18" x2="12" y2="18"></line>
+  <path d="M9 6h6"></path>
+  <circle cx="12" cy="14" r="2"></circle>
+</svg>
+EOF
+
+cat > assets/images/icons/credit-card.svg << 'EOF'
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect>
+  <line x1="1" y1="10" x2="23" y2="10"></line>
+  <path d="M5 18h.01"></path>
+  <path d="M9 18h.01"></path>
+</svg>
+EOF
+
+# Create additional payment method icons
+cat > assets/images/icons/paypal.svg << 'EOF'
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M7.5 8.5h3.5a4 4 0 0 1 4 4v1a4 4 0 0 1-4 4H9"></path>
+  <path d="M9 12.5h2a2 2 0 0 0 2-2v-1a2 2 0 0 0-2-2H8"></path>
+</svg>
+EOF
+
+cat > assets/images/icons/wallet.svg << 'EOF'
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M21 12V7H5a2 2 0 0 1 0-4h14v4"></path>
+  <path d="M3 5v14a2 2 0 0 0 2 2h16v-5"></path>
+  <path d="M18 12a2 2 0 0 0 0 4h4v-4z"></path>
+</svg>
+EOF
+
+cat > assets/images/icons/cryptocurrency.svg << 'EOF'
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <circle cx="12" cy="12" r="10"></circle>
+  <path d="M8 8h8M8 12h8M8 16h8"></path>
+</svg>
+EOF
+
+# Create action icons
+cat > assets/images/icons/search.svg << 'EOF'
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <circle cx="11" cy="11" r="8"></circle>
+  <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+</svg>
+EOF
+
+cat > assets/images/icons/user.svg << 'EOF'
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+  <circle cx="12" cy="7" r="4"></circle>
+</svg>
+EOF
+
+cat > assets/images/icons/settings.svg << 'EOF'
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <circle cx="12" cy="12" r="3"></circle>
+  <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+</svg>
+EOF
+
+# Create social media icons
+cat > assets/images/icons/facebook.svg << 'EOF'
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+</svg>
+EOF
+
+cat > assets/images/icons/twitter.svg << 'EOF'
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+</svg>
+EOF
+
+cat > assets/images/icons/linkedin.svg << 'EOF'
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+  <rect x="2" y="9" width="4" height="12"></rect>
+  <circle cx="4" cy="4" r="2"></circle>
+</svg>
+EOF
+
+echo "✅ Created 12 SVG icons in assets/images/icons/"
+echo ""
+ls -la assets/images/icons/
+
+# Create sample video placeholder
+cat > assets/images/videos/README.md << 'EOF'
+# Video Assets
+
+Place promotional or tutorial videos in this directory.
+
+Recommended formats:
+- MP4 (main format)
+- WebM (for better compression)
+- OGV (fallback)
+
+Recommended naming convention:
+- promo-hero.mp4
+- tutorial-payment.mp4
+- testimonial-customer.webm
+
+Compress videos for web:
+- Max resolution: 1080p
+- Bitrate: 2-5 Mbps
+- Use tools: HandBrake, FFmpeg
+EOF
+
+echo ""
+echo "🎬 Videos directory README created"
+echo ""
+echo "📁 Final asset structure:"
+find assets/ -type f | sort
